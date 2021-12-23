@@ -1,5 +1,8 @@
+import { MoonIcon, SunIcon } from "@heroicons/react/outline";
+import { useTheme } from "../lib/hooks/useTheme";
+
 export function ToggleTheme() {
-  const [theme, setTheme] = useTheme();
+  const [theme, setTheme] = useTheme("dark");
   const next = theme === "light" ? "dark" : "light";
   const isDark = theme === "dark";
   const isLight = theme === "light";
