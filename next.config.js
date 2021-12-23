@@ -1,5 +1,8 @@
 module.exports = {
   reactStrictMode: true,
+  images: {
+    domains: ["images.unsplash.com"],
+  },
   // Prefer loading of ES Modules over CommonJS
   experimental: { esmExternals: true },
   // Support MDX files as pages:
