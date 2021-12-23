@@ -10,16 +10,18 @@ export function HeroSection(props) {
 const Text = () => {
   return (
     <div className="col-span-2 flex w-full flex-col justify-center space-y-8">
-      <h1 className="font-bolder tracking-tight text-4xl md:text-7xl leading-tight text-black dark:text-white transition duration-200">
-        Hello!
-        <br />
-        I&apos;m{" "}
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-          Renato!
-        </span>
-        <br />
-        Nice to Meet You! <Emoji symbol="👊" />
-      </h1>
+      <div className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
+        <div>Hello!</div>
+        <div>
+          I&apos;m{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+            Renato!
+          </span>
+        </div>
+        <div>
+          Nice to Meet You! <Emoji symbol="👊" />
+        </div>
+      </div>
 
       <p className="text-gray-500 dark:text-gray-400 tracking-tight leading-tight max-w-xl text-4xl">
         I photograph landscapes as a hobby, and I create applications for making
