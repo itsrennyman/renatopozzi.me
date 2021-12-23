@@ -16,7 +16,7 @@ export function AboutMeSection(props) {
         </div>
         <div>
           <p className="font-medium tracking-wide text-cyan-500 dark:text-cyan-400 uppercase">
-            About me
+            My History
           </p>
           <h2 className="max-w-lg mt-5 mb-10 text-4xl font-semibold tracking-tight leading-tight lg:text-5xl text-black dark:text-white transition duration-200">
             I'm 25, from Italy <Emoji symbol="🍕" />
