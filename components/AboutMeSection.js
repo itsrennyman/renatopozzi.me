@@ -3,7 +3,7 @@ import { Emoji } from "./Emoji";
 
 export function AboutMeSection(props) {
   return (
-    <section className="flex w-full flex-col py-48">
+    <section className="flex w-full flex-col py-24">
       <div className="grid grid-cols-2 gap-16">
         <div>
           <NextImage

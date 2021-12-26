@@ -1,18 +1,22 @@
-import { ToggleTheme } from "./ToggleTheme";
+import { ToggleTheme } from "../ToggleTheme";
+import { Link } from "../Link";
 
 export function NavBar(props) {
   return (
-    <nav className="flex max-w-8xl justify-between items-center px-8 py-8">
+    <nav className="flex max-w-[96rem] mx-auto justify-between items-center px-8 py-8">
       {props.children}
     </nav>
   );
 }
 
-const Logo = (props) => {
+const Logo = ({ children, href = "/" }) => {
   return (
-    <div className="font-bold text-3xl text-black dark:text-white translation duration-200">
-      {props.children}
-    </div>
+    <Link
+      href={href}
+      className="font-bold text-3xl text-black dark:text-white translation duration-200"
+    >
+      {children}
+    </Link>
   );
 };
 
@@ -30,10 +34,10 @@ const Items = (props) => {
   );
 };
 
-const Item = (props) => {
+const Item = ({ children, href = "/" }) => {
   return (
     <li className="font-bolder text-lg hover:text-black dark:hover:text-white cursor-pointer transition duration-200">
-      {props.children}
+      <Link href={href}>{children}</Link>
     </li>
   );
 };
