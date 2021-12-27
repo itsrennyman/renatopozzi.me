@@ -1,26 +1,18 @@
 import { Articles } from "../../components/Articles";
 import { Layout } from "../../components/Layout/Layout";
+import { getArticleData, getArticles } from "../../lib/utils/articles";
 
-import fs from "fs";
-import path from "path";
-import frontMatter from "front-matter";
+export async function getStaticProps() {
+  const articles = [];
+  const files = getArticles();
 
-export function getStaticProps() {
-  function fm(filePath) {
-    const file = fs.readFileSync(filePath, "utf-8");
-    const { attributes } = frontMatter(file);
-    return attributes;
+  for (const file of files) {
+    const { fm } = await getArticleData(file);
+    articles.push({
+      id: file.replace(/\.mdx$/, ""),
+      ...fm,
+    });
   }
-
-  const dir = path.join(process.cwd(), "/lib/articles");
-  const files = fs.readdirSync(dir);
-
-  const articles = files.map((article) => {
-    return {
-      id: article.replace(/\.mdx$/, ""),
-      ...fm(path.join(dir, article)),
-    };
-  });
 
   return {
     props: {

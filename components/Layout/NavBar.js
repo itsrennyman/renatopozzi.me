@@ -22,13 +22,13 @@ const Logo = ({ children, href = "/" }) => {
 
 const Divider = (props) => {
   return (
-    <div className="w-[1px] h-9 bg-gray-300 dark:bg-gray-700 transition duration-200"></div>
+    <div className="hidden sm:block w-[1px] h-9 bg-gray-300 dark:bg-gray-700 transition duration-200"></div>
   );
 };
 
 const Items = (props) => {
   return (
-    <ul className="flex items-center space-x-9 text-gray-500 dark:text-gray-400">
+    <ul className="hidden sm:flex items-center space-x-9 text-gray-500 dark:text-gray-400">
       {props.children}
     </ul>
   );

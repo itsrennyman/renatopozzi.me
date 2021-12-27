@@ -4,8 +4,7 @@ import { AboutMeSection } from "../components/AboutMeSection";
 import { ArticlesSection } from "../components/ArticlesSection";
 import { HobbiesSection } from "../components/HobbiesSection";
 import { Articles } from "../components/Articles";
-
-import { articles as ciccio } from "../lib/mocks/articles";
+import { getArticleData, getArticles } from "../lib/utils/articles";
 
 export const theme = {
   primary: {
@@ -22,7 +21,28 @@ export const theme = {
   },
 };
 
-export default function Home() {
+export async function getStaticProps() {
+  const articles = [];
+  const files = getArticles();
+
+  for (const file of files) {
+    const { fm } = await getArticleData(file);
+    articles.push({
+      id: file.replace(/\.mdx$/, ""),
+      ...fm,
+    });
+
+    if (articles.length === 6) break;
+  }
+
+  return {
+    props: {
+      latestArticles: articles,
+    },
+  };
+}
+
+export default function Home({ latestArticles }) {
   return (
     <Layout>
       <HeroSection>
@@ -36,10 +56,11 @@ export default function Home() {
 
       <ArticlesSection>
         <Articles>
-          {ciccio.map((article) => (
+          {latestArticles.map((article) => (
             <Articles.Article key={article.id} {...article} />
           ))}
         </Articles>
+        P
       </ArticlesSection>
     </Layout>
   );

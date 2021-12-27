@@ -19,7 +19,7 @@ export function AboutMeSection(props) {
             My History
           </p>
           <h2 className="max-w-lg mt-5 mb-10 text-4xl font-semibold tracking-tight leading-tight lg:text-5xl text-black dark:text-white transition duration-200">
-            I'm 25, from Italy <Emoji symbol="🍕" />
+            I&apos;m 25, from Italy <Emoji symbol="🍕" />
           </h2>
 
           <div className="prose xl:prose-xl dark:prose-inverse max-w-prose text-gray-500 dark:text-gray-400">
