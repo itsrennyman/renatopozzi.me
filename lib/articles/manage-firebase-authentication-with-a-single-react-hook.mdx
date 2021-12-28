@@ -1,0 +1,126 @@
+---
+title: Manage Firebase authentication, with a single React Hook
+thumbnail: https://images.unsplash.com/photo-1636454082752-c59bd0b34579
+---
+
+Are you doing a React or Next.js application and do you want to implement Google Firebase authentication? This article is totally for you.
+
+I will show you how to manage authentication (in my case with Github, but is pretty the same with other methods), and all with a single custom React Hook.
+
+## Prerequisites
+
+Obviously, we need to set up the firebase library in our app before doing the authentication, so I will paste here some example code in order to go faster.
+
+```javascript
+import firebase from "firebase/app";
+import "firebase/auth";
+
+var firebaseConfig = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+};
+
+// Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+export default firebase;
+```
+
+In the previous code snippet we have initialized the firebase app and also imported the auth module always from firebase.
+
+Now we can start doing authentication code, I will focus mainly on the Hook code, and not on the UI, but I will show you an example of how to use it in the UI also.
+
+This is our Hook:
+
+```javascript
+// ./hooks/useAuth.js
+import firebase from "../lib/firebase";
+import { useEffect, useState } from "react";
+
+export const useAuth = () => {
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleUser = (user) => {
+    if (user) {
+      setUser(user);
+    } else {
+      setUser(null);
+    }
+
+    setIsLoading(false);
+  };
+
+  const signIn = () => {
+    firebase
+      .auth()
+      .signInWithRedirect(new firebase.auth.GithubAuthProvider())
+      .then((result) => handleUser(result.user))
+      .catch((error) => console.log(error));
+  };
+
+  const signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => handleUser(null));
+  };
+
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onIdTokenChanged(handleUser);
+    return () => unsubscribe();
+  }, []);
+
+  return { user, isLoading, signIn, signOut };
+};
+```
+
+As you can see is pretty simple, we have imported the firebase library from the previous snippet and wrote the _signIn_ and _signOut_ function for the authentication management.
+
+As I mentioned before, this case is with the GitHub login, but firebase supports a lot of different providers, you only need to change the provider in the _signIn_ function.
+
+Particular attention must be paid to the _useEffect_ hook. With it, every time the hook is called, it will check if the user exists or not and will pass the user to the handleUser function, which updates the state with the current firebase user instance, or with null in case the user was not logged in.
+
+This is all the code you need for managing the authentication.
+
+## Using in the UI
+
+In order to use the just created hook, we can do something like this:
+
+```javascript
+import { useAuth } from "../hooks/useAuth";
+
+export default function Home() {
+  const { user, isLoading, signIn, signOut } = useAuth();
+
+  if (isLoading) {
+    return <div>Loading Data..</div>;
+  }
+
+  return (
+    <div>
+      <main>
+        {user ? (
+          <button onClick={() => signOut()}>Sign Out</button>
+        ) : (
+          <button onClick={() => signIn()}>Sign In</button>
+        )}
+      </main>
+    </div>
+  );
+}
+```
+
+This is a simple Next.js page, as you can see is pretty simple.
+
+Thank you for reading this article, I really appreciate it.
+
+If you want you can follow me on [Twitter](https://twitter.com/imarenny)
+
+Seeya!

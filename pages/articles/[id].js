@@ -44,14 +44,14 @@ const components = {
   },
 };
 
-export default function Show({ content, fm }) {
-  console.log(fm);
+export function ArticleLayout({ children, fm }) {
   return (
     <Layout>
-      <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
+      <h1 className="max-w-5xl w-full mx-auto text-4xl lg:text-6xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200 py-16">
         {fm.title}
       </h1>
-      <div className="max-w-5xl mx-auto w-full py-24">
+
+      <div className="max-w-5xl mx-auto w-full">
         <div style={{ position: "relative", width: "100%", height: "600px" }}>
           <Image
             className="rounded-lg"
@@ -64,9 +64,17 @@ export default function Show({ content, fm }) {
         </div>
       </div>
 
-      <article className="prose lg:prose-xl prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600 dark:prose-invert">
-        <MDXRemote {...content} components={components} scope={fm} />
+      <article className="w-full prose lg:prose-xl prose-code:overflow-x-auto prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600 dark:prose-invert mx-auto py-24">
+        {children}
       </article>
     </Layout>
+  );
+}
+
+export default function Show({ content, fm }) {
+  return (
+    <ArticleLayout fm={fm}>
+      <MDXRemote {...content} components={components} />
+    </ArticleLayout>
   );
 }

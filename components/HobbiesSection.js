@@ -17,7 +17,7 @@ export function HobbiesSection(props) {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
         <div className="p-8 rounded-lg bg-gray-100 dark:bg-gray-800">
           <PaperAirplaneIcon className="h-8 w-8 text-black dark:text-white" />
           <h3 className="text-black dark:text-white font-bold text-2xl mt-8">
