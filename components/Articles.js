@@ -1,4 +1,5 @@
 import { default as NextImage } from "next/image";
+import { Link } from "./Link";
 
 export function Articles({ children, cols = 3, gap = 14 }) {
   return (
@@ -10,10 +11,13 @@ export function Articles({ children, cols = 3, gap = 14 }) {
 
 function Article(props) {
   const thumbnail = `${props.thumbnail}?q=70`;
-  console.log("thum", thumbnail);
+
   return (
-    <div className="article">
-      <div style={{ position: "relative", width: "100%", height: "550px" }}>
+    <Link
+      href={`/articles/${props.id}`}
+      className="transition ease-in-out hover:scale-95 duration-300"
+    >
+      <div style={{ position: "relative", width: "100%", height: "500px" }}>
         <NextImage
           className="rounded-lg"
           alt={props.title}
@@ -22,10 +26,13 @@ function Article(props) {
           objectFit="cover"
         />
       </div>
-      <h4 className="mt-4 text-2xl font-semibold tracking-tight leading-tight lg:text-3xl text-black dark:text-white transition duration-200">
+      <div className="mt-4 text-lg font-normal tracking-tight leading-tight lg:text-xl text-gray-400 dark:text-gray-500 transition duration-200">
+        {props.createdAt}
+      </div>
+      <h4 className="mt-2 text-2xl font-normal tracking-tight leading-tight lg:text-3xl text-black dark:text-white transition duration-200">
         {props.title}
       </h4>
-    </div>
+    </Link>
   );
 }
 

@@ -22,7 +22,7 @@ export function AboutMeSection(props) {
             I&apos;m 25, from Italy <Emoji symbol="🍕" />
           </h2>
 
-          <div className="prose xl:prose-xl dark:prose-inverse max-w-prose text-gray-500 dark:text-gray-400">
+          <div className="prose lg:prose-xl dark:prose-inverse max-w-prose text-gray-500 dark:text-gray-400">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               sagittis arcu suscipit, mollis risus non, venenatis tellus. Duis

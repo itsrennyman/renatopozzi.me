@@ -10,7 +10,7 @@ export function ArticlesSection(props) {
         <h2 className="max-w-xl mt-5 mb-5 text-4xl font-semibold tracking-tight leading-tight lg:text-5xl text-black dark:text-white transition duration-200">
           Have a look at my articles <Emoji symbol="📚" />
         </h2>
-        <div className="prose xl:prose-xl dark:prose-inverse text-gray-500 dark:text-gray-400">
+        <div className="prose lg:prose-xl dark:prose-inverse text-gray-500 dark:text-gray-400">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             sagittis arcu suscipit, mollis risus non, venenatis tellus. Duis

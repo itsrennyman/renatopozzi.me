@@ -8,9 +8,10 @@ export async function getStaticProps() {
 
   for (const file of files) {
     const { fm } = await getArticleData(file);
+
     articles.push({
-      id: file.replace(/\.mdx$/, ""),
       ...fm,
+      id: file.replace(/\.mdx$/, ""),
     });
   }
 
