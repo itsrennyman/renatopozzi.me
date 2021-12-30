@@ -140,19 +140,19 @@ export default function Home({ latestArticles }) {
         </SectionHeading>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-          <Hobby title="Travels" Icon={PaperAirplaneIcon}>
+          <Hobby title="Travels" icon={PaperAirplaneIcon}>
             Since my first solo travel in Norway, i literally falled in love to
             grab my backpack, take the first plane and live another experience.
           </Hobby>
 
-          <Hobby title="Javascript" Icon={DesktopComputerIcon}>
+          <Hobby title="Javascript" icon={DesktopComputerIcon}>
             I have worked and experimented with many programming languages
             ​​along my way, and although I hated it in high school, with its
             ecosystem it has become my favorite language. Now I want to master
             it.
           </Hobby>
 
-          <Hobby title="Hiking" Icon={StarIcon}>
+          <Hobby title="Hiking" icon={StarIcon}>
             I am lucky enough to live close enough to the paradise of the
             Dolomites, and it happens very often that I visit them with a few
             walks, I always leave my lungs there but the view is incredible.

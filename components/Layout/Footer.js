@@ -1,7 +1,7 @@
 export function Footer(props) {
   return (
     <footer className="text-black dark:text-white">
-      <div className="flex max-w-[96rem] mx-auto flex-col items-center px-8 py-8 mx-auto max-w-8xl sm:flex-row">
+      <div className="flex max-w-[96rem] mx-auto flex-col items-center px-8 py-8 max-w-8xl sm:flex-row">
         {props.children}
       </div>
     </footer>
@@ -32,11 +32,11 @@ const Icons = (props) => {
   );
 };
 
-const Icon = ({ icon, href, label }) => {
+const Icon = ({ icon: Icon, href, label }) => {
   return (
     <a href={href} className="text-gray-400 hover:text-gray-500">
       <span className="sr-only">{label}</span>
-      {icon}
+      <Icon className="w-6 h-6" />
     </a>
   );
 };
