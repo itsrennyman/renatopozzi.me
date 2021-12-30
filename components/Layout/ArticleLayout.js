@@ -20,7 +20,7 @@ const components = {
 
 export function ArticleLayout({ children, fm }) {
   return (
-    <Layout>
+    <Layout title={fm.title}>
       <div className="space-y-4 py-16">
         <div className="max-w-5xl w-full mx-auto text-2xl lg:text-2xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200">
           <Link href="/articles" className="hover:underline">

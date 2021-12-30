@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { NavBar } from "./NavBar";
 import { Container } from "./Container";
 import { Footer } from "./Footer";
@@ -5,9 +6,13 @@ import { Twitter } from "../Icons/Twitter";
 import { Github } from "../Icons/Github";
 import { Instagram } from "../Icons/Instagram";
 
-export function Layout(props) {
+export function Layout({ title, ...props }) {
   return (
     <>
+      <Head>
+        <title>{title ?? "Renato Pozzi | Software Developer"}</title>
+        <meta name="description"></meta>
+      </Head>
       <NavBar>
         <div className="flex flex-1 space-x-8 items-center">
           <NavBar.Logo href="/">Renato Pozzi</NavBar.Logo>
