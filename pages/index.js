@@ -51,7 +51,7 @@ export default function Home({ latestArticles }) {
   return (
     <Layout>
       <section className="grid grid-cols-3 gap-5 py-24">
-        <div className="col-span-2 flex w-full flex-col justify-center space-y-8">
+        <div className="col-span-3 sm:col-span-2 flex w-full flex-col justify-center space-y-8">
           <div className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
             <div>Hello!</div>
             <div>
@@ -65,13 +65,13 @@ export default function Home({ latestArticles }) {
             </div>
           </div>
 
-          <p className="text-gray-500 dark:text-gray-400 tracking-tight leading-tight max-w-xl text-4xl">
+          <p className="text-gray-500 dark:text-gray-400 tracking-tight leading-tight max-w-xl text-3xl md:text-4xl">
             I photograph landscapes as a hobby, and I create applications for
             making the web faster.
           </p>
         </div>
 
-        <div className="w-full space-y-2">
+        <div className="hidden sm:block w-full space-y-2">
           <Image
             width={392}
             height={555}
