@@ -77,6 +77,7 @@ export default function Home({ latestArticles }) {
             height={850}
             alt="One of my picture at the Pragster Wildsee"
             src="photo-1545400309-2956297d66f5"
+            priority={true}
           />
 
           <div className="text-gray-500 dark:text-gray-400 text-sm text-center">
