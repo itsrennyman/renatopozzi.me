@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Link } from "../Link";
+import { Image } from "../Image";
 import { Layout } from "./Layout";
 
 const components = {
@@ -34,16 +34,13 @@ export function ArticleLayout({ children, fm }) {
       </div>
 
       <div className="max-w-5xl mx-auto w-full">
-        <div style={{ position: "relative", width: "100%", height: "600px" }}>
-          <Image
-            className="rounded-lg"
-            alt={fm.title}
-            src={`${fm.thumbnail}?q=70`}
-            layout="fill"
-            objectFit="cover"
-            priority={true}
-          />
-        </div>
+        <Image
+          alt={fm.title}
+          src={fm.thumbnail}
+          height={600}
+          width={1000}
+          priority={true}
+        />
       </div>
 
       <article className="w-full prose lg:prose-xl prose-code:overflow-x-auto prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600 dark:prose-invert mx-auto py-24">

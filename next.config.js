@@ -1,6 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com"],
+    loader: "imgix",
+    path: "https://images.unsplash.com",
   },
 };

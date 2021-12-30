@@ -71,13 +71,13 @@ export default function Home({ latestArticles }) {
           </p>
         </div>
 
-        <div className="flex w-full flex-col space-y-2">
-          <div style={{ position: "relative", width: "100%", height: "600px" }}>
-            <Image
-              alt="One of my picture at the Pragster Wildsee"
-              src="https://images.unsplash.com/photo-1545400309-2956297d66f5"
-            />
-          </div>
+        <div className="w-full space-y-2">
+          <Image
+            width={600}
+            height={850}
+            alt="One of my picture at the Pragster Wildsee"
+            src="photo-1545400309-2956297d66f5"
+          />
 
           <div className="text-gray-500 dark:text-gray-400 text-sm text-center">
             View it on{" "}
@@ -94,12 +94,13 @@ export default function Home({ latestArticles }) {
       </section>
 
       <section className="grid grid-cols-2 gap-10 py-24">
-        <div style={{ position: "relative", width: "100%", height: "850px" }}>
-          <Image
-            alt="This is me and my friends at Drei Zinnen (Dolomites)"
-            src="https://images.unsplash.com/photo-1542287098-172e30e21d21"
-          />
-        </div>
+        <Image
+          height={800}
+          width={588}
+          alt="This is me and my friends at Drei Zinnen (Dolomites)"
+          src="photo-1542287098-172e30e21d21"
+        />
+
         <SectionHeading heading="My History">
           <SectionHeading.Title>
             I&apos;m 25, from Italy <Emoji symbol="🍕" />

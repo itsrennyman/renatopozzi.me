@@ -15,9 +15,7 @@ function Article(props) {
       href={`/articles/${props.id}`}
       className="transition ease-in-out hover:scale-95 duration-300"
     >
-      <div style={{ position: "relative", width: "100%", height: "500px" }}>
-        <Image alt={props.title} src={props.thumbnail} />
-      </div>
+      <Image alt={props.title} src={props.thumbnail} height={400} width={300} />
       <div className="mt-4 text-lg font-normal tracking-tight leading-tight lg:text-xl text-gray-400 dark:text-gray-500 transition duration-200">
         {props.createdAt}
       </div>
