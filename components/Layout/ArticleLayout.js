@@ -38,7 +38,7 @@ export function ArticleLayout({ children, fm }) {
           alt={fm.title}
           src={fm.thumbnail}
           height={600}
-          width={1000}
+          width={1024}
           priority={true}
         />
       </div>

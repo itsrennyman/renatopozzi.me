@@ -17,7 +17,7 @@ export function Image({
       src={src}
       width={width}
       height={height}
-      layout="responsive"
+      // layout="responsive"
       objectFit="cover"
       priority={priority}
     />

@@ -73,8 +73,8 @@ export default function Home({ latestArticles }) {
 
         <div className="w-full space-y-2">
           <Image
-            width={600}
-            height={850}
+            width={392}
+            height={555}
             alt="One of my picture at the Pragster Wildsee"
             src="photo-1545400309-2956297d66f5"
             priority={true}
