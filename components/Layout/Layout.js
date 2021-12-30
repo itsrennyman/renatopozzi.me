@@ -14,7 +14,17 @@ export function Layout({ title, ...props }) {
         <meta
           name="description"
           content="This is a fake description, TODO: description"
-        ></meta>
+        />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="follow, index" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon.png"
+          hrefLang="en-us"
+        />
       </Head>
       <NavBar>
         <div className="flex flex-1 space-x-8 items-center">
