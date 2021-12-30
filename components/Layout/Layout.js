@@ -11,7 +11,10 @@ export function Layout({ title, ...props }) {
     <>
       <Head>
         <title>{title ?? "Renato Pozzi | Software Developer"}</title>
-        <meta name="description"></meta>
+        <meta
+          name="description"
+          content="This is a fake description, TODO: description"
+        ></meta>
       </Head>
       <NavBar>
         <div className="flex flex-1 space-x-8 items-center">

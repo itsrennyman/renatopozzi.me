@@ -16,12 +16,12 @@ function Article(props) {
       className="transition ease-in-out hover:scale-95 duration-300"
     >
       <Image alt={props.title} src={props.thumbnail} height={500} width={378} />
-      <div className="mt-4 text-lg font-normal tracking-tight leading-tight lg:text-xl text-gray-400 dark:text-gray-500 transition duration-200">
+      <div className="mt-4 text-lg font-normal tracking-tight leading-tight lg:text-xl text-gray-500 dark:text-gray-400 transition duration-200">
         {props.createdAt}
       </div>
-      <h4 className="mt-2 text-2xl font-normal tracking-tight leading-tight lg:text-3xl text-black dark:text-white transition duration-200">
+      <div className="mt-2 text-2xl font-normal tracking-tight leading-tight lg:text-3xl text-black dark:text-white transition duration-200">
         {props.title}
-      </h4>
+      </div>
     </Link>
   );
 }
