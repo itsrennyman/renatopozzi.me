@@ -33,10 +33,9 @@ export default function Index(props) {
           <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
             Dashboard
           </h1>
-          <h2 className="text-gray-500 dark:text-gray-400 tracking-tight leading-tight max-w-xl text-4xl">
-            This is a personal statistics dashboard inspired on the Lee Robinson
-            work. I use this dashboard to track various metrics across platforms
-            like Unsplash and my GitHub projects.
+          <h2 className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl leading-snug md:leading-tight text-3xl md:text-4xl">
+            This is a personal statistics dashboard. I use this to track various
+            metrics across platforms like Unsplash.
           </h2>
         </div>
 

@@ -1,7 +1,8 @@
 export function SectionHeading(props) {
+  const classNames = (...args) => args.filter(Boolean).join(" ");
   return (
-    <div className="flex flex-col space-y-5">
-      <p className="font-medium tracking-wide text-cyan-500 dark:text-cyan-400 uppercase">
+    <div className={classNames("flex flex-col space-y-5", props.className)}>
+      <p className="font-medium tracking-wide text-cyan-500 dark:text-cyan-400 uppercase text-lg">
         {props.heading}
       </p>
 
@@ -20,7 +21,7 @@ SectionHeading.Title = function Title(props) {
 
 SectionHeading.Description = function Description(props) {
   return (
-    <p className="prose lg:prose-xl dark:prose-inverse text-gray-500 dark:text-gray-400">
+    <p className="prose prose-lg md:prose-xl dark:prose-inverse text-gray-500 dark:text-gray-400">
       {props.children}
     </p>
   );

@@ -52,20 +52,16 @@ export default function Home({ latestArticles }) {
     <Layout>
       <section className="grid grid-cols-3 gap-5 py-24">
         <div className="col-span-3 sm:col-span-2 flex w-full flex-col justify-center space-y-8">
-          <div className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
-            <div>Hello!</div>
-            <div>
-              I&apos;m{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                Renato!
-              </span>
-            </div>
-            <div>
-              Nice to Meet You! <Emoji symbol="👊" />
-            </div>
+          <div className="font-semibold tracking-tight text-5xl leading-snug md:text-7xl md:leading-tight space-y-3 text-black dark:text-white transition duration-200">
+            Hello! <br /> I&apos;m{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+              Renato!
+            </span>
+            <br />
+            Nice to Meet You! <Emoji symbol="👊" />
           </div>
 
-          <p className="text-gray-500 dark:text-gray-400 tracking-tight leading-tight max-w-xl text-3xl md:text-4xl">
+          <p className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl text-3xl leading-snug md:text-4xl md:leading-tight">
             I photograph landscapes as a hobby, and I create applications for
             making the web faster.
           </p>
@@ -95,14 +91,19 @@ export default function Home({ latestArticles }) {
       </section>
 
       <section className="grid grid-cols-2 gap-10 py-24">
-        <Image
-          height={800}
-          width={588}
-          alt="This is me and my friends at Drei Zinnen (Dolomites)"
-          src="photo-1542287098-172e30e21d21"
-        />
+        <div className="hidden sm:block">
+          <Image
+            height={800}
+            width={588}
+            alt="This is me and my friends at Drei Zinnen (Dolomites)"
+            src="photo-1542287098-172e30e21d21"
+          />
+        </div>
 
-        <SectionHeading heading="My History">
+        <SectionHeading
+          heading="My History"
+          className="col-span-2 sm:col-span-1"
+        >
           <SectionHeading.Title>
             I&apos;m 25, from Italy <Emoji symbol="🍕" />
           </SectionHeading.Title>

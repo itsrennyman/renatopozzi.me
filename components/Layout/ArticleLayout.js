@@ -22,13 +22,14 @@ export function ArticleLayout({ children, fm }) {
   return (
     <Layout title={fm.title}>
       <div className="space-y-4 py-16">
-        <div className="max-w-5xl w-full mx-auto text-2xl lg:text-2xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200">
-          <Link href="/articles" className="hover:underline">
-            &#8592; Back to Articles
+        <div className="max-w-5xl w-full mx-auto text-xl lg:text-2xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200">
+          <Link href="/articles">
+            &#8592;
+            <span className="px-2 hover:underline">Back to articles</span>
           </Link>
         </div>
 
-        <h1 className="max-w-5xl w-full mx-auto text-4xl lg:text-6xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200">
+        <h1 className="max-w-5xl w-full mx-auto text-4xl leading-tight lg:text-6xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200">
           {fm.title}
         </h1>
       </div>
@@ -43,7 +44,7 @@ export function ArticleLayout({ children, fm }) {
         />
       </div>
 
-      <article className="w-full prose lg:prose-xl prose-code:overflow-x-auto prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600 dark:prose-invert mx-auto py-24">
+      <article className="w-full prose prose-lg lg:prose-xl prose-code:overflow-x-auto prose-pre:-mx-8 md:prose-pre:-mx-16 prose-pre:rounded-none md:prose-pre:rounded-lg prose-img:rounded-xl dark:prose-invert mx-auto py-12 md:py-24">
         {children({ components })}
       </article>
     </Layout>

@@ -30,7 +30,7 @@ export default function Index(props) {
           <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
             Articles
           </h1>
-          <h2 className="text-gray-500 dark:text-gray-400 tracking-tight leading-tight max-w-xl text-4xl">
+          <h2 className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl leading-snug md:leading-tight text-3xl md:text-4xl">
             I wrote articles full of values, please have a look at them if you
             are interested in learning something new.
           </h2>
