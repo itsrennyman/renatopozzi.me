@@ -9,6 +9,5 @@ export default async function ether(req, res) {
     "public, s-maxage=10, stale-while-revalidate=10"
   );
 
-  console.log(json);
   res.status(200).json({ ethusd: Number(json.result.ethusd) });
 }

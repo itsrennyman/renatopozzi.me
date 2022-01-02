@@ -1,5 +1,5 @@
 import { Articles } from "../../components/Articles";
-import { Layout } from "../../components/Layout/Layout";
+import { Main } from "../../components/Layout/Main";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
 export default function Index(props) {
   return (
-    <Layout>
+    <Main>
       <section className="flex flex-col w-full py-24">
         <div className="mb-24 space-y-8">
           <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
@@ -41,6 +41,6 @@ export default function Index(props) {
           ))}
         </Articles>
       </section>
-    </Layout>
+    </Main>
   );
 }

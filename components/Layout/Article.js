@@ -1,26 +1,12 @@
 import { Link } from "../Link";
 import { Image } from "../Image";
-import { Layout } from "./Layout";
+import { Main } from "./Main";
 
-const components = {
-  Image: ({ alt = "A Nice Picture", ...props }) => {
-    return <Image alt={alt} src={props.src} layout="fill" objectFit="cover" />;
-  },
-  Button: (props) => {
-    return (
-      <button
-        type="button"
-        className="relative flex items-center justify-center w-full h-full whitespace-nowrap bg-yellow-400 text-black px-11 py-6 space-x-5"
-      >
-        ciao
-      </button>
-    );
-  },
-};
+const components = {};
 
-export function ArticleLayout({ children, fm }) {
+export function Article({ children, fm }) {
   return (
-    <Layout title={fm.title}>
+    <Main title={fm.title}>
       <div className="space-y-4 py-16">
         <div className="max-w-5xl w-full mx-auto text-xl lg:text-2xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200">
           <Link href="/articles">
@@ -47,6 +33,6 @@ export function ArticleLayout({ children, fm }) {
       <article className="w-full prose prose-lg lg:prose-xl prose-code:overflow-x-auto prose-pre:-mx-8 md:prose-pre:-mx-16 prose-pre:rounded-none md:prose-pre:rounded-lg prose-img:rounded-xl dark:prose-invert mx-auto py-12 md:py-24">
         {children({ components })}
       </article>
-    </Layout>
+    </Main>
   );
 }

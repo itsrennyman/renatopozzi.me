@@ -1,4 +1,4 @@
-import { Panel } from "./Layout/Panel";
+import { Panel } from "./UI/Panel";
 
 export function Hobby({ title, icon: Icon, children }) {
   return (

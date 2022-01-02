@@ -1,19 +1,22 @@
 import Head from "next/head";
-import { NavBar } from "./NavBar";
-import { Container } from "./Container";
-import { Footer } from "./Footer";
+import { NavBar } from "../UI/NavBar";
+import { Container } from "../UI/Container";
+import { Footer } from "../UI/Footer";
 import { Twitter } from "../Icons/Twitter";
 import { Github } from "../Icons/Github";
 import { Instagram } from "../Icons/Instagram";
 
-export function Layout({ title, ...props }) {
+export function Main({ title, description, ...props }) {
   return (
     <>
       <Head>
         <title>{title ?? "Renato Pozzi | Software Developer"}</title>
         <meta
           name="description"
-          content="I photograph landscapes as a hobby, and I create applications for making the web faster."
+          content={
+            description ??
+            "I photograph landscapes as a hobby, and I create applications for making the web faster."
+          }
         />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
@@ -26,6 +29,7 @@ export function Layout({ title, ...props }) {
           hrefLang="en-us"
         />
       </Head>
+
       <NavBar>
         <div className="flex flex-1 space-x-8 items-center">
           <NavBar.Logo href="/">Renato Pozzi</NavBar.Logo>

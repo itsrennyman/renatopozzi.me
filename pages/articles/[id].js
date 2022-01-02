@@ -1,5 +1,5 @@
 import { MDXRemote } from "next-mdx-remote";
-import { ArticleLayout } from "../../components/Layout/ArticleLayout";
+import { Article } from "../../components/Layout/Article";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export function getStaticPaths() {
@@ -29,8 +29,8 @@ export async function getStaticProps(context) {
 
 export default function Show({ content, fm }) {
   return (
-    <ArticleLayout fm={fm}>
+    <Article fm={fm}>
       {({ components }) => <MDXRemote {...content} components={components} />}
-    </ArticleLayout>
+    </Article>
   );
 }

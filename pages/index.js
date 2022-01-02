@@ -2,7 +2,7 @@ import { Emoji } from "../components/Emoji";
 import { Hobby } from "../components/Hobby";
 import { Image } from "../components/Image";
 import { Articles } from "../components/Articles";
-import { Layout } from "../components/Layout/Layout";
+import { Main } from "../components/Layout/Main";
 import { SectionHeading } from "../components/SectionHeading";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 import {
@@ -51,7 +51,7 @@ export async function getStaticProps() {
 
 export default function Home({ latestArticles }) {
   return (
-    <Layout>
+    <Main>
       <section className="grid grid-cols-3 gap-5 py-24">
         <div className="col-span-3 sm:col-span-2 flex w-full flex-col justify-center space-y-8">
           <div className="font-semibold tracking-tight text-5xl leading-snug md:text-7xl md:leading-tight space-y-3 text-black dark:text-white transition duration-200">
@@ -190,6 +190,6 @@ export default function Home({ latestArticles }) {
           ))}
         </Articles>
       </section>
-    </Layout>
+    </Main>
   );
 }

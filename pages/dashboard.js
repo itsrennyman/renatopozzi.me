@@ -1,14 +1,14 @@
-import { Layout } from "../components/Layout/Layout";
-import { Panel } from "../components/Layout/Panel";
+import { Main } from "../components/Layout/Main";
+import { Panel } from "../components/UI/Panel";
 import { Github } from "../components/Icons/Github";
 import { Unsplash } from "../components/Icons/Unsplash";
 import { Twitter } from "../components/Icons/Twitter";
 import { Ether } from "../components/Icons/Ether";
 import { Counter } from "../components/Counter";
 
-export default function Index(props) {
+export default function Index() {
   return (
-    <Layout>
+    <Main>
       <section className="flex flex-col w-full py-24">
         <div className="mb-24 space-y-8">
           <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
@@ -82,6 +82,6 @@ export default function Index(props) {
           </Panel>
         </div>
       </section>
-    </Layout>
+    </Main>
   );
 }
