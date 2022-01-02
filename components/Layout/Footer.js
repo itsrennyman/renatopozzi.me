@@ -1,83 +1,22 @@
-import { NewspaperIcon } from "@heroicons/react/outline";
-import { Github } from "../Icons/Github";
-import { Instagram } from "../Icons/Instagram";
-
-import { Twitter } from "../Icons/Twitter";
 import { Link } from "../Link";
 
-export function Footer(props) {
+export function Footer({ children }) {
   return (
-    // <footer className="text-black dark:text-white">
-    //   <div className="flex max-w-[96rem] mx-auto flex-col items-center px-8 py-8 max-w-8xl sm:flex-row">
-    //     {props.children}
-    //   </div>
-    // </footer>
-
     <footer>
-      <div className="max-w-[96rem] mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="text-gray-500 space-y-4 xl:col-span-1">
-            <div className="font-bold text-3xl text-black dark:text-white translation duration-200">
-              Renato Pozzi
-            </div>
-            <p className="text-base text-gray-500 dark:text-gray-400">
-              I photograph landscapes as a hobby, and I create applications for
-              making the web faster.
-            </p>
-            <div className="flex space-x-6">
-              <Icon icon={Twitter} label="Twitter" />
-              <Icon icon={Github} label="Github" />
-              <Icon icon={Instagram} label="Instagram" />
-            </div>
-          </div>
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <MenuTitle>Resources</MenuTitle>
-                <ul role="list" className="mt-4 space-y-4">
-                  <MenuItem>Blog</MenuItem>
-                  <MenuItem>Youtube Channel</MenuItem>
-                  <MenuItem>Nx Playbook</MenuItem>
-                  <MenuItem>Nrwl</MenuItem>
-                </ul>
-              </div>
-
-              <div className="mt-12 md:mt-0">
-                <MenuTitle>Community</MenuTitle>
-                <ul role="list" className="mt-4 space-y-4">
-                  <MenuItem>Twitter</MenuItem>
-                  <MenuItem>Github</MenuItem>
-                  <MenuItem>Newsletter</MenuItem>
-                  <MenuItem>Slack</MenuItem>
-                  <MenuItem>Help Us</MenuItem>
-                </ul>
-              </div>
-            </div>
-
-            <div className="md:grid md:grid-cols-1 md:gap-8">
-              <div className="mt-12 md:mt-0">
-                {/* <MenuTitle>Solutions</MenuTitle>
-                <ul role="list" className="mt-4 space-y-4">
-                  <MenuItem>Nx</MenuItem>
-                  <MenuItem>NxCloud</MenuItem>
-                  <MenuItem>Nrwl</MenuItem>
-                </ul> */}
-                <MenuTitle>Newsletter</MenuTitle>
-                <div className="mt-4 space-y-4">
-                  <input className="bg-gray-800 w-full rounded-lg px-4 py-3" />
-                  <textarea
-                    rows={6}
-                    className="bg-gray-800 w-full rounded-lg px-4 py-3"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="max-w-[96rem] mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">{children}</div>
       </div>
     </footer>
   );
 }
+
+const Bio = ({ children }) => {
+  return (
+    <p className="text-xl max-w-sm text-gray-500 dark:text-gray-400">
+      {children}
+    </p>
+  );
+};
 
 const MenuTitle = ({ children }) => {
   return (
@@ -87,11 +26,24 @@ const MenuTitle = ({ children }) => {
   );
 };
 
-const MenuItem = ({ children, href = "#" }) => {
+const Menu = ({ children, className }) => {
+  return <div className={className}>{children}</div>;
+};
+
+const MenuItems = ({ children }) => {
+  return (
+    <ul role="list" className="mt-4 space-y-4">
+      {children}
+    </ul>
+  );
+};
+
+const MenuItem = ({ children, href = "#", isExternal = false }) => {
   return (
     <li>
       <Link
         className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition duration-100"
+        isExternal={isExternal}
         href={href}
       >
         {children}
@@ -100,10 +52,11 @@ const MenuItem = ({ children, href = "#" }) => {
   );
 };
 
-const Icon = ({ icon: Icon, href = "#", label }) => {
+const SocialIcon = ({ icon: Icon, href = "#", isExternal = false, label }) => {
   return (
     <Link
       href={href}
+      isExternal={isExternal}
       className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition duration-100"
     >
       <span className="sr-only">{label}</span>
@@ -112,31 +65,26 @@ const Icon = ({ icon: Icon, href = "#", label }) => {
   );
 };
 
-const Logo = (props) => {
+const Logo = ({ children }) => {
   return (
-    <a href="#_" className="text-xl font-bold leading-none">
-      {props.children}
-    </a>
+    <Link
+      href="/"
+      className="font-bold text-3xl text-black dark:text-white translation duration-200"
+    >
+      {children}
+    </Link>
   );
 };
 
-const Sentence = (props) => {
-  return (
-    <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">
-      {props.children}
-    </p>
-  );
+const SocialIcons = (props) => {
+  return <div className="flex space-x-6">{props.children}</div>;
 };
 
-const Icons = (props) => {
-  return (
-    <span className="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
-      {props.children}
-    </span>
-  );
-};
-
+Footer.Bio = Bio;
 Footer.Logo = Logo;
-Footer.Sentence = Sentence;
-Footer.Icons = Icons;
-Footer.Icon = Icon;
+Footer.Menu = Menu;
+Footer.MenuItem = MenuItem;
+Footer.MenuItems = MenuItems;
+Footer.MenuTitle = MenuTitle;
+Footer.SocialIcon = SocialIcon;
+Footer.SocialIcons = SocialIcons;

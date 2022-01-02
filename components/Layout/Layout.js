@@ -42,15 +42,89 @@ export function Layout({ title, ...props }) {
       <Container>{props.children}</Container>
 
       <Footer>
-        <Footer.Logo>Renato Pozzi</Footer.Logo>
-        <Footer.Sentence>
-          © 2021 Renato Pozzi - All Rights Reserved.
-        </Footer.Sentence>
-        <Footer.Icons>
-          <Footer.Icon href="/" label="Twitter" icon={Twitter} />
-          <Footer.Icon href="/" label="Github" icon={Github} />
-          <Footer.Icon href="/" label="Instagram" icon={Instagram} />
-        </Footer.Icons>
+        <div className="text-gray-500 space-y-4 xl:col-span-1">
+          <Footer.Logo>Renato Pozzi</Footer.Logo>
+          <Footer.Bio>
+            Software Developer, with a passion for the world and its
+            extraordinary beauty.
+          </Footer.Bio>
+          <Footer.SocialIcons>
+            <Footer.SocialIcon
+              isExternal={true}
+              href="https://twitter.com/imarenny"
+              label="Twitter"
+              icon={Twitter}
+            />
+            <Footer.SocialIcon
+              isExternal={true}
+              href="https://github.com/itsrennyman"
+              label="Github"
+              icon={Github}
+            />
+            <Footer.SocialIcon
+              isExternal={true}
+              href="https://www.instagram.com/renatopozzi_/"
+              label="Instagram"
+              icon={Instagram}
+            />
+          </Footer.SocialIcons>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+          <div className="md:grid md:grid-cols-2 md:gap-8">
+            <Footer.Menu>
+              <Footer.MenuTitle>Resources</Footer.MenuTitle>
+              <Footer.MenuItems>
+                <Footer.MenuItem href="/articles">Articles</Footer.MenuItem>
+                <Footer.MenuItem href="/about">About Me</Footer.MenuItem>
+                <Footer.MenuItem href="/dashboard">Dashboard</Footer.MenuItem>
+              </Footer.MenuItems>
+            </Footer.Menu>
+
+            <Footer.Menu className="mt-12 md:mt-0">
+              <Footer.MenuTitle>Community</Footer.MenuTitle>
+              <Footer.MenuItems>
+                <Footer.MenuItem
+                  isExternal={true}
+                  href="https://twitter.com/imarenny"
+                >
+                  Twitter
+                </Footer.MenuItem>
+                <Footer.MenuItem
+                  isExternal={true}
+                  href="https://github.com/itsrennyman"
+                >
+                  Github
+                </Footer.MenuItem>
+                <Footer.MenuItem
+                  isExternal={true}
+                  href="https://www.instagram.com/renatopozzi_/"
+                >
+                  Instagram
+                </Footer.MenuItem>
+                <Footer.MenuItem
+                  isExternal={true}
+                  href="https://unsplash.com/@itsrennyman"
+                >
+                  Unsplash
+                </Footer.MenuItem>
+              </Footer.MenuItems>
+            </Footer.Menu>
+          </div>
+
+          <div className="md:grid md:grid-cols-1 md:gap-8">
+            <Footer.Menu className="mt-12 md:mt-0">
+              <Footer.MenuTitle>Newsletter</Footer.MenuTitle>
+              <Footer.MenuItems>
+                <input className="bg-gray-800 w-full rounded-lg px-4 py-3" />
+                <textarea
+                  rows={6}
+                  className="bg-gray-800 w-full rounded-lg px-4 py-3"
+                />
+              </Footer.MenuItems>
+            </Footer.Menu>
+          </div>
+        </div>
       </Footer>
     </>
   );
