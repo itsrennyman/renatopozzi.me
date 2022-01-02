@@ -13,7 +13,7 @@ export function Layout({ title, ...props }) {
         <title>{title ?? "Renato Pozzi | Software Developer"}</title>
         <meta
           name="description"
-          content="This is a fake description, TODO: description"
+          content="I photograph landscapes as a hobby, and I create applications for making the web faster."
         />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
