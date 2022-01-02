@@ -20,7 +20,7 @@ const Logo = ({ children, href = "/" }) => {
   );
 };
 
-const Divider = (props) => {
+const Divider = () => {
   return (
     <div className="hidden sm:block w-[1px] h-9 bg-gray-300 dark:bg-gray-700 transition duration-200"></div>
   );
