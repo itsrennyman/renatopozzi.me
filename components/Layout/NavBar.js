@@ -3,7 +3,7 @@ import { Link } from "../Link";
 
 export function NavBar(props) {
   return (
-    <nav className="flex max-w-[96rem] mx-auto justify-between items-center px-8 py-8">
+    <nav className="flex max-w-[96rem] mx-auto justify-between items-center px-8 py-8 md:py-12">
       {props.children}
     </nav>
   );

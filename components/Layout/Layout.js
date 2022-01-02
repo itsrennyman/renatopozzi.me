@@ -36,7 +36,7 @@ export function Layout({ title, ...props }) {
             <NavBar.Item href="/dashboard">Dashboard</NavBar.Item>
           </NavBar.Items>
         </div>
-        <NavBar.ToggleTheme />
+        {/* <NavBar.ToggleTheme /> */}
       </NavBar>
 
       <Container>{props.children}</Container>
@@ -71,17 +71,17 @@ export function Layout({ title, ...props }) {
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-          <div className="md:grid md:grid-cols-2 md:gap-8">
-            <Footer.Menu>
+          <div className="md:grid md:grid-cols-2 md:gap-8 md:col-end-3">
+            <Footer.Menu className="md:text-right">
               <Footer.MenuTitle>Resources</Footer.MenuTitle>
               <Footer.MenuItems>
                 <Footer.MenuItem href="/articles">Articles</Footer.MenuItem>
-                <Footer.MenuItem href="/about">About Me</Footer.MenuItem>
+                <Footer.MenuItem href="/">About Me</Footer.MenuItem>
                 <Footer.MenuItem href="/dashboard">Dashboard</Footer.MenuItem>
               </Footer.MenuItems>
             </Footer.Menu>
 
-            <Footer.Menu className="mt-12 md:mt-0">
+            <Footer.Menu className="mt-12 md:mt-0 md:text-right">
               <Footer.MenuTitle>Community</Footer.MenuTitle>
               <Footer.MenuItems>
                 <Footer.MenuItem
@@ -112,7 +112,7 @@ export function Layout({ title, ...props }) {
             </Footer.Menu>
           </div>
 
-          <div className="md:grid md:grid-cols-1 md:gap-8">
+          {/* <div className="md:grid md:grid-cols-1 md:gap-8">
             <Footer.Menu className="mt-12 md:mt-0">
               <Footer.MenuTitle>Newsletter</Footer.MenuTitle>
               <Footer.MenuItems>
@@ -130,7 +130,7 @@ export function Layout({ title, ...props }) {
                 />
               </Footer.MenuItems>
             </Footer.Menu>
-          </div>
+          </div> */}
         </div>
       </Footer>
     </>

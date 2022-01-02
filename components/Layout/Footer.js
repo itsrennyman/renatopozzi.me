@@ -2,8 +2,8 @@ import { Link } from "../Link";
 
 export function Footer({ children }) {
   return (
-    <footer>
-      <div className="max-w-[96rem] mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8">
+    <footer className="border-t border-gray-200 dark:border-gray-700">
+      <div className="max-w-[96rem] mx-auto py-12 px-4 sm:px-6 lg:py-36 lg:px-8 ">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">{children}</div>
       </div>
     </footer>
@@ -12,7 +12,7 @@ export function Footer({ children }) {
 
 const Bio = ({ children }) => {
   return (
-    <p className="text-xl max-w-sm text-gray-500 dark:text-gray-400">
+    <p className="text-2xl max-w-sm text-gray-500 dark:text-gray-400">
       {children}
     </p>
   );
@@ -20,7 +20,7 @@ const Bio = ({ children }) => {
 
 const MenuTitle = ({ children }) => {
   return (
-    <h3 className="text-sm font-semibold text-black dark:text-white tracking-tight uppercase">
+    <h3 className="text-xl font-semibold text-black dark:text-white tracking-tight uppercase">
       {children}
     </h3>
   );
@@ -42,7 +42,7 @@ const MenuItem = ({ children, href = "#", isExternal = false }) => {
   return (
     <li>
       <Link
-        className="text-base text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition duration-100"
+        className="text-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition duration-100"
         isExternal={isExternal}
         href={href}
       >
@@ -60,7 +60,7 @@ const SocialIcon = ({ icon: Icon, href = "#", isExternal = false, label }) => {
       className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition duration-100"
     >
       <span className="sr-only">{label}</span>
-      <Icon className="w-6 h-6" />
+      <Icon className="w-8 h-8" />
     </Link>
   );
 };
@@ -77,7 +77,7 @@ const Logo = ({ children }) => {
 };
 
 const SocialIcons = (props) => {
-  return <div className="flex space-x-6">{props.children}</div>;
+  return <div className="flex space-x-6 pt-2">{props.children}</div>;
 };
 
 Footer.Bio = Bio;
