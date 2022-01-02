@@ -1,8 +1,9 @@
+import { Link } from "../components/Link";
 import { Emoji } from "../components/Emoji";
 import { Hobby } from "../components/Hobby";
 import { Image } from "../components/Image";
-import { Articles } from "../components/Articles";
 import { Main } from "../components/Layout/Main";
+import { Articles } from "../components/Articles";
 import { SectionHeading } from "../components/SectionHeading";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 import {
@@ -11,22 +12,6 @@ import {
   StarIcon,
   BeakerIcon,
 } from "@heroicons/react/outline";
-import { Link } from "../components/Link";
-
-export const theme = {
-  primary: {
-    light: "black",
-    dark: "white",
-  },
-  secondary: {
-    light: "gray-500",
-    dark: "gray-400",
-  },
-  tertiary: {
-    light: "gray-300",
-    dark: "gray-700",
-  },
-};
 
 export async function getStaticProps() {
   const articles = [];
