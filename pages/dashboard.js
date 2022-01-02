@@ -4,26 +4,7 @@ import { Github } from "../components/Icons/Github";
 import { Unsplash } from "../components/Icons/Unsplash";
 import { Twitter } from "../components/Icons/Twitter";
 import { Ether } from "../components/Icons/Ether";
-
-export const formatter = (number) => {
-  if (typeof number === "string") {
-    number = Number(number);
-  }
-
-  if (number < 1000) {
-    return number;
-  }
-
-  if (number < 1000000) {
-    return `${(number / 1000).toFixed(1)}k`;
-  }
-
-  if (number < 1000000000) {
-    return `${(number / 1000000).toFixed(1)}M`;
-  }
-
-  return `${(number / 1000000000).toFixed(1)}B`;
-};
+import { Counter } from "../components/Counter";
 
 export default function Index(props) {
   return (
@@ -46,7 +27,7 @@ export default function Index(props) {
               Github Stars
             </h3>
             <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              589
+              <Counter url="/api/github" value="stars" />
             </div>
           </Panel>
 
@@ -56,7 +37,7 @@ export default function Index(props) {
               Github Followers
             </h3>
             <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              18
+              <Counter url="/api/github" value="followers" />
             </div>
           </Panel>
 
@@ -66,7 +47,7 @@ export default function Index(props) {
               Unsplash Views
             </h3>
             <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              {formatter(9759250)}
+              <Counter url="/api/unsplash" value="views" />
             </div>
           </Panel>
 
@@ -76,7 +57,7 @@ export default function Index(props) {
               Unsplash Downloads
             </h3>
             <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              {formatter(65718)}
+              <Counter url="/api/unsplash" value="downloads" />
             </div>
           </Panel>
 
@@ -86,7 +67,7 @@ export default function Index(props) {
               Twitter Followers
             </h3>
             <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              {formatter(64)}
+              <Counter url="/api/twitter" value="followers_count" />
             </div>
           </Panel>
 
@@ -96,7 +77,7 @@ export default function Index(props) {
               Ether Price
             </h3>
             <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              {formatter(3748.78)}
+              <Counter url="/api/ether" value="ethusd" />
             </div>
           </Panel>
         </div>
