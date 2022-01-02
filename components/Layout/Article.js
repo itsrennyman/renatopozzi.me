@@ -1,5 +1,5 @@
-import { Link } from "../Link";
-import { Image } from "../Image";
+import { Link } from "../UI/Link";
+import { Image } from "../UI/Image";
 import { Main } from "./Main";
 
 const components = {};
