@@ -1,4 +1,4 @@
-import { Link } from "../Link";
+import { Link } from "../UI/Link";
 
 export function Footer({ children }) {
   return (

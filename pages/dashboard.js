@@ -4,7 +4,7 @@ import { Github } from "../components/Icons/Github";
 import { Unsplash } from "../components/Icons/Unsplash";
 import { Twitter } from "../components/Icons/Twitter";
 import { Ether } from "../components/Icons/Ether";
-import { Counter } from "../components/Counter";
+import { Counter } from "../components/UI/Counter";
 
 export default function Index() {
   return (

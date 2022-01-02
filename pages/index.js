@@ -1,10 +1,10 @@
-import { Link } from "../components/Link";
-import { Emoji } from "../components/Emoji";
+import { Link } from "../components/UI/Link";
+import { Emoji } from "../components/UI/Emoji";
+import { Image } from "../components/UI/Image";
 import { Hobby } from "../components/Hobby";
-import { Image } from "../components/Image";
 import { Main } from "../components/Layout/Main";
 import { Articles } from "../components/Articles";
-import { SectionHeading } from "../components/SectionHeading";
+import { SectionHeading } from "../components/UI/SectionHeading";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 import {
   PaperAirplaneIcon,

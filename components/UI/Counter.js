@@ -1,6 +1,8 @@
 import * as React from "react";
-import { animate } from "framer-motion";
 import useSWR from "swr";
+import PropTypes from "prop-types";
+import fetch from "cross-fetch";
+import { animate } from "framer-motion";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -24,10 +26,10 @@ export const formatter = (number) => {
   return `${(number / 1000000000).toFixed(1)}B`;
 };
 
-export function Counter(props) {
+export function Counter({ url, value, duration = 2 }) {
   const prevCounterRef = React.useRef(0);
   const nodeRef = React.useRef();
-  const { data, error } = useSWR(props.url, fetcher);
+  const { data, error } = useSWR(url, fetcher);
 
   const isLoaded = data && !error;
 
@@ -37,14 +39,14 @@ export function Counter(props) {
       return false;
     }
 
-    const { [props.value]: counter } = data;
+    const { [value]: counter } = data;
 
     if (prevCounterRef.current === counter) {
       return false;
     }
 
     const controls = animate(prevCounterRef.current, counter, {
-      duration: 2,
+      duration: duration,
       onUpdate: (value) => {
         nodeRef.current.textContent = formatter(value);
       },
@@ -53,7 +55,13 @@ export function Counter(props) {
     prevCounterRef.current = counter;
 
     return () => controls.stop();
-  }, [isLoaded, data, props.value]);
+  }, [isLoaded, data, value, duration]);
 
   return <span ref={nodeRef}></span>;
 }
+
+Counter.propTypes = {
+  url: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  duration: PropTypes.number,
+};

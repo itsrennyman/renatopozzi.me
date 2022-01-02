@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { NavBar } from "../UI/NavBar";
+import { NavBar } from "./NavBar";
 import { Container } from "../UI/Container";
-import { Footer } from "../UI/Footer";
+import { Footer } from "./Footer";
 import { Twitter } from "../Icons/Twitter";
 import { Github } from "../Icons/Github";
 import { Instagram } from "../Icons/Instagram";
@@ -35,7 +35,7 @@ export function Main({ title, description, ...props }) {
           <NavBar.Logo href="/">Renato Pozzi</NavBar.Logo>
           <NavBar.Divider />
           <NavBar.Items>
-            <NavBar.Item href="/">About</NavBar.Item>
+            <NavBar.Item href="/">About Me</NavBar.Item>
             <NavBar.Item href="/articles">Articles</NavBar.Item>
             <NavBar.Item href="/dashboard">Dashboard</NavBar.Item>
           </NavBar.Items>
