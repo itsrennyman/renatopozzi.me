@@ -116,10 +116,17 @@ export function Layout({ title, ...props }) {
             <Footer.Menu className="mt-12 md:mt-0">
               <Footer.MenuTitle>Newsletter</Footer.MenuTitle>
               <Footer.MenuItems>
-                <input className="bg-gray-800 w-full rounded-lg px-4 py-3" />
-                <textarea
-                  rows={6}
-                  className="bg-gray-800 w-full rounded-lg px-4 py-3"
+                <p className="text-base max-w-md text-gray-500 dark:text-gray-400">
+                  Let&apos;s keep in touch! Sign up for our newsletter and be
+                  the first to know about new articles, events, and more!
+                </p>
+                <input
+                  className="bg-gray-100 dark:bg-gray-800 w-full rounded-lg px-4 py-4 outline-none ring-2 ring-gray-500 dark:ring-gray-400 ring-offset-white dark:ring-offset-gray-900 focus:ring-offset-4 transition duration-200"
+                  placeholder="Name"
+                />
+                <input
+                  className="bg-gray-100 dark:bg-gray-800 w-full rounded-lg px-4 py-4 outline-none ring-2 ring-gray-500 dark:ring-gray-400 ring-offset-white dark:ring-offset-gray-900 focus:ring-offset-4 transition duration-200"
+                  placeholder="Email"
                 />
               </Footer.MenuItems>
             </Footer.Menu>

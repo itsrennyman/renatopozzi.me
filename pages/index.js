@@ -9,7 +9,9 @@ import {
   PaperAirplaneIcon,
   DesktopComputerIcon,
   StarIcon,
+  BeakerIcon,
 } from "@heroicons/react/outline";
+import { Link } from "../components/Link";
 
 export const theme = {
   primary: {
@@ -69,8 +71,8 @@ export default function Home({ latestArticles }) {
 
         <div className="hidden sm:block w-full space-y-2">
           <Image
-            width={392}
-            height={555}
+            width={450}
+            height={655}
             alt="One of my picture at the Pragster Wildsee"
             src="photo-1545400309-2956297d66f5"
             priority={true}
@@ -78,14 +80,13 @@ export default function Home({ latestArticles }) {
 
           <div className="text-gray-500 dark:text-gray-400 text-sm text-center">
             View it on{" "}
-            <a
-              href="https://unsplash.com/photos/5KZQspbJwig"
-              target="_blank"
-              rel="noreferrer"
+            <Link
               className="underline"
+              isExternal={true}
+              href="https://unsplash.com/photos/5KZQspbJwig"
             >
               Unsplash
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -102,30 +103,28 @@ export default function Home({ latestArticles }) {
 
         <SectionHeading
           heading="My History"
-          className="col-span-2 sm:col-span-1"
+          className="col-span-2 sm:col-span-1 flex justify-center"
         >
           <SectionHeading.Title>
             I&apos;m 25, from Italy <Emoji symbol="🍕" />
           </SectionHeading.Title>
           <SectionHeading.Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            sagittis arcu suscipit, mollis risus non, venenatis tellus. Duis
-            congue luctus vulputate. Aliquam ut feugiat eros. Class aptent
-            taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-            himenaeos. Nulla ut porttitor dolor, ut ultrices quam. Proin
-            tincidunt ligula eget tortor accumsan porta. Praesent consequat
-            laoreet sodales. Mauris tristique urna eu suscipit luctus. Donec
-            egestas feugiat neque, lacinia accumsan felis tincidunt at. Mauris
-            scelerisque erat in tincidunt rhoncus. Cras sed ipsum sed tortor
-            dignissim aliquam. Ut pellentesque at mauris feugiat pellentesque.
-            Cras tincidunt molestie condimentum. Donec magna enim, dictum vitae
-            ligula at, porttitor vestibulum tortor. Vestibulum non leo sit amet
-            lectus scelerisque tempor non ac leo. Suspendisse massa quam,
-            facilisis in pretium non, lacinia nec orci. Aenean ligula diam,
-            auctor commodo faucibus eget, maximus id magna. Curabitur gravida
-            ultrices placerat. Aliquam vel ipsum a ipsum bibendum iaculis in
-            quis enim. Nulla facilisi. Vivamus pellentesque lorem consectetur
-            ligula gravida ullamcorper.
+            I&apos;m a software developer, and I&apos;m passionate about web
+            development. Since high school, I&apos;ve been starting to code some
+            little static websites, and at my 18 years old, I&apos;ve started to
+            learn how to code in a professional environment thanks to my first
+            colleagues, becoming a full-stack developer working with a lot of
+            different technologies. Lately, this path didn&apos;t give me more
+            stimuli, so I decided to quit my job and undertake a phase of
+            personal development by traveling around the world, and studying a
+            specific technology: Javascript. I love this programming language
+            and its ecosystem, and I have pleasantly rediscovered how
+            specializing in one area is much more personally rewarding than
+            having a mediocre knowledge of many topics. Oh, and I&apos;m also an
+            hobbist landscapes photographer, and... yes, if you were wondering
+            this on the left is me and a couple of friends at about 2500mt
+            sleeping with the Tre Cime di Lavaredo in the background, in the
+            Dolomites. It was very cold!
           </SectionHeading.Description>
         </SectionHeading>
       </section>
@@ -136,16 +135,18 @@ export default function Home({ latestArticles }) {
             Some things i <Emoji symbol="❤️" />
           </SectionHeading.Title>
           <SectionHeading.Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            sagittis arcu suscipit, mollis risus non, venenatis tellus. Duis
-            congue luctus vulputate. Aliquam ut feugiat eros.
+            There is a long list, these are some of the things I&apos;ve been so
+            excited about it lately. <br />
+            Maybe you like something among them too!
           </SectionHeading.Description>
         </SectionHeading>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           <Hobby title="Travels" icon={PaperAirplaneIcon}>
-            Since my first solo travel in Norway, i literally falled in love to
-            grab my backpack, take the first plane and live another experience.
+            Since my first solo travel to Norway, I fell in love to grab my
+            backpack, take the first plane and live another beautiful
+            experience. Traveling trains my mind to be sociable and communicate
+            with strangers.
           </Hobby>
 
           <Hobby title="Javascript" icon={DesktopComputerIcon}>
@@ -155,10 +156,18 @@ export default function Home({ latestArticles }) {
             it.
           </Hobby>
 
+          <Hobby title="Beer" icon={BeakerIcon}>
+            I&apos;m a beer lover. Beer is the best way to spend time with
+            someone, refreshing and relaxing. It is one of the best tools for
+            healthy networking with people. Did you know that beer helps fight
+            depression when drunk in moderate doses?
+          </Hobby>
+
           <Hobby title="Hiking" icon={StarIcon}>
-            I am lucky enough to live close enough to the paradise of the
+            I am lucky enough to live close enough to the paradise of the The
             Dolomites, and it happens very often that I visit them with a few
-            walks, I always leave my lungs there but the view is incredible.
+            walks, and my trusty Canon 60D. I always leave my lungs there but
+            the view is incredible.
           </Hobby>
         </div>
       </section>
@@ -169,9 +178,9 @@ export default function Home({ latestArticles }) {
             Have a look at my articles <Emoji symbol="📚" />
           </SectionHeading.Title>
           <SectionHeading.Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            sagittis arcu suscipit, mollis risus non, venenatis tellus. Duis
-            congue luctus vulputate. Aliquam ut feugiat eros.
+            I love sharing my thoughts and experiences with others, sometimes I
+            write an article about it. There are a lot of topics there, personal
+            growth and coding are included!
           </SectionHeading.Description>
         </SectionHeading>
 
