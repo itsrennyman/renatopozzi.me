@@ -1,6 +1,6 @@
+import { Main } from "./Main";
 import { Link } from "../UI/Link";
 import { Image } from "../UI/Image";
-import { Main } from "./Main";
 
 const components = {};
 
