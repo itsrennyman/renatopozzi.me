@@ -11,6 +11,7 @@ import {
   DesktopComputerIcon,
   StarIcon,
   BeakerIcon,
+  GlobeIcon,
 } from "@heroicons/react/outline";
 
 export async function getStaticProps() {
@@ -45,7 +46,7 @@ export default function Home({ latestArticles }) {
               Renato!
             </span>
             <br />
-            Nice to Meet You! <Emoji symbol="👊" />
+            Nice to Meet You! <Emoji symbol="👊" label="punch emoji" />
           </div>
 
           <p className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl text-3xl leading-snug md:text-4xl md:leading-tight">
@@ -91,7 +92,7 @@ export default function Home({ latestArticles }) {
           className="col-span-2 sm:col-span-1 flex justify-center"
         >
           <SectionHeading.Title>
-            I&apos;m 25, from Italy <Emoji symbol="🍕" />
+            I&apos;m 25, from Italy <Emoji symbol="🍕" label="Pizza Emoji" />
           </SectionHeading.Title>
           <SectionHeading.Description>
             I&apos;m a software developer, and I&apos;m passionate about web
@@ -117,7 +118,7 @@ export default function Home({ latestArticles }) {
       <section className="flex w-full flex-col py-24 space-y-10">
         <SectionHeading heading="Curiosities">
           <SectionHeading.Title>
-            Some things i <Emoji symbol="❤️" />
+            Some things i <Emoji symbol="❤️" label="Red Heart Emoji" />
           </SectionHeading.Title>
           <SectionHeading.Description>
             There is a long list, these are some of the things I&apos;ve been so
@@ -148,6 +149,13 @@ export default function Home({ latestArticles }) {
             depression when drunk in moderate doses?
           </Hobby>
 
+          <Hobby title="Japan Culture" icon={GlobeIcon}>
+            I&apos;m a Japan fan, and I&apos;m very interested in the culture of
+            that country. Everything seems to be perfect, there are super nice
+            places for your mental health like temples and garderns, but also
+            chaotic places and for lovers of nerdy things.
+          </Hobby>
+
           <Hobby title="Hiking" icon={StarIcon}>
             I am lucky enough to live close enough to the paradise of the The
             Dolomites, and it happens very often that I visit them with a few
@@ -160,7 +168,8 @@ export default function Home({ latestArticles }) {
       <section className="flex flex-col w-full py-24 space-y-10">
         <SectionHeading heading="Writings">
           <SectionHeading.Title>
-            Have a look at my articles <Emoji symbol="📚" />
+            Have a look at my articles{" "}
+            <Emoji symbol="📚" label="Book Stack Emoji" />
           </SectionHeading.Title>
           <SectionHeading.Description>
             I love sharing my thoughts and experiences with others, sometimes I

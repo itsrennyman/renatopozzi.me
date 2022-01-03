@@ -3,7 +3,7 @@ import { Link } from "../UI/Link";
 export function Footer({ children }) {
   return (
     <footer className="border-t border-gray-200 dark:border-gray-700">
-      <div className="max-w-[96rem] mx-auto py-12 px-4 sm:px-6 lg:py-36 lg:px-8 ">
+      <div className="max-w-[96rem] mx-auto py-12 px-4 sm:px-6 lg:py-36 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">{children}</div>
       </div>
     </footer>
