@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { SEOData } from "./SEOData";
 import { NavBar } from "./NavBar";
 import { Container } from "../UI/Container";
 import { Footer } from "./Footer";
@@ -6,29 +6,10 @@ import { Twitter } from "../Icons/Twitter";
 import { Github } from "../Icons/Github";
 import { Instagram } from "../Icons/Instagram";
 
-export function Main({ title, description, ...props }) {
+export function Main({ seo, ...props }) {
   return (
     <>
-      <Head>
-        <title>{title ?? "Renato Pozzi | Software Developer"}</title>
-        <meta
-          name="description"
-          content={
-            description ??
-            "I photograph landscapes as a hobby, and I create applications for making the web faster."
-          }
-        />
-        <meta charSet="utf-8" />
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="follow, index" />
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon.png"
-          hrefLang="en-us"
-        />
-      </Head>
+      <SEOData {...seo} />
 
       <NavBar>
         <div className="flex flex-1 space-x-8 items-center">
