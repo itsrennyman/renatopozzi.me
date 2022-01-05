@@ -1,14 +1,20 @@
-import { Main } from "../components/Layout/Main";
 import { Panel } from "../components/UI/Panel";
-import { Github } from "../components/Icons/Github";
-import { Unsplash } from "../components/Icons/Unsplash";
-import { Twitter } from "../components/Icons/Twitter";
+import { Main } from "../components/Layout/Main";
 import { Ether } from "../components/Icons/Ether";
 import { Counter } from "../components/UI/Counter";
+import { Github } from "../components/Icons/Github";
+import { Twitter } from "../components/Icons/Twitter";
+import { Unsplash } from "../components/Icons/Unsplash";
 
 export default function Index() {
+  const seo = {
+    title: "Renato Pozzi | Dashboard",
+    description:
+      "This is a personal statistics dashboard. I use this to track various metrics across platforms like Unsplash.",
+  };
+
   return (
-    <Main>
+    <Main seo={seo}>
       <section className="flex flex-col w-full py-24">
         <div className="mb-24 space-y-8">
           <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
