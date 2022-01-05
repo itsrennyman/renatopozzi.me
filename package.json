@@ -1,7 +1,7 @@
 {
   "name": "renatopozzi.me",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.0-semantically-released",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
