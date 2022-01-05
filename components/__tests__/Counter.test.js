@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { server } from "../../mocks/server";
-import { Counter } from "./Counter";
+import { Counter } from "../UI/Counter";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());

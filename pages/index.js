@@ -1,9 +1,9 @@
 import { Link } from "../components/UI/Link";
 import { Emoji } from "../components/UI/Emoji";
 import { Image } from "../components/UI/Image";
-import { Hobby } from "../components/Hobby";
+import { Hobby } from "../components/UI/Hobby";
 import { Main } from "../components/Layout/Main";
-import { Articles } from "../components/Articles";
+import { Article } from "../components/UI/Article";
 import { SectionHeading } from "../components/UI/SectionHeading";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 import {
@@ -30,15 +30,15 @@ export async function getStaticProps() {
 
   return {
     props: {
-      latestArticles: articles,
+      articles: articles,
     },
   };
 }
 
-export default function Home({ latestArticles }) {
+export default function Home({ articles }) {
   return (
     <Main>
-      <section className="grid grid-cols-3 gap-5 py-24">
+      <section className="grid grid-cols-3 gap-5 py-12 md:py-24">
         <div className="col-span-3 sm:col-span-2 flex w-full flex-col justify-center space-y-8">
           <div className="font-semibold tracking-tight text-5xl leading-snug md:text-7xl md:leading-tight space-y-3 text-black dark:text-white transition duration-200">
             Hello! <br /> I&apos;m{" "}
@@ -46,7 +46,7 @@ export default function Home({ latestArticles }) {
               Renato!
             </span>
             <br />
-            Nice to Meet You! <Emoji symbol="👊" label="punch emoji" />
+            Nice to Meet You! <Emoji symbol="👊" label="Punch Emoji" />
           </div>
 
           <p className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl text-3xl leading-snug md:text-4xl md:leading-tight">
@@ -55,7 +55,7 @@ export default function Home({ latestArticles }) {
           </p>
         </div>
 
-        <div className="hidden sm:block w-full space-y-2">
+        <div className="hidden lg:block w-full space-y-2">
           <Image
             width={450}
             height={655}
@@ -77,8 +77,8 @@ export default function Home({ latestArticles }) {
         </div>
       </section>
 
-      <section className="grid grid-cols-2 gap-10 py-24">
-        <div className="hidden sm:block">
+      <section className="grid grid-cols-2 gap-10 py-12 md:py-24">
+        <div className="hidden lg:block">
           <Image
             height={800}
             width={588}
@@ -89,7 +89,7 @@ export default function Home({ latestArticles }) {
 
         <SectionHeading
           heading="My History"
-          className="col-span-2 sm:col-span-1 flex justify-center"
+          className="col-span-2 lg:col-span-1 flex justify-center"
         >
           <SectionHeading.Title>
             I&apos;m 25, from Italy <Emoji symbol="🍕" label="Pizza Emoji" />
@@ -115,19 +115,19 @@ export default function Home({ latestArticles }) {
         </SectionHeading>
       </section>
 
-      <section className="flex w-full flex-col py-24 space-y-10">
+      <section className="flex w-full flex-col py-12 md:py-24 space-y-10">
         <SectionHeading heading="Curiosities">
           <SectionHeading.Title>
             Some things i <Emoji symbol="❤️" label="Red Heart Emoji" />
           </SectionHeading.Title>
           <SectionHeading.Description>
             There is a long list, these are some of the things I&apos;ve been so
-            excited about it lately. <br />
+            excited about it lately. <br className="hidden lg:block" />
             Maybe you like something among them too!
           </SectionHeading.Description>
         </SectionHeading>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-10">
           <Hobby title="Travels" icon={PaperAirplaneIcon}>
             Since my first solo travel to Norway, I fell in love to grab my
             backpack, take the first plane and live another beautiful
@@ -165,7 +165,7 @@ export default function Home({ latestArticles }) {
         </div>
       </section>
 
-      <section className="flex flex-col w-full py-24 space-y-10">
+      <section className="flex flex-col w-full py-12 md:py-24 space-y-10">
         <SectionHeading heading="Writings">
           <SectionHeading.Title>
             Have a look at my articles{" "}
@@ -178,11 +178,11 @@ export default function Home({ latestArticles }) {
           </SectionHeading.Description>
         </SectionHeading>
 
-        <Articles>
-          {latestArticles.map((article) => (
-            <Articles.Article key={article.id} {...article} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {articles.map((article) => (
+            <Article key={article.id} {...article} />
           ))}
-        </Articles>
+        </div>
       </section>
     </Main>
   );

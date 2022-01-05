@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Link } from "./Link";
+import { Link } from "../UI/Link";
 
 it("renders an internal link by default", () => {
   render(<Link href="/foo">Hello</Link>);

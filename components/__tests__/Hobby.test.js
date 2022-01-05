@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Hobby } from "./Hobby";
+import { Hobby } from "../UI/Hobby";
 
 it("renders an hobby", () => {
   const Icon = () => <svg data-testid="svg">Icon</svg>;

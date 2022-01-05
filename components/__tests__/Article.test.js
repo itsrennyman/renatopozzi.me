@@ -1,14 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { Articles } from "./Articles";
-
-it("renders the articles", () => {
-  render(<Articles>Hello</Articles>);
-  expect(screen.getByText("Hello")).toBeInTheDocument();
-});
+import { Article } from "../UI/Article";
 
 it("renders the article", () => {
   render(
-    <Articles.Article
+    <Article
       id="XX01"
       title="This is a title"
       thumbnail="https://via.placeholder.com/150"

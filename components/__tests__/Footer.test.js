@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Footer } from "./Footer";
+import { Footer } from "../UI/Footer";
 
 it("renders a footer", () => {
   render(<Footer>Hello</Footer>);

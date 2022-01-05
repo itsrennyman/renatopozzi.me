@@ -1,4 +1,4 @@
-import { Articles } from "../../components/Articles";
+import { Article } from "../../components/UI/Article";
 import { Main } from "../../components/Layout/Main";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
@@ -22,7 +22,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Index(props) {
+export default function Index({ articles }) {
   return (
     <Main>
       <section className="flex flex-col w-full py-24">
@@ -35,11 +35,11 @@ export default function Index(props) {
             are interested in learning something new.
           </h2>
         </div>
-        <Articles>
-          {props.articles.map((article) => (
-            <Articles.Article key={article.id} {...article} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {articles.map((article) => (
+            <Article key={article.id} {...article} />
           ))}
-        </Articles>
+        </div>
       </section>
     </Main>
   );

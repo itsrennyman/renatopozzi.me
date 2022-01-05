@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Emoji } from "./Emoji";
+import { Emoji } from "../UI/Emoji";
 
 it("renders an emoji", () => {
   render(<Emoji symbol="😀" label="smile" />);
