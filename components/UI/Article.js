@@ -1,20 +1,8 @@
 import PropTypes from "prop-types";
-import { Link } from "./UI/Link";
-import { Image } from "./UI/Image";
+import { Link } from "./Link";
+import { Image } from "./Image";
 
-export function Articles({ children }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-      {children}
-    </div>
-  );
-}
-
-Articles.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-Articles.Article = function Article({ id, title, thumbnail, createdAt }) {
+export function Article({ id, title, thumbnail, createdAt }) {
   return (
     <Link href={`/articles/${id}`}>
       <Image alt={title} src={thumbnail} height={500} width={378} />
@@ -28,9 +16,9 @@ Articles.Article = function Article({ id, title, thumbnail, createdAt }) {
       </h3>
     </Link>
   );
-};
+}
 
-Articles.Article.propTypes = {
+Article.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Panel } from "./UI/Panel";
+import { Panel } from "./Panel";
 
 export function Hobby({ title, icon: Icon, children }) {
   return (

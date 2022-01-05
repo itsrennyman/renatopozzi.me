@@ -13,7 +13,7 @@ export function SectionHeading(props) {
 
 SectionHeading.Title = function Title(props) {
   return (
-    <h2 className="relative max-w-xl text-4xl font-semibold tracking-tight leading-tight lg:text-5xl text-black dark:text-white transition duration-200">
+    <h2 className="relative max-w-xl text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-black dark:text-white transition duration-200">
       {props.children}
     </h2>
   );

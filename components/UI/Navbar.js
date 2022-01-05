@@ -1,20 +1,19 @@
 import PropTypes from "prop-types";
-import { Link } from "../UI/Link";
-import { ToggleTheme } from "../ToggleTheme";
+import { Link } from "./Link";
 
-export function NavBar({ children }) {
+export function Navbar({ children }) {
   return (
-    <nav className="flex max-w-[96rem] mx-auto justify-between items-center px-8 py-8 md:py-12">
+    <nav className="flex max-w-[96rem] mx-auto justify-between items-center space-x-8 px-4 md:px-8 py-8 md:py-12">
       {children}
     </nav>
   );
 }
 
-NavBar.propTypes = {
+Navbar.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-NavBar.Logo = function Logo({ children, href = "/" }) {
+Navbar.Logo = function Logo({ children, href = "/" }) {
   return (
     <Link
       href={href}
@@ -25,18 +24,18 @@ NavBar.Logo = function Logo({ children, href = "/" }) {
   );
 };
 
-NavBar.Logo.propTypes = {
+Navbar.Logo.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string,
 };
 
-NavBar.Divider = function Divider() {
+Navbar.Divider = function Divider() {
   return (
     <div className="hidden sm:block w-[1px] h-9 bg-gray-300 dark:bg-gray-700 transition duration-200"></div>
   );
 };
 
-NavBar.Items = function Items({ children }) {
+Navbar.Items = function Items({ children }) {
   return (
     <ul className="hidden sm:flex items-center space-x-9 text-gray-500 dark:text-gray-400">
       {children}
@@ -44,11 +43,11 @@ NavBar.Items = function Items({ children }) {
   );
 };
 
-NavBar.Items.propTypes = {
+Navbar.Items.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-NavBar.Item = function Item({ children, href = "/" }) {
+Navbar.Item = function Item({ children, href = "/" }) {
   return (
     <li className="font-bolder text-lg hover:text-black dark:hover:text-white cursor-pointer transition duration-200">
       <Link href={href}>{children}</Link>
@@ -56,9 +55,7 @@ NavBar.Item = function Item({ children, href = "/" }) {
   );
 };
 
-NavBar.Item.propTypes = {
+Navbar.Item.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
 };
-
-NavBar.ToggleTheme = ToggleTheme;

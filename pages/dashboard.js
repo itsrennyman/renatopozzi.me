@@ -20,7 +20,7 @@ export default function Index() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-10">
           <Panel>
             <Github className="h-10 w-10 text-black dark:text-white" />
             <h3 className="text-black dark:text-white font-semibold text-2xl mt-8">
