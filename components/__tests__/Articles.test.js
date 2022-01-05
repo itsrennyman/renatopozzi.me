@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Articles } from "./Articles";
+import { Articles } from "../Articles";
 
 it("renders the articles", () => {
   render(<Articles>Hello</Articles>);

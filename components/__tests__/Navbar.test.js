@@ -1,36 +1,36 @@
 import { render, screen } from "@testing-library/react";
-import { NavBar } from "./NavBar";
+import { Navbar } from "../UI/Navbar";
 
 it("renders a navbar", () => {
-  render(<NavBar>Hello</NavBar>);
+  render(<Navbar>Hello</Navbar>);
   const element = screen.getByRole("navigation");
   expect(element).toBeInTheDocument();
   expect(element).toHaveTextContent("Hello");
 });
 
 it("renders the navbar logo", () => {
-  render(<NavBar.Logo>This is the logo</NavBar.Logo>);
+  render(<Navbar.Logo>This is the logo</Navbar.Logo>);
   const element = screen.getByRole("link");
   expect(element).toBeInTheDocument();
   expect(element).toHaveAttribute("href", "/");
 });
 
 it("renders the navbar logo with custom href", () => {
-  render(<NavBar.Logo href="/foo">This is the logo</NavBar.Logo>);
+  render(<Navbar.Logo href="/foo">This is the logo</Navbar.Logo>);
   const element = screen.getByRole("link");
   expect(element).toBeInTheDocument();
   expect(element).toHaveAttribute("href", "/foo");
 });
 
 it("renders the navbar items", () => {
-  render(<NavBar.Items>These are the items</NavBar.Items>);
+  render(<Navbar.Items>These are the items</Navbar.Items>);
   const element = screen.getByRole("list");
   expect(element).toBeInTheDocument();
   expect(element).toHaveTextContent("These are the items");
 });
 
 it("renders the navbar item", () => {
-  render(<NavBar.Item href="/">This is the item</NavBar.Item>);
+  render(<Navbar.Item href="/">This is the item</Navbar.Item>);
 
   const li = screen.getByRole("listitem");
   expect(li).toBeInTheDocument();
@@ -42,7 +42,7 @@ it("renders the navbar item", () => {
 });
 
 it("renders the navbar item with custom href", () => {
-  render(<NavBar.Item href="/foo">This is the item</NavBar.Item>);
+  render(<Navbar.Item href="/foo">This is the item</Navbar.Item>);
   const element = screen.getByRole("link");
   expect(element).toBeInTheDocument();
   expect(element).toHaveAttribute("href", "/foo");
