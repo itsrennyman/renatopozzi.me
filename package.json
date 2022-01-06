@@ -41,12 +41,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/itsrennyman/sku.git"
+    "url": "https://github.com/itsrennyman/renatopozzi.me.git"
   },
   "author": "Renato <renato.pozzi.dev@gmail.com> (https://renatopozzi.me/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/itsrennyman/sku/issues"
+    "url": "https://github.com/itsrennyman/renatopozzi.me/issues"
   },
   "release": {
     "branches": [
