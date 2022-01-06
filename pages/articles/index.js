@@ -1,5 +1,5 @@
-import { Article } from "../../components/UI/Article";
 import { Main } from "../../components/Layout/Main";
+import { Article } from "../../components/UI/Article";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -23,8 +23,14 @@ export async function getStaticProps() {
 }
 
 export default function Index({ articles }) {
+  const seo = {
+    title: "Renato Pozzi | Articles",
+    description:
+      "I have written full of value articles, please take a look if you are interested in learning something new.",
+  };
+
   return (
-    <Main>
+    <Main seo={seo}>
       <section className="flex flex-col w-full py-24">
         <div className="mb-24 space-y-8">
           <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
