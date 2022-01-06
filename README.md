@@ -1,7 +1,3 @@
-# About
-
-This is my personal portfolio.
-
 ### Built With 🏗️
 
 - [NextJS](https://nextjs.org/) - NextJS
