@@ -150,15 +150,16 @@ The `npm init` command will create a `package.json` file in the current director
 
 After the command is executed, you will have a `package.json` file in your current directory, have a look a these properties in the file:
 
-- **name**: The name of the library. _Mandatory_
-- **version**: The version of the library. _Mandatory_
-- **private**: If the library is private, it will not be available for the public. _Mandatory_
-- **main**: The path to the library's main file. _Mandatory_
-- **description**: A short description of the library. _Optional_
-- **files**: A list of files that will be included in the library. _Optional_
-- **author**: The author of the library. _Optional_
-- **license**: The license of the library. _Optional_
-- **dependencies**: A list of dependencies that the library needs. _Optional_
+| Property      | Value                                                              |
+| ------------- | ------------------------------------------------------------------ |
+| `name`        | The name of the library                                            |
+| `description` | A short description of the library                                 |
+| `version`     | The current version of the library                                 |
+| `private`     | If the library is private, it will not be available for the public |
+| `main`        | The path to the library's main file                                |
+| `files`       | The files that will be published                                   |
+| `author`      | The author of the library                                          |
+| `license`     | The license of the library                                         |
 
 > **Note:** There are also other keys that you can use, but there are out of the scope of this article.
 
@@ -167,6 +168,7 @@ This is the `gimme-a-pkmn` real library example, i omitted the useless keys like
 ```json
 {
   "name": "gimme-a-pkmn",
+  "private": false,
   "version": "0.0.1",
   "description": "A function to get a random pokemon name",
   "main": "index.js",
@@ -183,7 +185,7 @@ $ npm login
 $ npm publish
 ```
 
-And that's it! The library is published on npm with the version `0.0.1` and you will be able to install it in your project.
+And that's it! The library is published on npm with the version `0.0.1` and you will be able to install it in your project. You can find the source code used for this tutorial on [GitHub](https://github.com/itsrennyman/gimme-a-pkmn).
 
 ### Common Problems
 
@@ -191,3 +193,13 @@ There are some common problems that you might encounter when publishing a JavaSc
 
 - The library name must be unique, and it must be a valid npm package name.
 - You cannot publish a library version that is already published, so you need to bump the version number before publishing.
+
+## Conclusion
+
+Phew! That was a lot of work, but you have learned a lot about JavaScript libraries. Now you can use them in your projects and you can publish them on npm. You can even use them in your own projects! 🎉 🎉 🎉
+
+Soon i will publish also a detailed guide on how to manage the version of your libraries, totally automated, using Github actions. So stay tuned!
+
+If you have any questions, feel free to contact me on [Twitter](https://twitter.com/imarenny).
+
+Cheers! 🍻
