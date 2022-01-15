@@ -1,0 +1,193 @@
+---
+createdAt: 2022-01-15T00:00:00Z
+thumbnail: photo-1513194241688-889833b64074
+title: Publishing a JavaScript Library
+description: Publishing a JavaScript library is a great way to share your code with the world. But for newcomers, it can be a bit confusing. This article will help you to publish your library in a simple way.
+---
+
+Publishing a JavaScript library is a great way to share your code with the world. But for newcomers, it can be a bit confusing. This article will help you to achieve this goal easily.
+
+Hello guys, and happy new year! I hope you are doing well.
+
+Lately, i've been working on a javascript library i made called [react-plock](https://github.com/itsrennyman/react-plock), a simple react masonry implementation. And i decided to publish it on npm, and make it available for everyone.
+
+So, being my first time publishing a library (in a correct way.. 😅) I searched for a good way to do it on the web essay, but the problem I encountered is that there are a LOT of different ways to do it, some people use webpack, some others use rollup, and others again use Bit, everyone telling that theirs is the "definitive way to do it", and for me (and probably for most of us), it was a bit confusing to find a good way to do it.
+
+So, after some research i found a very good little [free course](https://egghead.io/courses/how-to-write-an-open-source-javascript-library) by @kentcdodds on egghead.io and i decided to invest my time and follow it. This was one of the best decisions i made, and i'm very happy with the result i achieved, but the course it's a little bit old, so i decided to update the publishing part writing how i published my first javascript library on npm.
+
+The topics that will be covered in this article are:
+
+- How a library is read by your project.
+- How to publishing a JavaScript library.
+
+## How a library is read by your project
+
+The first thing that you need to understand before publishing a library, is actually how it's read by the project that uses it. It is a very simple, but important concept that you must know. So let's start with an example. Let's pretend that we have a project called "my-project" that uses the library "react-plock" we just published 🙋. In order to use it, we need to import it in our project.
+
+```js
+import { Plock } from "react-plock"; // Look at me 👀!
+
+export default function App() {
+  return (
+    <div className="container">
+      <Plock />
+    </div>
+  );
+}
+```
+
+The question is: how the fu\*k is the library "react-plock" read by the project "my-project"?
+
+Let's try to answer this question looking it from another perspective. Imagine you have in your amazing "my-project" a custom component made by you called `Banana`, and you wanna use it in the App component. How can you accomplish this?
+
+```js
+import { Banana } from "./components/Banana"; // Look at me 👀!
+
+export default function App() {
+  return (
+    <div className="container">
+      <Banana />
+    </div>
+  );
+}
+```
+
+Notice that the only thing that's changed from the previous example is the path to the component source code, that in this case, is a **relative path**, not a library name.
+
+In turn, the `Banana` could be structured like this:
+
+```js
+// Look at the export statement 👀!
+export function Banana() {
+  return (
+    <div className="bomb">
+      <h1>I am a Banana</h1>
+    </div>
+  );
+}
+```
+
+So, the App component imports the `Banana` component, by reading an exported function called `Banana` from the `./components/Banana.js` file.
+
+> **Note:** There is also the default export available as option, but i personally prefer the named export when i work with modules.
+
+Well, but, how about the `react-plock` library?
+
+By now you should have understood that in order to import a module, you need to specify two fundamental things. The first one is **the path to the module**, and the second one is **the name of the module**.
+
+To import an external library, our beloved `package.json` will come to our aid. It's a file that contains all the information about a library, and every library has its own `package.json`.
+
+If you have a look at the `package.json` file of the `react-plock` library, you'll see some intersting information that i will highlight for you:
+
+```json
+{
+  "name": "react-plock",
+  "main": "dist/index.js"
+}
+```
+
+Did you notice the `main` property? It's the path to the **library source code**. This is the file that will be imported when the library will be used!
+
+Sooo, returning to our question, _how the library "react-plock" is read by the project "my-project"?_ I attach again the initial example:
+
+```js
+import { Plock } from "react-plock"; // Look at me 👀!
+
+export default function App() {
+  return (
+    <div className="container">
+      <Plock />
+    </div>
+  );
+}
+```
+
+Guessed? Well, once the App.js file is included, and it evaluates the Plock import, node will look for the `package.json` file of the `react-plock` library (included in the _node_modules_ folder of your project), once it finds it, it will read the `main` property and will import the library source code!
+
+> **Note:** The `main` property can be any file generated in your library, but the most common way to do it is to use the `dist` folder.
+
+## How to publishing a JavaScript library
+
+So, now that we have the basic knowledge importing a library works, let's go to the next topic: how to publish a JavaScript library.
+
+We will create an amazing library called `gimme-a-pokemon`, and we will publish it on npm. The package will provide a function that will return a random pokemon name from an array. (Very useful 🎹)
+
+Let's start by creating the index.js file of the library. This will be our `main` file in the `package.json`, and it will contain the function that will return the pokemon name.
+
+```js
+// index.js
+module.exports = {
+  gimmeAPokemon: () => {
+    const pokemon = [
+      "Pichu",
+      "Pikachu",
+      "Raichu",
+      "Sandshrew",
+      "Sandslash",
+      "Nidorina",
+      "Nidoking",
+      "Clefairy",
+      "Clefable",
+      "Vulpix",
+    ];
+
+    return pokemon[Math.floor(Math.random() * pokemon.length)];
+  },
+};
+```
+
+The code is pretty simple, call the `gimmeAPokemon` function and return a random pokemon name.
+
+> We will skip testing the library for now, due to the fact that it's a very simple library.
+
+Now it's time to create the `package.json` file. This file will contain all the information about the library, and it will be used by npm to publish it. You can run the following command to create the `package.json` file:
+
+```bash
+$ npm init
+```
+
+The `npm init` command will create a `package.json` file in the current directory, and it will ask you some questions about the library.
+
+After the command is executed, you will have a `package.json` file in your current directory, have a look a these properties in the file:
+
+- **name**: The name of the library. _Mandatory_
+- **version**: The version of the library. _Mandatory_
+- **private**: If the library is private, it will not be available for the public. _Mandatory_
+- **main**: The path to the library's main file. _Mandatory_
+- **description**: A short description of the library. _Optional_
+- **files**: A list of files that will be included in the library. _Optional_
+- **author**: The author of the library. _Optional_
+- **license**: The license of the library. _Optional_
+- **dependencies**: A list of dependencies that the library needs. _Optional_
+
+> **Note:** There are also other keys that you can use, but there are out of the scope of this article.
+
+This is the `gimme-a-pkmn` real library example, i omitted the useless keys like `scripts`, `devDependencies`, `keywords`, etc..
+
+```json
+{
+  "name": "gimme-a-pkmn",
+  "version": "0.0.1",
+  "description": "A function to get a random pokemon name",
+  "main": "index.js",
+  "files": ["index.js"],
+  "author": "Renato <renato.pozzi.dev@gmail.com> (https://renatopozzi.me/)",
+  "license": "MIT"
+}
+```
+
+Once you have configured the file, all we need to do is to login in your npm account, and publish the library.
+
+```bash
+$ npm login
+$ npm publish
+```
+
+And that's it! The library is published on npm with the version `0.0.1` and you will be able to install it in your project.
+
+### Common Problems
+
+There are some common problems that you might encounter when publishing a JavaScript library. Be sure to check the following:
+
+- The library name must be unique, and it must be a valid npm package name.
+- You cannot publish a library version that is already published, so you need to bump the version number before publishing.
