@@ -29,7 +29,7 @@ export function Article({ children, fm }) {
       </div>
 
       <article className="w-full prose prose-lg lg:prose-xl prose-code:overflow-x-auto prose-pre:-mx-4 md:prose-pre:-mx-8 lg:prose-pre:-mx-16 prose-pre:rounded-none lg:prose-pre:rounded-lg prose-img:rounded-xl dark:prose-invert mx-auto py-12 md:py-24">
-        {children({ components: {} })}
+        {children}
       </article>
     </Main>
   );
