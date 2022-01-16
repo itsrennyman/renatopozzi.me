@@ -13,7 +13,10 @@ export function SEOData(props) {
     type: "website",
   };
 
-  const { title, description, image, type } = { ...defaults, ...props };
+  const { title, description, image, type, ...rest } = {
+    ...defaults,
+    ...props,
+  };
 
   return (
     <Head>
@@ -29,16 +32,39 @@ export function SEOData(props) {
       />
       <link rel="canonical" href={`https://renatopozzi.me${router.asPath}`} />
       <link rel="icon" type="image/png" href="/favicon.png" hrefLang="en-us" />
+
+      {/* Generic Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="Renato Pozzi" />
-      <meta property="og:description" content={description} />
-      <meta property="og:title" content={title} />
-      <meta property="og:image" content={image} />
+      <meta
+        name="description"
+        property="og:description"
+        content={description}
+      />
+      <meta name="title" property="og:title" content={title} />
+      <meta name="image" property="og:image" content={image} />
+
+      {/* Articles Open Graph */}
+      {rest.publishDate && (
+        <meta
+          name="publish_date"
+          property="og:publish_date"
+          content={rest.publishDate}
+        />
+      )}
+
+      {rest.author && (
+        <meta name="author" property="og:author" content={rest.author} />
+      )}
+
+      {/* Twitter Open Graph */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@imarenny" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+
+      {/* Google Search Console */}
       <meta
         name="google-site-verification"
         content="OTcNZRBUsfWMToQm_8s8fnmnHywpz4M2tDgcOzvLnLQ"
