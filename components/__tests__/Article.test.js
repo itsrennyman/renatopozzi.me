@@ -7,7 +7,7 @@ it("renders the article", () => {
       id="XX01"
       title="This is a title"
       thumbnail="https://via.placeholder.com/150"
-      createdAt="Today"
+      createdAt="2021-12-29T00:00:00Z"
     />
   );
 
@@ -19,7 +19,7 @@ it("renders the article", () => {
   expect(h3).toBeInTheDocument();
   expect(h3).toHaveTextContent("This is a title");
 
-  const createdAt = screen.getByText("Today");
+  const createdAt = screen.getByText("Wednesday, Dec 29, 2021");
   expect(createdAt).toBeInTheDocument();
 
   const img = screen.getByRole("img");
