@@ -53,9 +53,7 @@ export function SEOData(props) {
         />
       )}
 
-      {rest.author && (
-        <meta name="author" property="og:author" content={rest.author} />
-      )}
+      {rest.author && <meta name="author" content={rest.author} />}
 
       {/* Twitter Open Graph */}
       <meta name="twitter:card" content="summary_large_image" />
