@@ -20,6 +20,9 @@ export async function getStaticProps() {
 
   for (const file of files) {
     const { fm } = await getArticleData(file);
+
+    if (fm.isDraft) continue;
+
     articles.push({
       ...fm,
       id: file.replace(/\.mdx$/, ""),
