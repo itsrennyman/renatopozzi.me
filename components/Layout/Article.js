@@ -3,8 +3,17 @@ import { Link } from "../UI/Link";
 import { Image } from "../UI/Image";
 
 export function Article({ children, fm }) {
+  const seo = {
+    title: fm.title,
+    type: "article",
+    // image: "This should be the original vercel image but does not work",
+    description: fm.description,
+    author: fm.author,
+    publishDate: fm.createdAt,
+  };
+
   return (
-    <Main seo={{ ...fm }}>
+    <Main seo={seo}>
       <div className="space-y-4 py-16">
         <div className="max-w-5xl w-full mx-auto text-xl lg:text-2xl lg:leading-tight font-normal tracking-tight text-black dark:text-white transition duration-200">
           <Link href="/articles">
