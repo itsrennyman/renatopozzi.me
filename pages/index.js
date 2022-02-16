@@ -2,7 +2,6 @@ import { Button } from "../components/UI/Button";
 import { Container } from "../components/UI/Container";
 import { Header } from "../components/UI/Header";
 import { Subheader } from "../components/UI/Subheader";
-import { Navbar } from "../components/UI/Navbar";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 import { Title } from "../components/UI/Title";
 import { Flex } from "../components/UI/Flex";
@@ -10,6 +9,7 @@ import { Paragraph } from "../components/UI/Paragraph";
 import { Card } from "../components/UI/Card";
 import { Article } from "../components/Article";
 import { styled } from "../stitches.config";
+import { Navbar } from "../components/Navbar";
 
 export async function getStaticProps() {
   const articles = [];
@@ -62,19 +62,11 @@ const Square = styled("div", {
 export default function Home({ articles }) {
   return (
     <Container>
-      <Navbar>
-        <h1>Renato Pozzi</h1>
-        <ul>
-          <li>Articles</li>
-          <li>Snippets</li>
-          <li>About</li>
-          <Button color="secondary">Contact</Button>
-        </ul>
-      </Navbar>
+      <Navbar />
 
       <section>
         <Header css={{ marginTop: "5rem" }}>
-          I'm Ryan, a Software Engineer and interface designer.
+          I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
         </Header>
         <Subheader css={{ marginTop: "2.5rem" }}>
           I specialize in rapidly prototyping software companies and web

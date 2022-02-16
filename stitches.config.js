@@ -10,13 +10,27 @@ export const {
   createTheme,
   config,
 } = createStitches({
+  media: {
+    bp1: "(min-width: 640px)",
+    bp2: "(min-width: 768px)",
+    bp3: "(min-width: 1024px)",
+  },
   theme: {
-    media: {
-      sm: "(min-width: 640px)",
-      md: "(min-width: 768px)",
-      lg: "(min-width: 1024px)",
-    },
     colors: {
+      white100: "rgba(255, 255, 255, 0.1)",
+      white200: "rgba(255, 255, 255, 0.2)",
+      white300: "rgba(255, 255, 255, 0.3)",
+      glow100: "#b0fbbc",
+      glow200: "#82f9a1",
+      text100: "#ecf8ff",
+      text200: "#c9e2f0",
+      blue100: "#111a20",
+      blue200: "#1c2c35",
+      blue300: "#243b4a",
+      blue400: "#416833",
+      blue500: "#5e8ca7",
+    },
+    shadows: {
       glow100: "#b0fbbc",
       glow200: "#82f9a1",
       text100: "#ecf8ff",

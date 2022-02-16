@@ -10,6 +10,10 @@ const globalCssFn = globalCss({
     backgroundColor: "$blue100",
     fontFamily: "'Jost', sans-serif",
   },
+  a: {
+    textDecoration: "none",
+    color: "$blue500",
+  },
 });
 
 function MyApp({ Component, pageProps }) {

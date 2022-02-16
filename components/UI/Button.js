@@ -1,4 +1,3 @@
-import { m } from "framer-motion";
 import { styled } from "../../stitches.config";
 
 export const Button = styled("button", {
@@ -6,11 +5,11 @@ export const Button = styled("button", {
   flexDirection: "row",
   alignItems: "center",
   alignSelf: "flex-start",
-  padding: "0.25rem 0.75rem",
-  border: "2px solid rgba(124, 201, 255, 0.41)",
+  padding: "0.5rem 1rem",
+  border: "0px solid $white100",
   borderRadius: "6px",
   fontSize: "1rem",
-  fontWeight: "500",
+  fontWeight: "700",
   lineHeight: "1.5rem",
   cursor: "pointer",
   transition: "all 0.2s ease-in-out",
@@ -22,11 +21,10 @@ export const Button = styled("button", {
       },
       secondary: {
         color: "$text100",
-        backgroundColor: "transparent",
+        backgroundColor: "$white100",
 
         "&:hover": {
-          backgroundColor: "$blue300",
-          color: "$glow100",
+          boxShadow: "0 0 0 3px $blue100, 0 0 0 5px $text100",
         },
       },
     },

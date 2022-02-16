@@ -16,7 +16,7 @@ const Excerpt = styled(Paragraph, {
 
 export const Article = ({ title, excerpt }) => {
   return (
-    <Flex direction="row" css={{ marginTop: "2rem" }}>
+    <Flex as="a" href="#" direction="row" css={{ marginTop: "2rem" }}>
       <ArticleIcon
         src={"/assets/icons/javascript.svg"}
         css={{ marginTop: "4px", marginRight: "0.4rem" }}
