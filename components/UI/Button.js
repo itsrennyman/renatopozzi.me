@@ -1,10 +1,12 @@
+import { m } from "framer-motion";
 import { styled } from "../../stitches.config";
 
 export const Button = styled("button", {
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  padding: "0.25rem 2.25rem",
+  alignSelf: "flex-start",
+  padding: "0.25rem 0.75rem",
   border: "2px solid rgba(124, 201, 255, 0.41)",
   borderRadius: "6px",
   fontSize: "1rem",
