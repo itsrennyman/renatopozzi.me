@@ -10,6 +10,7 @@ import { Card } from "../components/UI/Card";
 import { Article } from "../components/Article";
 import { styled } from "../stitches.config";
 import { Navbar } from "../components/Navbar";
+import { Grid } from "../components/UI/Grid";
 
 export async function getStaticProps() {
   const articles = [];
@@ -69,9 +70,10 @@ export default function Home({ articles }) {
           I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
         </Header>
         <Subheader css={{ marginTop: "2.5rem" }}>
-          I specialize in rapidly prototyping software companies and web
-          applications. I talk about my journey on Twitter, commit code to
-          Github, and take shots on Dribbble.
+          Bringing kindness & knowledge to other people. I’m a software
+          developer currently based in Milan, Italy 🇮🇹 I used to work as a
+          Full-Stack Engineer, now I&apos;m discovering my love for Front-End
+          Engineering.
         </Subheader>
       </section>
 
@@ -87,7 +89,7 @@ export default function Home({ articles }) {
         </Flex>
 
         <Flex direction="column">
-          {dummyArticles.map((article) => (
+          {articles.map((article) => (
             <Article key={article.id} {...article} />
           ))}
         </Flex>
@@ -95,20 +97,37 @@ export default function Home({ articles }) {
 
       <section>
         <Title css={{ marginTop: "5rem" }}>Projects</Title>
+        <Grid
+          columns={{ "@initial": "1", "@bp1": "2" }}
+          gap={5}
+          css={{ marginTop: "2rem" }}
+        >
+          <Card>
+            <Flex direction="column" gap="7">
+              <Flex direction="column" gap="3">
+                <Title css={{ fontWeight: 500 }}>Aurora</Title>
+                <Paragraph>
+                  100% Cookie-Free Open Website Analytics. Collect Anonymous
+                  Data. Make your Audience Happy Now!
+                </Paragraph>
+              </Flex>
+              <Button color="secondary">Learn More</Button>
+            </Flex>
+          </Card>
 
-        <Card css={{ marginTop: "2rem" }}>
-          <Flex direction="column">
-            <Title css={{ fontWeight: 500 }}>Yawnch</Title>
-            <Paragraph css={{ marginTop: "1rem" }}>
-              An online coworking community for indie hackers, entreprenuers,
-              and founders. Chat live with app developers, designers, and
-              mentors. Access video courses and tutorials.
-            </Paragraph>
-            <Button color="secondary" css={{ marginTop: "3rem" }}>
-              Learn More
-            </Button>
-          </Flex>
-        </Card>
+          <Card>
+            <Flex direction="column" gap="7" align="baseline">
+              <Flex direction="column" gap="3">
+                <Title css={{ fontWeight: 500 }}>React Plock</Title>
+                <Paragraph>
+                  Plock is a responsive masonry layout implementation for React
+                  that uses CSS Grid to layout your content.
+                </Paragraph>
+              </Flex>
+              <Button color="secondary">Learn More</Button>
+            </Flex>
+          </Card>
+        </Grid>
       </section>
 
       <Flex
