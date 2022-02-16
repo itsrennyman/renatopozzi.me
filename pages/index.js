@@ -9,6 +9,7 @@ import { Flex } from "../components/UI/Flex";
 import { Paragraph } from "../components/UI/Paragraph";
 import { Card } from "../components/UI/Card";
 import { Article } from "../components/Article";
+import { styled } from "../stitches.config";
 
 export async function getStaticProps() {
   const articles = [];
@@ -51,6 +52,12 @@ const dummyArticles = [
     excerpt: "We will show you how to build a website with React components.",
   },
 ];
+
+const Square = styled("div", {
+  width: "20px",
+  height: "20px",
+  backgroundColor: "$blue200",
+});
 
 export default function Home({ articles }) {
   return (
@@ -111,6 +118,23 @@ export default function Home({ articles }) {
           </Flex>
         </Card>
       </section>
+
+      <Flex
+        as="footer"
+        css={{ marginTop: "5rem" }}
+        align="center"
+        justify="between"
+      >
+        <Paragraph css={{ lineHeight: "1.75rem" }}>
+          Designed and developed by Ryan Warner.
+          <br /> Built with Gatsby. Hosted on Firebase. Type set in Jost*.
+        </Paragraph>
+        <Flex gap="5">
+          <Square />
+          <Square />
+          <Square />
+        </Flex>
+      </Flex>
     </Container>
   );
 }
