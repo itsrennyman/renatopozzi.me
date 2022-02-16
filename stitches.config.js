@@ -30,14 +30,31 @@ export const {
     fontSizes: {
       header: "3rem",
       subheader: "1.125rem",
+      title: "1.5rem",
+      paragraph: "1rem",
     },
     fontWeights: {
       header: "700",
       subheader: "500",
+      title: "700",
+      paragraph: "400",
     },
     lineHeights: {
       header: "4rem",
       subheader: "2rem",
+      title: "2.25rem",
+      paragraph: "1.5rem",
+    },
+    space: {
+      1: "5px",
+      2: "10px",
+      3: "15px",
+      4: "20px",
+      5: "25px",
+      6: "35px",
+      7: "45px",
+      8: "65px",
+      9: "80px",
     },
   },
 });
