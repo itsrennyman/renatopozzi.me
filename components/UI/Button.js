@@ -26,6 +26,10 @@ export const Button = styled("button", {
         "&:hover": {
           boxShadow: "0 0 0 3px $blue100, 0 0 0 5px $text100",
         },
+
+        "&:focus": {
+          boxShadow: "0 0 0 3px $blue100, 0 0 0 5px $text100",
+        },
       },
     },
   },
