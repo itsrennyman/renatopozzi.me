@@ -16,8 +16,9 @@ export const Footer = () => {
       justify="between"
     >
       <Text size="1" color="secondary" css={{ lineHeight: "1.75rem" }}>
-        Designed and developed by Ryan Warner.
-        <br /> Built with Gatsby. Hosted on Firebase. Type set in Jost*.
+        Copyright © {new Date().getFullYear()} Renato Pozzi
+        <br /> Inspired By Ryan Warner Design. Built with Next.js. Hosted on
+        Vercel.
       </Text>
       <Flex gap="5">
         <Square />
