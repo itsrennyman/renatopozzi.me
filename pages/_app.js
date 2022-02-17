@@ -7,6 +7,7 @@ const globalCssFn = globalCss({
   "*": {
     margin: "0",
     padding: "0",
+    outline: "none",
   },
   body: {
     backgroundColor: "$blue100",
