@@ -1,13 +1,6 @@
 import { Article } from "../components/Article";
 import { Project } from "../components/Project";
-import {
-  Flex,
-  Grid,
-  Header,
-  Paragraph,
-  Subheader,
-  Title,
-} from "../components/UI";
+import { Flex, Grid, Text } from "../components/UI";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -38,15 +31,15 @@ export default function Home({ articles }) {
   return (
     <>
       <section>
-        <Header css={{ marginTop: "5rem" }}>
+        <Text as="h1" color="glowing" size="4" css={{ marginTop: "5rem" }}>
           I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
-        </Header>
-        <Subheader css={{ marginTop: "2.5rem" }}>
+        </Text>
+        <Text size="2" css={{ marginTop: "2.5rem" }}>
           Bringing kindness & knowledge to other people. I’m a software
           developer currently based in Milan, Italy 🇮🇹 I used to work as a
           Full-Stack Engineer, now I&apos;m discovering my love for Front-End
           Engineering.
-        </Subheader>
+        </Text>
       </section>
 
       <section>
@@ -56,8 +49,10 @@ export default function Home({ articles }) {
           justify="between"
           css={{ marginTop: "5rem" }}
         >
-          <Title>Latest Articles</Title>
-          <Paragraph>All Articles</Paragraph>
+          <Text size="3">Latest Articles</Text>
+          <Text size="1" color="secondary">
+            All Articles
+          </Text>
         </Flex>
 
         <Flex direction="column">
@@ -68,7 +63,9 @@ export default function Home({ articles }) {
       </section>
 
       <section>
-        <Title css={{ marginTop: "5rem" }}>Projects</Title>
+        <Text size="3" css={{ marginTop: "5rem" }}>
+          Projects
+        </Text>
         <Grid
           columns={{ "@initial": "1", "@bp1": "2" }}
           gap={5}

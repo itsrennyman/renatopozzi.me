@@ -12,8 +12,6 @@ export const {
 } = createStitches({
   media: {
     bp1: "(min-width: 640px)",
-    bp2: "(min-width: 768px)",
-    bp3: "(min-width: 1024px)",
   },
   theme: {
     colors: {
@@ -40,24 +38,6 @@ export const {
       blue300: "#243b4a",
       blue400: "#416833",
       blue500: "#5e8ca7",
-    },
-    fontSizes: {
-      header: "3rem",
-      subheader: "1.125rem",
-      title: "1.5rem",
-      paragraph: "1rem",
-    },
-    fontWeights: {
-      header: "700",
-      subheader: "500",
-      title: "700",
-      paragraph: "400",
-    },
-    lineHeights: {
-      header: "4rem",
-      subheader: "2rem",
-      title: "2.25rem",
-      paragraph: "1.5rem",
     },
     space: {
       1: "5px",

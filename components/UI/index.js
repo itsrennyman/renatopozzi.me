@@ -5,6 +5,7 @@ import { Grid } from "./Grid";
 import { Header } from "./Header";
 import { Paragraph } from "./Paragraph";
 import { Subheader } from "./Subheader";
+import { Text } from "./Text";
 import { Title } from "./Title";
 
-export { Flex, Grid, Paragraph, Title, Button, Card, Header, Subheader };
+export { Flex, Grid, Paragraph, Title, Button, Card, Header, Subheader, Text };

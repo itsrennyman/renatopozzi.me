@@ -1,6 +1,5 @@
 import { styled } from "../../stitches.config";
-import { Flex } from "../UI/Flex";
-import { Paragraph } from "../UI/Paragraph";
+import { Flex, Text } from "../UI";
 
 const Square = styled("div", {
   width: "20px",
@@ -16,10 +15,10 @@ export const Footer = () => {
       align="center"
       justify="between"
     >
-      <Paragraph css={{ lineHeight: "1.75rem" }}>
+      <Text size="1" color="secondary" css={{ lineHeight: "1.75rem" }}>
         Designed and developed by Ryan Warner.
         <br /> Built with Gatsby. Hosted on Firebase. Type set in Jost*.
-      </Paragraph>
+      </Text>
       <Flex gap="5">
         <Square />
         <Square />

@@ -1,6 +1,5 @@
-import { Flex, Header, Paragraph, Subheader } from "../../components/UI";
+import { Flex, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
-import { styled } from "../../stitches.config";
 
 export async function getStaticProps() {
   const articles = [];
@@ -24,30 +23,20 @@ export async function getStaticProps() {
   };
 }
 
-const ArticleIcon = styled("img", {
-  height: "22px",
-  width: "22px",
-});
-
-const Title = styled(Subheader, {
-  fontSize: "1.625rem",
-});
-
-const Excerpt = styled(Paragraph, {
-  color: "$blue500",
-  maxWidth: "65ch",
-});
-
 export const Article = ({ title, description }) => {
   const excerpt = description.split(" ").slice(0, 20).join(" ") + "...";
 
   return (
     <Flex direction="column" gap="4">
-      <Paragraph css={{ color: "$blue500", fontSize: "0.9rem" }}>
-        08 September 2021
-      </Paragraph>
-      <Title>{title}</Title>
-      <Excerpt>{excerpt}</Excerpt>
+      <Flex direction="column" gap="2">
+        <Text size="1" color="tertiary" css={{ fontSize: "0.9rem" }}>
+          08 September 2021
+        </Text>
+        <Text size="3">{title}</Text>
+      </Flex>
+      <Text size="1" color="secondary" css={{ maxWidth: "65ch" }}>
+        {excerpt}
+      </Text>
     </Flex>
   );
 };
@@ -56,7 +45,9 @@ export default function Home({ articles }) {
   return (
     <>
       <section>
-        <Header css={{ marginTop: "5rem" }}>Articles</Header>
+        <Text size="4" color="glowing" css={{ marginTop: "5rem" }}>
+          Articles
+        </Text>
       </section>
 
       <section>
