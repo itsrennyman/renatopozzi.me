@@ -12,7 +12,7 @@ const globalCssFn = globalCss({
   },
   a: {
     textDecoration: "none",
-    color: "$blue500",
+    color: "inherit",
   },
 });
 
