@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import { Article } from "../components/Article";
 import { Project } from "../components/Project";
 import { Flex, Grid, Text } from "../components/UI";
@@ -50,8 +51,8 @@ export default function Home({ articles }) {
           css={{ marginTop: "5rem" }}
         >
           <Text size="3">Latest Articles</Text>
-          <Text size="1" color="secondary">
-            All Articles
+          <Text size="1" color="secondary" css={{ cursor: "pointer" }}>
+            <NextLink href="/articles"> All Articles</NextLink>
           </Text>
         </Flex>
 
