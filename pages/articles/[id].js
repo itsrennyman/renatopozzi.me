@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
-import { Article } from "../../components/Layout/Article";
 import { Code } from "../../components/MDX/Code";
+import { Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export function getStaticPaths() {
@@ -28,10 +28,37 @@ export async function getStaticProps(context) {
   };
 }
 
+const Paragraph = (props) => (
+  <Text
+    as="p"
+    size="1"
+    css={{ marginTop: "1.2rem", marginBottom: "1.2rem" }}
+    {...props}
+  />
+);
+const H1 = (props) => <Text as="h1" size="4" {...props} />;
+const H2 = (props) => (
+  <Text
+    as="h2"
+    size="3"
+    css={{ marginTop: "1.5555556em", marginBottom: "0.8888889em" }}
+    {...props}
+  />
+);
+
 export default function Show({ content, fm }) {
   return (
-    <Article fm={fm}>
-      <MDXRemote {...content} components={{ code: Code }} />
-    </Article>
+    <>
+      <section>
+        <Text as="h1" color="glowing" size="4" css={{ marginTop: "5rem" }}>
+          {fm.title}
+        </Text>
+      </section>
+
+      <MDXRemote
+        {...content}
+        components={{ code: Code, p: Paragraph, h1: H1, h2: H2 }}
+      />
+    </>
   );
 }
