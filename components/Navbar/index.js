@@ -1,3 +1,4 @@
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import NextLink from "next/link";
 import * as React from "react";
 import { styled } from "../../stitches.config";
@@ -14,6 +15,15 @@ const Item = styled(Text, {
   lineHeight: "1.375rem",
 });
 
+const NavbarContainer = styled("nav", {
+  maxWidth: "769px",
+  margin: "0 auto",
+
+  "@bp1": {
+    padding: "3.75rem 1.5rem",
+  },
+});
+
 const DesktopNavbar = styled(Flex, {
   display: "none",
 
@@ -26,6 +36,7 @@ const MobileNavbar = styled(Flex, {
   display: "flex",
   paddingBottom: "1.5rem",
   borderBottom: "1px solid $white100",
+  padding: "1.5rem",
 
   "@bp1": {
     display: "none",
@@ -36,7 +47,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <nav>
+    <NavbarContainer>
       <DesktopNavbar
         direction="row"
         align="center"
@@ -88,8 +99,12 @@ export const Navbar = () => {
       <MobileNavbar direction="column" css={{ color: "$text100" }} gap="5">
         <Flex justify="between" align="center">
           <Logo>Renato Pozzi</Logo>
-          <Button color="secondary" onClick={() => setIsOpen((prev) => !prev)}>
-            Open
+          <Button
+            color="secondary"
+            css={{ padding: "0.75rem" }}
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            <HamburgerMenuIcon />
           </Button>
         </Flex>
 
@@ -126,6 +141,6 @@ export const Navbar = () => {
           </Flex>
         )}
       </MobileNavbar>
-    </nav>
+    </NavbarContainer>
   );
 };

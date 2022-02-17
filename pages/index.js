@@ -32,7 +32,7 @@ export default function Home({ articles }) {
   return (
     <>
       <section>
-        <Text as="h1" color="glowing" size="4" css={{ marginTop: "5rem" }}>
+        <Text as="h1" color="glowing" size="4" css={{ marginTop: "1.25rem" }}>
           I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
         </Text>
         <Text size="2" css={{ marginTop: "2.5rem" }}>

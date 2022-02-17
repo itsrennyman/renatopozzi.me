@@ -23,11 +23,13 @@ function MyApp({ Component, pageProps }) {
   globalCssFn();
 
   return (
-    <Container>
+    <>
       <Navbar />
-      <Component {...pageProps} />
-      <Footer />
-    </Container>
+      <Container>
+        <Component {...pageProps} />
+        <Footer />
+      </Container>
+    </>
   );
 }
 
