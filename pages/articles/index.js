@@ -1,6 +1,6 @@
-import { Main } from "../../components/Layout/Main";
-import { Article } from "../../components/UI/Article";
+import { Flex, Header, Paragraph, Subheader } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
+import { styled } from "../../stitches.config";
 
 export async function getStaticProps() {
   const articles = [];
@@ -24,31 +24,48 @@ export async function getStaticProps() {
   };
 }
 
-export default function Index({ articles }) {
-  const seo = {
-    title: "Renato Pozzi | Articles",
-    description:
-      "I have written full of value articles, please take a look if you are interested in learning something new.",
-  };
+const ArticleIcon = styled("img", {
+  height: "22px",
+  width: "22px",
+});
+
+const Title = styled(Subheader, {
+  fontSize: "1.625rem",
+});
+
+const Excerpt = styled(Paragraph, {
+  color: "$blue500",
+  maxWidth: "65ch",
+});
+
+export const Article = ({ title, description }) => {
+  const excerpt = description.split(" ").slice(0, 20).join(" ") + "...";
 
   return (
-    <Main seo={seo}>
-      <section className="flex flex-col w-full py-24">
-        <div className="mb-24 space-y-8">
-          <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
-            Articles
-          </h1>
-          <h2 className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl leading-snug md:leading-tight text-3xl md:text-4xl">
-            I wrote articles full of values, please have a look at them if you
-            are interested in learning something new.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <Flex direction="column" gap="4">
+      <Paragraph css={{ color: "$blue500", fontSize: "0.9rem" }}>
+        08 September 2021
+      </Paragraph>
+      <Title>{title}</Title>
+      <Excerpt>{excerpt}</Excerpt>
+    </Flex>
+  );
+};
+
+export default function Home({ articles }) {
+  return (
+    <>
+      <section>
+        <Header css={{ marginTop: "5rem" }}>Articles</Header>
+      </section>
+
+      <section>
+        <Flex direction="column" gap="8" css={{ marginTop: "4rem" }}>
           {articles.map((article) => (
             <Article key={article.id} {...article} />
           ))}
-        </div>
+        </Flex>
       </section>
-    </Main>
+    </>
   );
 }

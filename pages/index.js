@@ -1,11 +1,13 @@
 import { Article } from "../components/Article";
 import { Project } from "../components/Project";
-import { Flex } from "../components/UI/Flex";
-import { Grid } from "../components/UI/Grid";
-import { Header } from "../components/UI/Header";
-import { Paragraph } from "../components/UI/Paragraph";
-import { Subheader } from "../components/UI/Subheader";
-import { Title } from "../components/UI/Title";
+import {
+  Flex,
+  Grid,
+  Header,
+  Paragraph,
+  Subheader,
+  Title,
+} from "../components/UI";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 
 export async function getStaticProps() {
