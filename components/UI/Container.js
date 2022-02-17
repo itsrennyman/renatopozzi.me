@@ -8,6 +8,6 @@ export const Container = styled("div", {
   padding: "1.5rem",
 
   "@bp1": {
-    padding: "3.75rem 1rem",
+    padding: "3.75rem 1.5rem",
   },
 });
