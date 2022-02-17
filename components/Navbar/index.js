@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { styled } from "../../stitches.config";
-import { Button, Flex, Text } from "../UI";
+import { Button, Flex, Link } from "../UI";
 
 const Logo = styled("h1", {
   fontSize: "1.125rem",
@@ -8,7 +8,7 @@ const Logo = styled("h1", {
   lineHeight: "1.5rem",
 });
 
-const Item = styled(Text, {
+const Item = styled(Link, {
   fontWeight: "500",
   lineHeight: "1.375rem",
 });
@@ -30,16 +30,16 @@ export const Navbar = () => {
         gap="5"
         css={{ listStyle: "none" }}
       >
-        <Item as="li" size="1">
+        <Item as="li" size="1" animation="underlining">
           <NextLink href="/">Home</NextLink>
         </Item>
-        <Item as="li" size="1">
+        <Item as="li" size="1" animation="underlining">
           <NextLink href="/articles">Articles</NextLink>
         </Item>
-        <Item as="li" size="1">
+        <Item as="li" size="1" animation="underlining">
           <NextLink href="/dashboard">Dashboard</NextLink>
         </Item>
-        <Item as="li" size="1">
+        <Item as="li" size="1" animation="underlining">
           <NextLink href="/about">About</NextLink>
         </Item>
         <Button color="secondary">Contact</Button>

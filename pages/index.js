@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { Article } from "../components/Article";
 import { Project } from "../components/Project";
-import { Flex, Grid, Text } from "../components/UI";
+import { Flex, Grid, Link, Text } from "../components/UI";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -51,9 +51,12 @@ export default function Home({ articles }) {
           css={{ marginTop: "5rem" }}
         >
           <Text size="3">Latest Articles</Text>
-          <Text size="1" color="secondary" css={{ cursor: "pointer" }}>
-            <NextLink href="/articles"> All Articles</NextLink>
-          </Text>
+
+          <NextLink href="/articles">
+            <Link size="1" color="secondary" animation="underlining">
+              View all
+            </Link>
+          </NextLink>
         </Flex>
 
         <Flex direction="column">
