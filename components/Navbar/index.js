@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import * as React from "react";
 import { styled } from "../../stitches.config";
 import { Button, Flex, Link, Text } from "../UI";
 
@@ -13,55 +14,118 @@ const Item = styled(Text, {
   lineHeight: "1.375rem",
 });
 
+const DesktopNavbar = styled(Flex, {
+  display: "none",
+
+  "@bp1": {
+    display: "flex",
+  },
+});
+
+const MobileNavbar = styled(Flex, {
+  display: "flex",
+  paddingBottom: "1.5rem",
+  borderBottom: "1px solid $white100",
+
+  "@bp1": {
+    display: "none",
+  },
+});
+
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
-    <Flex
-      as="nav"
-      direction="row"
-      align="center"
-      justify="between"
-      css={{ color: "$text100" }}
-    >
-      <Logo>Renato Pozzi</Logo>
-      <Flex
-        as="ul"
+    <nav>
+      <DesktopNavbar
         direction="row"
         align="center"
-        gap="5"
-        css={{ listStyle: "none" }}
+        justify="between"
+        css={{ color: "$text100" }}
       >
-        <li>
-          <NextLink href="/" passHref>
-            <Link animation="underlining">
-              <Item size="1">Home</Item>
-            </Link>
-          </NextLink>
-        </li>
-        <li>
-          <NextLink href="/articles" passHref>
-            <Link animation="underlining">
-              <Item size="1">Articles</Item>
-            </Link>
-          </NextLink>
-        </li>
-        <li>
-          <NextLink href="/dashboard" passHref>
-            <Link animation="underlining">
-              <Item size="1">Dashboard</Item>
-            </Link>
-          </NextLink>
-        </li>
-        <li>
-          <NextLink href="/about" passHref>
-            <Link animation="underlining">
-              <Item size="1">About</Item>
-            </Link>
-          </NextLink>
-        </li>
-        <li>
-          <Button color="secondary">Contact</Button>
-        </li>
-      </Flex>
-    </Flex>
+        <Logo>Renato Pozzi</Logo>
+        <Flex
+          as="ul"
+          direction="row"
+          align="center"
+          gap="5"
+          css={{ listStyle: "none" }}
+        >
+          <li>
+            <NextLink href="/" passHref>
+              <Link animation="underlining">
+                <Item size="1">Home</Item>
+              </Link>
+            </NextLink>
+          </li>
+          <li>
+            <NextLink href="/articles" passHref>
+              <Link animation="underlining">
+                <Item size="1">Articles</Item>
+              </Link>
+            </NextLink>
+          </li>
+          <li>
+            <NextLink href="/dashboard" passHref>
+              <Link animation="underlining">
+                <Item size="1">Dashboard</Item>
+              </Link>
+            </NextLink>
+          </li>
+          <li>
+            <NextLink href="/about" passHref>
+              <Link animation="underlining">
+                <Item size="1">About</Item>
+              </Link>
+            </NextLink>
+          </li>
+          <li>
+            <Button color="secondary">Contact</Button>
+          </li>
+        </Flex>
+      </DesktopNavbar>
+
+      <MobileNavbar direction="column" css={{ color: "$text100" }} gap="5">
+        <Flex justify="between" align="center">
+          <Logo>Renato Pozzi</Logo>
+          <Button color="secondary" onClick={() => setIsOpen((prev) => !prev)}>
+            Open
+          </Button>
+        </Flex>
+
+        {isOpen && (
+          <Flex as="ul" direction="column" gap="4" css={{ listStyle: "none" }}>
+            <li>
+              <NextLink href="/" passHref>
+                <Link animation="underlining">
+                  <Item size="1">Home</Item>
+                </Link>
+              </NextLink>
+            </li>
+            <li>
+              <NextLink href="/articles" passHref>
+                <Link animation="underlining">
+                  <Item size="1">Articles</Item>
+                </Link>
+              </NextLink>
+            </li>
+            <li>
+              <NextLink href="/dashboard" passHref>
+                <Link animation="underlining">
+                  <Item size="1">Dashboard</Item>
+                </Link>
+              </NextLink>
+            </li>
+            <li>
+              <NextLink href="/about" passHref>
+                <Link animation="underlining">
+                  <Item size="1">About</Item>
+                </Link>
+              </NextLink>
+            </li>
+          </Flex>
+        )}
+      </MobileNavbar>
+    </nav>
   );
 };
