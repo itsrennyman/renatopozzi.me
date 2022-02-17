@@ -1,18 +1,10 @@
 import NextLink from "next/link";
 import { styled } from "../../stitches.config";
-import { Flex } from "../UI/Flex";
-import { Paragraph } from "../UI/Paragraph";
-import { Subheader } from "../UI/Subheader";
+import { Flex, Text } from "../UI";
 
 const ArticleIcon = styled("img", {
   height: "22px",
   width: "22px",
-});
-
-const Title = styled(Subheader, {});
-
-const Excerpt = styled(Paragraph, {
-  color: "$blue500",
 });
 
 export const Article = ({ id, title, description }) => {
@@ -30,8 +22,10 @@ export const Article = ({ id, title, description }) => {
           css={{ marginTop: "4px", marginRight: "0.4rem" }}
         />
         <Flex direction="column" align="stretch">
-          <Title>{title}</Title>
-          <Excerpt>{excerpt}</Excerpt>
+          <Text size="2">{title}</Text>
+          <Text size="1" color="tertiary">
+            {excerpt}
+          </Text>
         </Flex>
       </Flex>
     </NextLink>
