@@ -1,5 +1,8 @@
 //import '../styles/globals.css'
 import { globalCss } from "../stitches.config";
+import { Container } from "../components/UI/Container";
+import { Navbar } from "../components/Navbar";
+import { Footer } from "../components/Footer";
 
 const globalCssFn = globalCss({
   "*": {
@@ -18,7 +21,13 @@ const globalCssFn = globalCss({
 
 function MyApp({ Component, pageProps }) {
   globalCssFn();
-  return <Component {...pageProps} />;
+  return (
+    <Container>
+      <Navbar />
+      <Component {...pageProps} />
+      <Footer />
+    </Container>
+  );
 }
 
 export default MyApp;
