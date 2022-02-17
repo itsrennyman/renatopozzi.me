@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { styled } from "../../stitches.config";
-import { Button, Flex, Link } from "../UI";
+import { Button, Flex, Link, Text } from "../UI";
 
 const Logo = styled("h1", {
   fontSize: "1.125rem",
@@ -8,7 +8,7 @@ const Logo = styled("h1", {
   lineHeight: "1.5rem",
 });
 
-const Item = styled(Link, {
+const Item = styled(Text, {
   fontWeight: "500",
   lineHeight: "1.375rem",
 });
@@ -30,19 +30,37 @@ export const Navbar = () => {
         gap="5"
         css={{ listStyle: "none" }}
       >
-        <Item as="li" size="1" animation="underlining">
-          <NextLink href="/">Home</NextLink>
-        </Item>
-        <Item as="li" size="1" animation="underlining">
-          <NextLink href="/articles">Articles</NextLink>
-        </Item>
-        <Item as="li" size="1" animation="underlining">
-          <NextLink href="/dashboard">Dashboard</NextLink>
-        </Item>
-        <Item as="li" size="1" animation="underlining">
-          <NextLink href="/about">About</NextLink>
-        </Item>
-        <Button color="secondary">Contact</Button>
+        <li>
+          <NextLink href="/" passHref>
+            <Link animation="underlining">
+              <Item size="1">Home</Item>
+            </Link>
+          </NextLink>
+        </li>
+        <li>
+          <NextLink href="/articles" passHref>
+            <Link animation="underlining">
+              <Item size="1">Articles</Item>
+            </Link>
+          </NextLink>
+        </li>
+        <li>
+          <NextLink href="/dashboard" passHref>
+            <Link animation="underlining">
+              <Item size="1">Dashboard</Item>
+            </Link>
+          </NextLink>
+        </li>
+        <li>
+          <NextLink href="/about" passHref>
+            <Link animation="underlining">
+              <Item size="1">About</Item>
+            </Link>
+          </NextLink>
+        </li>
+        <li>
+          <Button color="secondary">Contact</Button>
+        </li>
       </Flex>
     </Flex>
   );

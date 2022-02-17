@@ -52,9 +52,11 @@ export default function Home({ articles }) {
         >
           <Text size="3">Latest Articles</Text>
 
-          <NextLink href="/articles">
-            <Link size="1" color="secondary" animation="underlining">
-              View all
+          <NextLink href="/articles" passHref>
+            <Link animation="underlining">
+              <Text size="1" color="secondary">
+                View all
+              </Text>
             </Link>
           </NextLink>
         </Flex>
