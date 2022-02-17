@@ -1,8 +1,6 @@
 import { styled } from "../../stitches.config";
-import { Text } from "./Text";
 
-export const Link = styled(Text, {
-  as: "a",
+export const Link = styled("a", {
   display: "inline-block",
   position: "relative",
   cursor: "pointer",
@@ -25,6 +23,13 @@ export const Link = styled(Text, {
         },
 
         "&:hover": {
+          "&::after": {
+            transform: "scaleX(1)",
+            transformOrigin: "bottom left",
+          },
+        },
+
+        "&:focus": {
           "&::after": {
             transform: "scaleX(1)",
             transformOrigin: "bottom left",
