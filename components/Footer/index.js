@@ -35,17 +35,17 @@ export const Footer = () => {
           href="https://twitter.com/imarenny"
           target="_blank"
           rel="noopener noreferrer"
-          alt="Twitter"
+          alt="Go To Twitter Profile"
         >
-          <FooterIcon src={"/assets/icons/twitter.svg"} />
+          <FooterIcon alt="Twitter Icon" src={"/assets/icons/twitter.svg"} />
         </Link>
         <Link
           href="https://github.com/itsrennyman"
           target="_blank"
           rel="noopener noreferrer"
-          alt="Github"
+          alt="Go To Github Profile"
         >
-          <FooterIcon src={"/assets/icons/github.svg"} />
+          <FooterIcon alt="Github Icon" src={"/assets/icons/github.svg"} />
         </Link>
       </Flex>
     </FooterContainer>
