@@ -40,11 +40,11 @@ export default function Home({ articles }) {
 
   return (
     <>
-      <Flex as="section" direction="column">
+      <Flex as="section" direction="column" gap="6">
         <Text as="h1" color="glowing" size="4">
           I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
         </Text>
-        <Text size="2" css={{ marginTop: "2.5rem" }}>
+        <Text size="2">
           Bringing kindness & knowledge to other people. I’m a software
           developer currently based in Milan, Italy 🇮🇹 I used to work as a
           Full-Stack Engineer, now I&apos;m discovering my love for Front-End
@@ -52,8 +52,8 @@ export default function Home({ articles }) {
         </Text>
       </Flex>
 
-      <Flex direction="column">
-        <Flex align="center" justify="between" css={{ marginTop: "5rem" }}>
+      <Flex direction="column" gap="5" css={{ marginTop: "5rem" }}>
+        <Flex align="center" justify="between">
           <Text size="3">Latest Articles</Text>
           <NextLink href="/articles" passHref>
             <Link animation="underlining">
@@ -63,8 +63,9 @@ export default function Home({ articles }) {
             </Link>
           </NextLink>
         </Flex>
-
-        <Flex direction="column">{articlesList}</Flex>
+        <Flex direction="column" gap="5">
+          {articlesList}
+        </Flex>
       </Flex>
 
       <Flex direction="column" gap="5" css={{ marginTop: "5rem" }}>
