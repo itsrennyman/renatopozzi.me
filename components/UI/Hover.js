@@ -1,8 +1,7 @@
-import { Flex } from ".";
 import { styled } from "../../stitches.config";
+import { Flex } from "./Flex";
 
 export const Hover = styled(Flex, {
-  display: "flex",
   position: "relative",
 
   "&::before": {

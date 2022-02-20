@@ -2,7 +2,7 @@ import NextLink from "next/link";
 import { Article } from "../components/Article";
 import { Project } from "../components/Project";
 import { Flex, Grid, Link, Text } from "../components/UI";
-import dataProjects from "../lib/data/projects";
+import projects from "../lib/data/projects";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -30,9 +30,17 @@ export async function getStaticProps() {
 }
 
 export default function Home({ articles }) {
+  const articlesList = articles.map((article) => {
+    return <Article key={article.id} {...article} />;
+  });
+
+  const projectsList = projects.map((project, index) => {
+    return <Project key={index} {...project} />;
+  });
+
   return (
     <>
-      <section>
+      <Flex as="section" direction="column">
         <Text as="h1" color="glowing" size="4">
           I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
         </Text>
@@ -42,17 +50,11 @@ export default function Home({ articles }) {
           Full-Stack Engineer, now I&apos;m discovering my love for Front-End
           Engineering.
         </Text>
-      </section>
+      </Flex>
 
-      <section>
-        <Flex
-          direction="row"
-          align="center"
-          justify="between"
-          css={{ marginTop: "5rem" }}
-        >
+      <Flex direction="column">
+        <Flex align="center" justify="between" css={{ marginTop: "5rem" }}>
           <Text size="3">Latest Articles</Text>
-
           <NextLink href="/articles" passHref>
             <Link animation="underlining">
               <Text size="1" color="secondary">
@@ -62,27 +64,15 @@ export default function Home({ articles }) {
           </NextLink>
         </Flex>
 
-        <Flex direction="column">
-          {articles.map((article) => (
-            <Article key={article.id} {...article} />
-          ))}
-        </Flex>
-      </section>
+        <Flex direction="column">{articlesList}</Flex>
+      </Flex>
 
-      <section>
-        <Text size="3" css={{ marginTop: "5rem" }}>
-          Projects
-        </Text>
-        <Grid
-          columns={{ "@initial": "1", "@bp1": "2" }}
-          gap={5}
-          css={{ marginTop: "2rem" }}
-        >
-          {dataProjects.map((project, index) => (
-            <Project key={index} {...project} />
-          ))}
+      <Flex direction="column" gap="5" css={{ marginTop: "5rem" }}>
+        <Text size="3">Projects</Text>
+        <Grid columns={{ "@initial": "1", "@bp1": "2" }} gap={5}>
+          {projectsList}
         </Grid>
-      </section>
+      </Flex>
     </>
   );
 }

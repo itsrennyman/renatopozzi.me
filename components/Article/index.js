@@ -12,11 +12,7 @@ export const Article = ({ id, title, description }) => {
 
   return (
     <NextLink href="/articles/[id]" as={`/articles/${id}`} passHref>
-      <Hover
-        as="a"
-        direction="row"
-        css={{ marginTop: "2rem", cursor: "pointer" }}
-      >
+      <Hover as="a" css={{ marginTop: "2rem", cursor: "pointer" }}>
         <ArticleIcon
           src={"/assets/icons/javascript.svg"}
           css={{ marginTop: "4px", marginRight: "0.4rem" }}
