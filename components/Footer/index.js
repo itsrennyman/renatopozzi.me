@@ -7,11 +7,21 @@ const Square = styled("div", {
   backgroundColor: "$blue200",
 });
 
+const FooterContainer = styled(Flex, {
+  maxWidth: "769px",
+  margin: "0 auto",
+  padding: "1.5rem 1.5rem",
+
+  "@bp1": {
+    padding: "3.75rem 0",
+  },
+});
+
 export const Footer = () => {
   return (
-    <Flex
+    <FooterContainer
       as="footer"
-      css={{ marginTop: "5rem" }}
+      //css={{ marginTop: "5rem" }}
       align="center"
       justify="between"
     >
@@ -25,6 +35,6 @@ export const Footer = () => {
         <Square />
         <Square />
       </Flex>
-    </Flex>
+    </FooterContainer>
   );
 };
