@@ -31,12 +31,14 @@ export async function getStaticProps(context) {
 const Paragraph = (props) => (
   <Text
     as="p"
-    size="1"
-    css={{ marginTop: "1.2rem", marginBottom: "1.2rem" }}
+    size="2"
+    css={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}
     {...props}
   />
 );
-const H1 = (props) => <Text as="h1" size="4" {...props} />;
+const H1 = (props) => (
+  <Text as="h1" size="4" {...props} css={{ marginBottom: "2rem" }} />
+);
 const H2 = (props) => (
   <Text
     as="h2"
@@ -50,7 +52,7 @@ export default function Show({ content, fm }) {
   return (
     <>
       <section>
-        <Text as="h1" color="glowing" size="4" css={{ marginTop: "5rem" }}>
+        <Text as="h1" color="glowing" size="4" css={{ marginBottom: "2rem" }}>
           {fm.title}
         </Text>
       </section>

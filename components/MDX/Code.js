@@ -31,9 +31,11 @@ export function Code({ className, children, ...props }) {
       PreTag="div"
       style={a11yDark}
       customStyle={{
-        padding: 0,
+        margin: "1.5rem 0",
+        padding: "1rem",
         borderRadius: 0,
         background: "rgba(0,0,0,0.1)",
+        fontSize: "1rem",
       }}
       lineNumberStyle={{
         color: "rgba(255,255,255,0.7)",

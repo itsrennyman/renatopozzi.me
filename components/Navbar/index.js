@@ -84,13 +84,6 @@ export const Navbar = () => {
             </NextLink>
           </li>
           <li>
-            <NextLink href="/about" passHref>
-              <Link animation="underlining">
-                <Item size="1">About</Item>
-              </Link>
-            </NextLink>
-          </li>
-          <li>
             <Button color="secondary">Contact</Button>
           </li>
         </Flex>
@@ -128,13 +121,6 @@ export const Navbar = () => {
               <NextLink href="/dashboard" passHref>
                 <Link animation="underlining">
                   <Item size="1">Dashboard</Item>
-                </Link>
-              </NextLink>
-            </li>
-            <li>
-              <NextLink href="/about" passHref>
-                <Link animation="underlining">
-                  <Item size="1">About</Item>
                 </Link>
               </NextLink>
             </li>
