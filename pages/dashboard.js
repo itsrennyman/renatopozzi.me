@@ -1,10 +1,10 @@
 import { Counter } from "../components/Counter";
 import { Stats } from "../components/Stats";
-import { Grid, Text } from "../components/UI";
+import { Container, Grid, Text } from "../components/UI";
 
-export default function Dashboard({ articles }) {
+export default function Dashboard() {
   return (
-    <>
+    <Container>
       <section>
         <Text as="h1" color="glowing" size="4">
           Dashboard
@@ -47,6 +47,6 @@ export default function Dashboard({ articles }) {
           />
         </Grid>
       </section>
-    </>
+    </Container>
   );
 }

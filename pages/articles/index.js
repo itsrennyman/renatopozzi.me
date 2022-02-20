@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { Flex, Hover, Text } from "../../components/UI";
+import { Container, Flex, Hover, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -50,7 +50,7 @@ export default function Home({ articles }) {
   });
 
   return (
-    <>
+    <Container>
       <section>
         <Text size="4" color="glowing">
           Articles
@@ -62,6 +62,6 @@ export default function Home({ articles }) {
           {articlesList}
         </Flex>
       </section>
-    </>
+    </Container>
   );
 }
