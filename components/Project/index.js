@@ -1,6 +1,6 @@
 import { Button, Card, Flex, Text } from "../UI";
 
-export const Project = ({ title, description, href }) => {
+export const Project = ({ title, description, href, alt }) => {
   return (
     <Card>
       <Flex direction="column" gap="7" align="baseline">
@@ -12,7 +12,7 @@ export const Project = ({ title, description, href }) => {
             {description}
           </Text>
         </Flex>
-        <Button as="a" href={href} color="secondary">
+        <Button as="a" alt={alt} href={href} color="secondary">
           Learn More
         </Button>
       </Flex>

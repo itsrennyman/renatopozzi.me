@@ -35,6 +35,7 @@ export const Footer = () => {
           href="https://twitter.com/imarenny"
           target="_blank"
           rel="noopener noreferrer"
+          alt="Twitter"
         >
           <FooterIcon src={"/assets/icons/twitter.svg"} />
         </Link>
@@ -42,6 +43,7 @@ export const Footer = () => {
           href="https://github.com/itsrennyman"
           target="_blank"
           rel="noopener noreferrer"
+          alt="Github"
         >
           <FooterIcon src={"/assets/icons/github.svg"} />
         </Link>

@@ -91,6 +91,7 @@ export const Navbar = () => {
           <Logo>Renato Pozzi</Logo>
           <Button
             color="secondary"
+            aria-label="Toggle Menu"
             css={{ padding: "0.75rem" }}
             onClick={() => setIsOpen((prev) => !prev)}
           >

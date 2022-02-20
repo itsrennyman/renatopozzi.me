@@ -15,6 +15,7 @@ export const Article = ({ id, title, description }) => {
       <Hover as="a">
         <ArticleIcon
           src={"/assets/icons/javascript.svg"}
+          alt="JavaScript"
           css={{ marginTop: "4px", marginRight: "0.4rem" }}
         />
         <Flex direction="column" align="stretch">
