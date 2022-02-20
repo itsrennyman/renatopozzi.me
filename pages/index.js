@@ -2,6 +2,7 @@ import NextLink from "next/link";
 import { Article } from "../components/Article";
 import { Project } from "../components/Project";
 import { Flex, Grid, Link, Text } from "../components/UI";
+import dataProjects from "../lib/data/projects";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -77,18 +78,9 @@ export default function Home({ articles }) {
           gap={5}
           css={{ marginTop: "2rem" }}
         >
-          <Project
-            title="Aurora"
-            description="100% Cookie-Free Open Website Analytics. Collect Anonymous
-            Data. Make your Audience Happy Now!"
-            href="https://useaurora.app"
-          />
-          <Project
-            title="React Plock"
-            description="Plock is a responsive masonry layout implementation for React
-                  that uses CSS Grid to layout your content."
-            href="https://react-plock.netlify.com/"
-          />
+          {dataProjects.map((project, index) => (
+            <Project key={index} {...project} />
+          ))}
         </Grid>
       </section>
     </>
