@@ -1,10 +1,9 @@
 import { styled } from "../../stitches.config";
-import { Flex, Text } from "../UI";
+import { Flex, Link, Text } from "../UI";
 
-const Square = styled("div", {
+const FooterIcon = styled("img", {
   width: "20px",
   height: "20px",
-  backgroundColor: "$blue200",
 });
 
 const FooterContainer = styled(Flex, {
@@ -19,16 +18,33 @@ const FooterContainer = styled(Flex, {
 
 export const Footer = () => {
   return (
-    <FooterContainer as="footer" align="center" justify="between">
+    <FooterContainer
+      direction={{ "@initial": "column", "@bp1": "row" }}
+      align={{ "@initial": "start", "@bp1": "center" }}
+      gap="5"
+      as="footer"
+      justify="between"
+    >
       <Text size="1" color="secondary" css={{ lineHeight: "1.75rem" }}>
         Copyright © {new Date().getFullYear()} Renato Pozzi
         <br /> Inspired By Ryan Warner Design. Built with Next.js. Hosted on
         Vercel.
       </Text>
       <Flex gap="5">
-        <Square />
-        <Square />
-        <Square />
+        <Link
+          href="https://twitter.com/imarenny"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FooterIcon src={"/assets/icons/twitter.svg"} />
+        </Link>
+        <Link
+          href="https://github.com/itsrennyman"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FooterIcon src={"/assets/icons/github.svg"} />
+        </Link>
       </Flex>
     </FooterContainer>
   );

@@ -7,9 +7,9 @@ export function SEOData(props) {
   const defaults = {
     title: "Renato Pozzi | Software Developer",
     description:
-      "I photograph landscapes as a hobby, and I create applications for making the web faster.",
+      "Bringing kindness & knowledge to other people. I’m a software developer currently based in Milan, Italy 🇮🇹 I used to work as a Full-Stack Engineer, now I'm discovering my love for Front-End Engineering.",
     image:
-      "https://og-image.vercel.app/**Renato**%20**Pozzi**.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-color-logo.svg",
+      "https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dcontentz%26title%3DRenato%2BPozzi%26description%3DFrontend%2BEngineering%2Band%2BJavascript%2BEnthusiast.",
     type: "website",
   };
 

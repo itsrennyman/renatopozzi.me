@@ -1,6 +1,7 @@
 import { styled } from "../../stitches.config";
+import { SEOData } from "../SEOData";
 
-export const Container = styled("div", {
+const StyledContainer = styled("div", {
   display: "flex",
   flexDirection: "column",
   maxWidth: "769px",
@@ -11,3 +12,12 @@ export const Container = styled("div", {
     padding: "0rem 1.5rem",
   },
 });
+
+export const Container = ({ children, seo = {} }) => {
+  return (
+    <StyledContainer>
+      <SEOData {...seo} />
+      {children}
+    </StyledContainer>
+  );
+};

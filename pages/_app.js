@@ -1,6 +1,5 @@
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
-import { Container } from "../components/UI/Container";
 import { globalCss } from "../stitches.config";
 
 const globalCssFn = globalCss({
@@ -25,9 +24,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-      <Container>
-        <Component {...pageProps} />
-      </Container>
+      <Component {...pageProps} />
       <Footer />
     </>
   );

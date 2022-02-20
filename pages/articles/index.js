@@ -45,6 +45,10 @@ export const Article = ({ id, title, description }) => {
 };
 
 export default function Home({ articles }) {
+  const articlesList = articles.map((article) => {
+    return <Article key={article.id} {...article} />;
+  });
+
   return (
     <>
       <section>
@@ -54,10 +58,8 @@ export default function Home({ articles }) {
       </section>
 
       <section>
-        <Flex direction="column" gap="8" css={{ marginTop: "4rem" }}>
-          {articles.map((article) => (
-            <Article key={article.id} {...article} />
-          ))}
+        <Flex direction="column" gap="9" css={{ marginTop: "4rem" }}>
+          {articlesList}
         </Flex>
       </section>
     </>

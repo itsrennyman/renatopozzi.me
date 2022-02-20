@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import { Article } from "../components/Article";
 import { Project } from "../components/Project";
-import { Flex, Grid, Link, Text } from "../components/UI";
+import { Container, Flex, Grid, Link, Text } from "../components/UI";
 import projects from "../lib/data/projects";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 
@@ -39,7 +39,7 @@ export default function Home({ articles }) {
   });
 
   return (
-    <>
+    <Container>
       <Flex as="section" direction="column" gap="6">
         <Text as="h1" color="glowing" size="4">
           I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
@@ -74,6 +74,6 @@ export default function Home({ articles }) {
           {projectsList}
         </Grid>
       </Flex>
-    </>
+    </Container>
   );
 }

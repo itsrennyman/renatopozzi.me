@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
-import { Code } from "../../components/MDX/Code";
-import { Text } from "../../components/UI";
+import { Code, H1, H2, Paragraph } from "../../components/MDX";
+import { Container, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export function getStaticPaths() {
@@ -28,39 +28,24 @@ export async function getStaticProps(context) {
   };
 }
 
-const Paragraph = (props) => (
-  <Text
-    as="p"
-    size="2"
-    css={{ marginTop: "0.5rem", marginBottom: "0.5rem" }}
-    {...props}
-  />
-);
-const H1 = (props) => (
-  <Text as="h1" size="4" {...props} css={{ marginBottom: "2rem" }} />
-);
-const H2 = (props) => (
-  <Text
-    as="h2"
-    size="3"
-    css={{ marginTop: "1.5555556em", marginBottom: "0.8888889em" }}
-    {...props}
-  />
-);
-
 export default function Show({ content, fm }) {
-  return (
-    <>
-      <section>
-        <Text as="h1" color="glowing" size="4" css={{ marginBottom: "2rem" }}>
-          {fm.title}
-        </Text>
-      </section>
+  const seo = {
+    title: fm.title,
+    type: "article",
+    description: fm.description,
+    author: fm.author,
+    publishDate: fm.createdAt,
+  };
 
-      <MDXRemote
-        {...content}
-        components={{ code: Code, p: Paragraph, h1: H1, h2: H2 }}
-      />
-    </>
+  const components = { code: Code, p: Paragraph, h1: H1, h2: H2 };
+
+  return (
+    <Container seo={seo}>
+      <Text as="h1" color="glowing" size="4" css={{ marginBottom: "2rem" }}>
+        {fm.title}
+      </Text>
+
+      <MDXRemote {...content} components={components} />
+    </Container>
   );
 }

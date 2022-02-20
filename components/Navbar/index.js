@@ -83,9 +83,6 @@ export const Navbar = () => {
               </Link>
             </NextLink>
           </li>
-          <li>
-            <Button color="secondary">Contact</Button>
-          </li>
         </Flex>
       </DesktopNavbar>
 
