@@ -19,12 +19,7 @@ const FooterContainer = styled(Flex, {
 
 export const Footer = () => {
   return (
-    <FooterContainer
-      as="footer"
-      //css={{ marginTop: "5rem" }}
-      align="center"
-      justify="between"
-    >
+    <FooterContainer as="footer" align="center" justify="between">
       <Text size="1" color="secondary" css={{ lineHeight: "1.75rem" }}>
         Copyright © {new Date().getFullYear()} Renato Pozzi
         <br /> Inspired By Ryan Warner Design. Built with Next.js. Hosted on
