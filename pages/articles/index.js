@@ -24,15 +24,22 @@ export async function getStaticProps() {
   };
 }
 
-export const Article = ({ id, title, description }) => {
+export const Article = ({ id, title, description, createdAt }) => {
   const excerpt = description.split(" ").slice(0, 20).join(" ") + "...";
+
+  const localDate = new Date(createdAt).toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
     <NextLink href="/articles/[id]" as={`/articles/${id}`} passHref>
       <Hover as="a" direction="column" gap="4">
         <Flex direction="column" gap="2">
           <Text size="sm" color="tertiary">
-            08 September 2021
+            {localDate}
           </Text>
           <Text size="2xl" weight="semibold">
             {title}
