@@ -31,9 +31,9 @@ export default function Home() {
         <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           I love Javascript and its ecosystem, most of my projects are made in
           React & Next.js. Usually, I share pieces of my experiences through
-          LinkedIn or Twitter and although I'm quite introverted in the first
-          meeting, I love to get in touch with other devs! :) I built also a
-          couple of open-source projects, available on my Github profile, and
+          LinkedIn or Twitter and although I&apos;m quite introverted in the
+          first meeting, I love to get in touch with other devs! :) I built also
+          a couple of open-source projects, available on my Github profile, and
           probably the list will grow in the future.
         </Text>
 
