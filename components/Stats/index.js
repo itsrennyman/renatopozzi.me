@@ -8,7 +8,7 @@ export const Stats = ({ title, value }) => {
           <Text size="3" css={{ fontWeight: 500 }}>
             {title}
           </Text>
-          <Text size="4" color="secondary">
+          <Text size="4" color="secondary" css={{ lineHeight: 1 }}>
             {value}
           </Text>
         </Flex>

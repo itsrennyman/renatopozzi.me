@@ -42,7 +42,7 @@ export default function Home({ articles }) {
     <Container>
       <Flex as="section" direction="column" gap="6">
         <Text as="h1" color="glowing" size="4">
-          I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast.
+          I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast 🖖
         </Text>
         <Text size="2">
           Bringing kindness & knowledge to other people. I’m a software
