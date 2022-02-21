@@ -14,19 +14,21 @@ export default function Home() {
   return (
     <Container seo={seo}>
       <Flex as="section" direction="column" gap="6">
-        <Text as="h1" color="glowing" size="4">
+        <Text as="h1" color="glowing" size="5xl" weight="semibold">
           About Me
         </Text>
 
-        <Text size="2">Bringing kindness & knowledge to other people.</Text>
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
+          Bringing kindness & knowledge to other people.
+        </Text>
 
-        <Text size="2">
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           I&apos;m a software developer currently based in Milan, Italy 🇮🇹 I
           used to work as a Full-Stack Developer, now I&apos;m discovering my
           love for Front-End Engineering.
         </Text>
 
-        <Text size="2">
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           I love Javascript and its ecosystem, most of my projects are made in
           React & Next.js. Usually, I share pieces of my experiences through
           LinkedIn or Twitter and although I'm quite introverted in the first
@@ -35,13 +37,13 @@ export default function Home() {
           probably the list will grow in the future.
         </Text>
 
-        <Text size="2">
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           I tend to read every day, at least 10 pages of entrepreneurship and
           personal-growth books, Jack Ma and Simon Sinek are currently my
           inspiration. I love watching them talk about their experiences.
         </Text>
 
-        <Text size="2">
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           Sometimes I&apos;m also a gamer, fallen in love with Pokemon since
           I&apos;m a child, and also some more competitive games like Rocket
           League.
@@ -49,7 +51,9 @@ export default function Home() {
       </Flex>
 
       <Flex direction="column" gap="5" css={{ marginTop: "5rem" }}>
-        <Text size="3">Projects</Text>
+        <Text size="2xl" weight="semibold">
+          Projects
+        </Text>
         <Grid columns={{ "@initial": "1", "@bp1": "2" }} gap={5}>
           {projectsList}
         </Grid>

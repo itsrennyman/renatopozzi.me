@@ -41,10 +41,16 @@ export default function Home({ articles }) {
   return (
     <Container>
       <Flex as="section" direction="column" gap="6">
-        <Text as="h1" color="glowing" size="4">
+        <Text
+          as="h1"
+          color="glowing"
+          size="5xl"
+          weight="semibold"
+          css={{ lineHeight: "$snug" }}
+        >
           I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast 🖖
         </Text>
-        <Text size="2">
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           Bringing kindness & knowledge to other people. I’m a software
           developer currently based in Milan, Italy 🇮🇹 I used to work as a
           Full-Stack Engineer, now I&apos;m discovering my love for Front-End
@@ -54,12 +60,12 @@ export default function Home({ articles }) {
 
       <Flex direction="column" gap="5" css={{ marginTop: "5rem" }}>
         <Flex align="center" justify="between">
-          <Text size="3">Latest Articles</Text>
+          <Text size="2xl" weight="semibold">
+            Latest Articles
+          </Text>
           <NextLink href="/articles" passHref>
             <Link animation="underlining">
-              <Text size="1" color="secondary">
-                View all
-              </Text>
+              <Text color="secondary">View all</Text>
             </Link>
           </NextLink>
         </Flex>
@@ -69,7 +75,9 @@ export default function Home({ articles }) {
       </Flex>
 
       <Flex direction="column" gap="5" css={{ marginTop: "5rem" }}>
-        <Text size="3">Projects</Text>
+        <Text size="2xl" weight="semibold">
+          Projects
+        </Text>
         <Grid columns={{ "@initial": "1", "@bp1": "2" }} gap={5}>
           {projectsList}
         </Grid>

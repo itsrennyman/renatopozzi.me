@@ -31,12 +31,14 @@ export const Article = ({ id, title, description }) => {
     <NextLink href="/articles/[id]" as={`/articles/${id}`} passHref>
       <Hover as="a" direction="column" gap="4">
         <Flex direction="column" gap="2">
-          <Text size="1" color="tertiary" css={{ fontSize: "0.9rem" }}>
+          <Text size="sm" color="tertiary">
             08 September 2021
           </Text>
-          <Text size="3">{title}</Text>
+          <Text size="2xl" weight="semibold">
+            {title}
+          </Text>
         </Flex>
-        <Text size="1" color="secondary" css={{ maxWidth: "65ch" }}>
+        <Text size="base" color="secondary" css={{ maxWidth: "65ch" }}>
           {excerpt}
         </Text>
       </Hover>
@@ -58,10 +60,10 @@ export default function Home({ articles }) {
   return (
     <Container seo={seo}>
       <Flex as="section" direction="column" gap="6">
-        <Text size="4" color="glowing">
+        <Text as="h1" color="glowing" size="5xl" weight="semibold">
           Articles
         </Text>
-        <Text size="2">
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           I wrote articles to share learning experiences with you, please have a
           look at them if you are interested in learning something new.
         </Text>

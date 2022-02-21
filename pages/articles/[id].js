@@ -40,11 +40,17 @@ export default function Show({ content, fm }) {
 
   return (
     <Container seo={seo}>
-      <Text as="h1" color="glowing" size="4" css={{ marginBottom: "2rem" }}>
+      <Text
+        as="h1"
+        color="glowing"
+        size="5xl"
+        weight="semibold"
+        css={{ lineHeight: "$snug" }}
+      >
         {fm.title}
       </Text>
 
-      <Prose>
+      <Prose css={{ marginTop: "2rem" }}>
         <MDXRemote {...content} components={{ code: Code }} />
       </Prose>
     </Container>

@@ -4,17 +4,6 @@ import * as React from "react";
 import { styled } from "../../stitches.config";
 import { Button, Flex, Link, Text } from "../UI";
 
-const Logo = styled("h1", {
-  fontSize: "1.125rem",
-  fontWeight: "700",
-  lineHeight: "1.5rem",
-});
-
-const Item = styled(Text, {
-  fontWeight: "500",
-  lineHeight: "1.375rem",
-});
-
 const NavbarContainer = styled("nav", {
   maxWidth: "769px",
   margin: "0 auto",
@@ -54,7 +43,9 @@ export const Navbar = () => {
         justify="between"
         css={{ color: "$text100" }}
       >
-        <Logo>Renato Pozzi</Logo>
+        <Text size="2xl" weight="semibold">
+          Renato Pozzi
+        </Text>
         <Flex
           as="ul"
           direction="row"
@@ -65,28 +56,28 @@ export const Navbar = () => {
           <li>
             <NextLink href="/" passHref>
               <Link animation="underlining">
-                <Item size="1">Home</Item>
+                <Text>Home</Text>
               </Link>
             </NextLink>
           </li>
           <li>
             <NextLink href="/about" passHref>
               <Link animation="underlining">
-                <Item size="1">About Me</Item>
+                <Text>About Me</Text>
               </Link>
             </NextLink>
           </li>
           <li>
             <NextLink href="/articles" passHref>
               <Link animation="underlining">
-                <Item size="1">Articles</Item>
+                <Text>Articles</Text>
               </Link>
             </NextLink>
           </li>
           <li>
             <NextLink href="/dashboard" passHref>
               <Link animation="underlining">
-                <Item size="1">Dashboard</Item>
+                <Text>Dashboard</Text>
               </Link>
             </NextLink>
           </li>
@@ -95,7 +86,9 @@ export const Navbar = () => {
 
       <MobileNavbar direction="column" css={{ color: "$text100" }} gap="5">
         <Flex justify="between" align="center">
-          <Logo>Renato Pozzi</Logo>
+          <Text size="2xl" weight="semibold">
+            Renato Pozzi
+          </Text>
           <Button
             color="secondary"
             aria-label="Toggle Menu"
@@ -111,28 +104,28 @@ export const Navbar = () => {
             <li>
               <NextLink href="/" passHref>
                 <Link animation="underlining">
-                  <Item size="1">Home</Item>
+                  <Text>Home</Text>
                 </Link>
               </NextLink>
             </li>
             <li>
               <NextLink href="/about" passHref>
                 <Link animation="underlining">
-                  <Item size="1">About Me</Item>
+                  <Text>About Me</Text>
                 </Link>
               </NextLink>
             </li>
             <li>
               <NextLink href="/articles" passHref>
                 <Link animation="underlining">
-                  <Item size="1">Articles</Item>
+                  <Text>Articles</Text>
                 </Link>
               </NextLink>
             </li>
             <li>
               <NextLink href="/dashboard" passHref>
                 <Link animation="underlining">
-                  <Item size="1">Dashboard</Item>
+                  <Text>Dashboard</Text>
                 </Link>
               </NextLink>
             </li>

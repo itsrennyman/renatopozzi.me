@@ -25,7 +25,7 @@ export const Footer = () => {
       as="footer"
       justify="between"
     >
-      <Text size="1" color="secondary" css={{ lineHeight: "1.75rem" }}>
+      <Text size="base" color="secondary" css={{ lineHeight: "$relaxed" }}>
         Copyright © {new Date().getFullYear()} Renato Pozzi
         <br /> Inspired By Ryan Warner Design. Built with Next.js. Hosted on
         Vercel.

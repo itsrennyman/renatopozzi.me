@@ -12,10 +12,10 @@ export default function Dashboard() {
   return (
     <Container seo={seo}>
       <Flex as="section" direction="column" gap="6">
-        <Text as="h1" color="glowing" size="4">
+        <Text as="h1" color="glowing" size="5xl" weight="semibold">
           Dashboard
         </Text>
-        <Text size="2">
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
           This is a personal statistics dashboard. I use this to track various
           metrics across platforms like Unsplash.
         </Text>

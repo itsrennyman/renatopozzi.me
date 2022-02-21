@@ -19,8 +19,10 @@ export const Article = ({ id, title, description }) => {
           css={{ marginTop: "4px", marginRight: "0.4rem" }}
         />
         <Flex direction="column" align="stretch">
-          <Text size="2">{title}</Text>
-          <Text size="1" color="tertiary">
+          <Text size="lg" weight="medium">
+            {title}
+          </Text>
+          <Text size="base" color="tertiary">
             {excerpt}
           </Text>
         </Flex>
