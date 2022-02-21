@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote";
-import { Article } from "../../components/Layout/Article";
-import { Code } from "../../components/MDX/Code";
+import { Code } from "../../components/MDX";
+import { Prose } from "../../components/Prose";
+import { Container, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export function getStaticPaths() {
@@ -29,9 +30,29 @@ export async function getStaticProps(context) {
 }
 
 export default function Show({ content, fm }) {
+  const seo = {
+    title: fm.title,
+    type: "article",
+    description: fm.description,
+    author: fm.author,
+    publishDate: fm.createdAt,
+  };
+
   return (
-    <Article fm={fm}>
-      <MDXRemote {...content} components={{ code: Code }} />
-    </Article>
+    <Container seo={seo}>
+      <Text
+        as="h1"
+        color="glowing"
+        size="5xl"
+        weight="semibold"
+        css={{ lineHeight: "$snug" }}
+      >
+        {fm.title}
+      </Text>
+
+      <Prose css={{ marginTop: "2rem" }}>
+        <MDXRemote {...content} components={{ code: Code }} />
+      </Prose>
+    </Container>
   );
 }

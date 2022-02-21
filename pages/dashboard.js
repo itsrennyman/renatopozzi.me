@@ -1,12 +1,8 @@
-import { Panel } from "../components/UI/Panel";
-import { Main } from "../components/Layout/Main";
-import { Ether } from "../components/Icons/Ether";
-import { Counter } from "../components/UI/Counter";
-import { Github } from "../components/Icons/Github";
-import { Twitter } from "../components/Icons/Twitter";
-import { Unsplash } from "../components/Icons/Unsplash";
+import { Counter } from "../components/Counter";
+import { Stats } from "../components/Stats";
+import { Container, Flex, Grid, Text } from "../components/UI";
 
-export default function Index() {
+export default function Dashboard() {
   const seo = {
     title: "Renato Pozzi | Dashboard",
     description:
@@ -14,80 +10,49 @@ export default function Index() {
   };
 
   return (
-    <Main seo={seo}>
-      <section className="flex flex-col w-full py-24">
-        <div className="mb-24 space-y-8">
-          <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
-            Dashboard
-          </h1>
-          <h2 className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl leading-snug md:leading-tight text-3xl md:text-4xl">
-            This is a personal statistics dashboard. I use this to track various
-            metrics across platforms like Unsplash.
-          </h2>
-        </div>
+    <Container seo={seo}>
+      <Flex as="section" direction="column" gap="6">
+        <Text as="h1" color="glowing" size="5xl" weight="semibold">
+          Dashboard
+        </Text>
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
+          This is a personal statistics dashboard. I use this to track various
+          metrics across platforms like Unsplash.
+        </Text>
+      </Flex>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-10">
-          <Panel>
-            <Github className="h-10 w-10 text-black dark:text-white" />
-            <h3 className="text-black dark:text-white font-semibold text-2xl mt-8">
-              Github Stars
-            </h3>
-            <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              <Counter url="/api/github" value="stars" />
-            </div>
-          </Panel>
-
-          <Panel>
-            <Github className="h-10 w-10 text-black dark:text-white" />
-            <h3 className="text-black dark:text-white font-semibold text-2xl mt-8">
-              Github Followers
-            </h3>
-            <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              <Counter url="/api/github" value="followers" />
-            </div>
-          </Panel>
-
-          <Panel>
-            <Unsplash className="h-10 w-10 text-black dark:text-white" />
-            <h3 className="text-black dark:text-white font-semibold text-2xl mt-8">
-              Unsplash Views
-            </h3>
-            <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              <Counter url="/api/unsplash" value="views" />
-            </div>
-          </Panel>
-
-          <Panel>
-            <Unsplash className="h-10 w-10 text-black dark:text-white" />
-            <h3 className="text-black dark:text-white font-semibold text-2xl mt-8">
-              Unsplash Downloads
-            </h3>
-            <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              <Counter url="/api/unsplash" value="downloads" />
-            </div>
-          </Panel>
-
-          <Panel>
-            <Twitter className="h-10 w-10 text-black dark:text-white" />
-            <h3 className="text-black dark:text-white font-semibold text-2xl mt-8">
-              Twitter Followers
-            </h3>
-            <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              <Counter url="/api/twitter" value="followers_count" />
-            </div>
-          </Panel>
-
-          <Panel>
-            <Ether className="h-10 w-10 text-black dark:text-white" />
-            <h3 className="text-black dark:text-white font-semibold text-2xl mt-8">
-              Ether Price
-            </h3>
-            <div className="text-black dark:text-white font-bold tracking-tight text-6xl mt-2">
-              <Counter url="/api/ether" value="ethusd" />
-            </div>
-          </Panel>
-        </div>
+      <section>
+        <Grid
+          columns={{ "@initial": "1", "@bp1": "2" }}
+          gap={5}
+          css={{ marginTop: "2rem" }}
+        >
+          <Stats
+            title="Github Stars"
+            value={<Counter url="/api/github" value="stars" />}
+          />
+          <Stats
+            title="Github Followers"
+            value={<Counter url="/api/github" value="followers" />}
+          />
+          <Stats
+            title="Unsplash Views"
+            value={<Counter url="/api/unsplash" value="views" />}
+          />
+          <Stats
+            title="Unsplash Downloads"
+            value={<Counter url="/api/unsplash" value="downloads" />}
+          />
+          <Stats
+            title="Twitter Followers"
+            value={<Counter url="/api/twitter" value="followers_count" />}
+          />
+          <Stats
+            title="Ether Price"
+            value={<Counter url="/api/ether" value="ethusd" />}
+          />
+        </Grid>
       </section>
-    </Main>
+    </Container>
   );
 }

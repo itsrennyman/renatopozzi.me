@@ -1,12 +1,16 @@
-import * as React from "react";
-import useSWR from "swr";
-import PropTypes from "prop-types";
 import fetch from "cross-fetch";
 import { animate } from "framer-motion";
+import PropTypes from "prop-types";
+import * as React from "react";
+import useSWR from "swr";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export const formatter = (number) => {
+  if (number === null) {
+    return 0;
+  }
+
   if (typeof number === "string") {
     number = Number(number);
   }
@@ -28,14 +32,14 @@ export const formatter = (number) => {
 
 export function Counter({ url, value, duration = 2 }) {
   const prevCounterRef = React.useRef(0);
-  const nodeRef = React.useRef();
+  const nodeRef = React.useRef(0);
   const { data, error } = useSWR(url, fetcher);
 
   const isLoaded = data && !error;
 
   React.useEffect(() => {
     if (!isLoaded) {
-      nodeRef.current.textContent = "_";
+      nodeRef.current.textContent = "0";
       return false;
     }
 

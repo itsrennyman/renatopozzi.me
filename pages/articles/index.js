@@ -1,5 +1,5 @@
-import { Main } from "../../components/Layout/Main";
-import { Article } from "../../components/UI/Article";
+import NextLink from "next/link";
+import { Container, Flex, Hover, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export async function getStaticProps() {
@@ -24,31 +24,63 @@ export async function getStaticProps() {
   };
 }
 
-export default function Index({ articles }) {
+export const Article = ({ id, title, description, createdAt }) => {
+  const excerpt = description.split(" ").slice(0, 20).join(" ") + "...";
+
+  const localDate = new Date(createdAt).toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
+  return (
+    <NextLink href="/articles/[id]" as={`/articles/${id}`} passHref>
+      <Hover as="a" direction="column" gap="4">
+        <Flex direction="column" gap="2">
+          <Text size="sm" color="tertiary">
+            {localDate}
+          </Text>
+          <Text size="2xl" weight="semibold">
+            {title}
+          </Text>
+        </Flex>
+        <Text size="base" color="secondary" css={{ maxWidth: "65ch" }}>
+          {excerpt}
+        </Text>
+      </Hover>
+    </NextLink>
+  );
+};
+
+export default function Home({ articles }) {
   const seo = {
     title: "Renato Pozzi | Articles",
     description:
-      "I have written full of value articles, please take a look if you are interested in learning something new.",
+      "I wrote articles to share learning experiences with you, please have a look at them if you are interested in learning something new.",
   };
 
+  const articlesList = articles.map((article) => {
+    return <Article key={article.id} {...article} />;
+  });
+
   return (
-    <Main seo={seo}>
-      <section className="flex flex-col w-full py-24">
-        <div className="mb-24 space-y-8">
-          <h1 className="font-semibold tracking-tight text-4xl md:text-7xl space-y-3 text-black dark:text-white transition duration-200">
-            Articles
-          </h1>
-          <h2 className="text-gray-500 dark:text-gray-400 tracking-tight max-w-xl leading-snug md:leading-tight text-3xl md:text-4xl">
-            I wrote articles full of values, please have a look at them if you
-            are interested in learning something new.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {articles.map((article) => (
-            <Article key={article.id} {...article} />
-          ))}
-        </div>
+    <Container seo={seo}>
+      <Flex as="section" direction="column" gap="6">
+        <Text as="h1" color="glowing" size="5xl" weight="semibold">
+          Articles
+        </Text>
+        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
+          I wrote articles to share learning experiences with you, please have a
+          look at them if you are interested in learning something new.
+        </Text>
+      </Flex>
+
+      <section>
+        <Flex direction="column" gap="9" css={{ marginTop: "4rem" }}>
+          {articlesList}
+        </Flex>
       </section>
-    </Main>
+    </Container>
   );
 }
