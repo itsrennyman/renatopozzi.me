@@ -1,105 +1,83 @@
 import { styled } from "../../stitches.config";
 
-const round = (num) =>
-  num
-    .toFixed(7)
-    .replace(/(\.[0-9]+?)0+$/, "$1")
-    .replace(/\.0$/, "");
-const rem = (px) => `${round(px / 16)}rem`;
-const em = (px, base) => `${round(px / base)}em`;
-
 export const Prose = styled("div", {
   color: "$text100",
-  maxWidth: "65ch",
-  fontSize: "1.125rem",
-  lineHeight: round(28 / 16),
+  // maxWidth: "65ch",
+  fontSize: "$lg",
+  lineHeight: "1.75",
   p: {
-    marginTop: em(20, 16),
-    marginBottom: em(20, 16),
+    marginTop: "1.25em",
+    marginBottom: "1.25em",
   },
   h1: {
-    fontSize: em(36, 16),
+    fontSize: "2.25em",
     marginTop: "0",
-    marginBottom: em(32, 36),
-    lineHeight: round(40 / 36),
+    marginBottom: "0.8888889em",
+    lineHeight: "1.1111111",
   },
   h2: {
-    fontSize: em(24, 16),
-    marginTop: em(48, 24),
-    marginBottom: em(24, 24),
-    lineHeight: round(32 / 24),
+    fontSize: "1.5em",
+    marginTop: "2em",
+    marginBottom: "1em",
+    lineHeight: "1.3333333",
   },
   h3: {
-    fontSize: em(20, 16),
-    marginTop: em(32, 20),
-    marginBottom: em(12, 20),
-    lineHeight: round(32 / 20),
+    fontSize: "1.25em",
+    marginTop: "1.6em",
+    marginBottom: "0.6em",
+    lineHeight: "1.6",
   },
   code: {
-    fontSize: em(14, 16),
-  },
-  "h2 code": {
-    fontSize: em(21, 24),
-  },
-  "h3 code": {
-    fontSize: em(18, 20),
+    fontSize: "0.875em",
   },
   pre: {
-    fontSize: em(14, 16),
-    lineHeight: round(24 / 14),
-    marginTop: em(24, 14),
-    marginBottom: em(24, 14),
-    borderRadius: rem(6),
-    paddingTop: em(12, 14),
-    paddingBottom: em(12, 14),
+    fontSize: "0.875em",
+    lineHeight: "1.7142857",
+    marginTop: "1.7142857em",
+    marginBottom: "1.7142857em",
+    borderRadius: "0.375rem",
+    paddingTop: "0.8571429em",
+    paddingBottom: "0.8571429em",
   },
   ol: {
-    marginTop: em(20, 16),
-    marginBottom: em(20, 16),
+    paddingLeft: "1.625em",
   },
   ul: {
-    marginTop: em(20, 16),
-    marginBottom: em(20, 16),
+    paddingLeft: "1.625em",
   },
   li: {
-    marginTop: em(8, 16),
-    marginBottom: em(8, 16),
-  },
-  ol: {
-    paddingLeft: em(26, 16),
+    marginTop: "0.5em",
+    marginBottom: "0.5em",
   },
   "ol > li": {
-    paddingLeft: em(6, 16),
-  },
-  ul: {
-    paddingLeft: em(26, 16),
+    paddingLeft: "0.375em",
   },
   "ul > li": {
-    paddingLeft: em(6, 16),
+    paddingLeft: "0.375em",
   },
   "> ul > li p": {
-    marginTop: em(12, 16),
-    marginBottom: em(12, 16),
+    marginTop: "0.75em",
+    marginBottom: "0.75em",
   },
   "> ul > li > *:first-child": {
-    marginTop: em(20, 16),
+    marginTop: "1.25em",
   },
   "> ul > li > *:last-child": {
-    marginBottom: em(20, 16),
+    marginBottom: "1.25em",
   },
   "> ol > li > *:first-child": {
-    marginTop: em(20, 16),
+    marginTop: "1.25em",
   },
   "> ol > li > *:last-child": {
-    marginBottom: em(20, 16),
+    marginBottom: "1.25em",
   },
   "ul ul, ul ol, ol ul, ol ol": {
-    marginTop: em(12, 16),
-    marginBottom: em(12, 16),
+    marginTop: "0.75em",
+    marginBottom: "0.75em",
   },
   hr: {
-    marginTop: em(48, 16),
-    marginBottom: em(48, 16),
+    marginTop: "3em",
+    marginBottom: "3em",
   },
   "hr + *": {
     marginTop: "0",
@@ -117,10 +95,10 @@ export const Prose = styled("div", {
     width: "100%",
     tableLayout: "auto",
     textAlign: "left",
-    marginTop: em(32, 16),
-    marginBottom: em(32, 16),
-    fontSize: em(14, 16),
-    lineHeight: round(24 / 14),
+    marginTop: "2em",
+    marginBottom: "2em",
+    fontSize: "0.875em",
+    lineHeight: "1.7142857",
   },
   thead: {
     borderBottomWidth: "1px",
@@ -129,9 +107,9 @@ export const Prose = styled("div", {
   "thead th": {
     fontWeight: "600",
     verticalAlign: "bottom",
-    paddingRight: em(8, 14),
-    paddingBottom: em(8, 14),
-    paddingLeft: em(8, 14),
+    paddingRight: "0.5714286em",
+    paddingBottom: "0.5714286em",
+    paddingLeft: "0.5714286em",
   },
   "tbody tr": {
     borderBottomWidth: "1px",
@@ -147,10 +125,10 @@ export const Prose = styled("div", {
     paddingRight: "0",
   },
   "tbody td": {
-    paddingTop: em(8, 14),
-    paddingRight: em(8, 14),
-    paddingBottom: em(8, 14),
-    paddingLeft: em(8, 14),
+    paddingTop: "0.5714286em",
+    paddingRight: "0.5714286em",
+    paddingBottom: "0.5714286em",
+    paddingLeft: "0.5714286em",
     verticalAlign: "baseline",
   },
   "tbody td:first-child": {
