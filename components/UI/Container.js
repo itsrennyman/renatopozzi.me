@@ -1,13 +1,23 @@
-import PropTypes from "prop-types";
+import { styled } from "../../stitches.config";
+import { SEOData } from "../SEOData";
 
-export function Container({ children }) {
+const StyledContainer = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  maxWidth: "769px",
+  margin: "0 auto",
+  padding: "1.5rem 1.5rem",
+
+  "@bp1": {
+    padding: "0rem 1.5rem",
+  },
+});
+
+export const Container = ({ children, seo = {} }) => {
   return (
-    <main className="flex flex-col max-w-7xl mx-auto px-4 md:px-8">
+    <StyledContainer>
+      <SEOData {...seo} />
       {children}
-    </main>
+    </StyledContainer>
   );
-}
-
-Container.propTypes = {
-  children: PropTypes.node.isRequired,
 };

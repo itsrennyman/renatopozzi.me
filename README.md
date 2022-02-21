@@ -1,6 +1,4 @@
-# About
-
-This is my personal portfolio.
+# Personal Portfolio
 
 ### Built With 🏗️
 
