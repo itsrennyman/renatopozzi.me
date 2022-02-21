@@ -1,19 +1,25 @@
 import { Counter } from "../components/Counter";
 import { Stats } from "../components/Stats";
-import { Container, Grid, Text } from "../components/UI";
+import { Container, Flex, Grid, Text } from "../components/UI";
 
 export default function Dashboard() {
+  const seo = {
+    title: "Renato Pozzi | Dashboard",
+    description:
+      "This is a personal statistics dashboard. I use this to track various metrics across platforms like Unsplash.",
+  };
+
   return (
-    <Container>
-      <section>
+    <Container seo={seo}>
+      <Flex as="section" direction="column" gap="6">
         <Text as="h1" color="glowing" size="4">
           Dashboard
         </Text>
-        <Text size="2" css={{ marginTop: "2.5rem" }}>
+        <Text size="2">
           This is a personal statistics dashboard. I use this to track various
           metrics across platforms like Unsplash.
         </Text>
-      </section>
+      </Flex>
 
       <section>
         <Grid

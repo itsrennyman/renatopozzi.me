@@ -45,17 +45,27 @@ export const Article = ({ id, title, description }) => {
 };
 
 export default function Home({ articles }) {
+  const seo = {
+    title: "Renato Pozzi | Articles",
+    description:
+      "I wrote articles to share learning experiences with you, please have a look at them if you are interested in learning something new.",
+  };
+
   const articlesList = articles.map((article) => {
     return <Article key={article.id} {...article} />;
   });
 
   return (
-    <Container>
-      <section>
+    <Container seo={seo}>
+      <Flex as="section" direction="column" gap="6">
         <Text size="4" color="glowing">
           Articles
         </Text>
-      </section>
+        <Text size="2">
+          I wrote articles to share learning experiences with you, please have a
+          look at them if you are interested in learning something new.
+        </Text>
+      </Flex>
 
       <section>
         <Flex direction="column" gap="9" css={{ marginTop: "4rem" }}>

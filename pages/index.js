@@ -63,7 +63,7 @@ export default function Home({ articles }) {
             </Link>
           </NextLink>
         </Flex>
-        <Flex direction="column" gap="5">
+        <Flex direction="column" gap="7">
           {articlesList}
         </Flex>
       </Flex>

@@ -50,7 +50,7 @@ export const {
       6: "1.5rem",
       7: "1.75rem",
       8: "2rem",
-      9: "2.25rem",
+      9: "2.5rem", // TODO: I place it because it does not works with 10
     },
     fontSizes: {
       xs: "0.75rem",
