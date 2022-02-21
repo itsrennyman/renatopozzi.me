@@ -1,5 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
-import { Code, H1, H2, Paragraph } from "../../components/MDX";
+import { Code } from "../../components/MDX";
+import { Prose } from "../../components/Prose";
 import { Container, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
@@ -37,15 +38,15 @@ export default function Show({ content, fm }) {
     publishDate: fm.createdAt,
   };
 
-  const components = { code: Code, p: Paragraph, h1: H1, h2: H2 };
-
   return (
     <Container seo={seo}>
       <Text as="h1" color="glowing" size="4" css={{ marginBottom: "2rem" }}>
         {fm.title}
       </Text>
 
-      <MDXRemote {...content} components={components} />
+      <Prose>
+        <MDXRemote {...content} components={{ code: Code }} />
+      </Prose>
     </Container>
   );
 }
