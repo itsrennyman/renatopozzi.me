@@ -14,19 +14,20 @@ const rotate = keyframes({
 export const AnimatedCard = styled(Card, {
   position: "relative",
   overflow: "hidden",
-  zIndex: "1",
+
+  "& *": {
+    zIndex: "1",
+  },
 
   "&::before": {
     transition: "opacity 0.3s ease-in-out",
     opacity: "0",
-    zIndex: "-2",
     content: "",
     position: "absolute",
     width: "15%",
     height: "240%",
     background: "linear-gradient($glow100, $glow200)",
     animation: `${rotate} 5s linear infinite`,
-    borderRadius: "8px",
     top: "calc(0px - 70%)",
     left: "calc(50% - 2rem)",
   },
@@ -34,7 +35,6 @@ export const AnimatedCard = styled(Card, {
   "&::after": {
     transition: "opacity 0.2s ease-in-out",
     opacity: "1",
-    zIndex: "-1",
     content: "",
     position: "absolute",
     backgroundColor: "$blue200",
