@@ -1,6 +1,7 @@
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { globalCss } from "../stitches.config";
+import "./styles.css";
 
 const globalCssFn = globalCss({
   "*": {
@@ -10,7 +11,7 @@ const globalCssFn = globalCss({
   },
   body: {
     backgroundColor: "$blue100",
-    fontFamily: "'Jost', sans-serif",
+    fontFamily: "'Lato', sans-serif",
   },
   a: {
     textDecoration: "none",
