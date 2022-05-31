@@ -13,6 +13,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "@notionhq/client": "^1.0.4",
     "@radix-ui/react-icons": "^1.0.3",
     "@stitches/react": "^1.2.6",
     "cross-fetch": "^3.1.4",
