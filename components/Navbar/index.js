@@ -72,6 +72,15 @@ export const Navbar = () => {
             </NextLink>
           </li>
           <li>
+            <NextLink href="/newsletter" passHref>
+              <Link animation="underlining">
+                <Text size="lg" weight="bold">
+                  Newsletter
+                </Text>
+              </Link>
+            </NextLink>
+          </li>
+          <li>
             <NextLink href="/dashboard" passHref>
               <Link animation="underlining">
                 <Text size="lg" weight="bold">
@@ -111,6 +120,13 @@ export const Navbar = () => {
               <NextLink href="/articles" passHref>
                 <Link animation="underlining">
                   <Text>Articles</Text>
+                </Link>
+              </NextLink>
+            </li>
+            <li>
+              <NextLink href="/newsletter" passHref>
+                <Link animation="underlining">
+                  <Text>Newsletter</Text>
                 </Link>
               </NextLink>
             </li>
