@@ -1,8 +1,8 @@
+import NextLink from "next/link";
+import * as React from "react";
 import { Article } from "../components/Article";
 import { Container } from "../components/Container";
 import { Project } from "../components/Project";
-import { Flex, Grid, Text } from "../components/UI";
-import projects from "../lib/data/projects";
 import { getArticleData, getArticles } from "../lib/utils/articles";
 import styles from "../styles/index.module.css";
 
@@ -30,45 +30,73 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ articles }) {
-  const articlesList = articles.map((article) => {
+const Hero = () => {
+  return (
+    <div className={styles.hero}>
+      <h1>I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast 🖖</h1>
+      <h2>
+        Bringing kindness & knowledge to other people. I’m a Software Engineer
+        currently based in Milan, Italy 🇮🇹 I used to work as a Full-Stack
+        Engineer, now I&apos;m discovering my love for Front-End Engineering.
+      </h2>
+    </div>
+  );
+};
+
+const ArticleList = ({ data }) => {
+  const articles = data.map((article) => {
     return <Article key={article.id} {...article} />;
   });
 
-  const projectsList = projects.map((project, index) => {
+  return (
+    <div className={styles.articles}>
+      <div className={styles.articlesHeader}>
+        <h3>Latest Articles</h3>
+        <NextLink href="/articles">View All</NextLink>
+      </div>
+      <div className={styles.articlesList}>{articles}</div>
+    </div>
+  );
+};
+
+const ProjectList = ({ data }) => {
+  const projects = data.map((project, index) => {
     return <Project key={index} {...project} />;
   });
 
   return (
+    <div className={styles.projects}>
+      <h3 className={styles.projects__header}>Projects</h3>
+      <div className={styles.projects__list}>{projects}</div>
+    </div>
+  );
+};
+
+export default function Home({ articles }) {
+  const projects = React.useMemo(() => {
+    return [
+      {
+        title: "Aurora",
+        description:
+          "100% Cookie-Free Open Website Analytics. Collect Anonymous Data. Make your Audience Happy Now!",
+        href: "https://github.com/itsrennyman/aurora",
+        alt: "Go To Aurora - Open Website Analytics",
+      },
+      {
+        title: "React Plock",
+        description:
+          "Plock is a responsive masonry layout implementation for React that uses CSS Grid to layout your content.",
+        href: "https://react-plock.netlify.com/",
+        alt: "Go To React Plock - Responsive Masonry Layout",
+      },
+    ];
+  }, []);
+
+  return (
     <Container>
-      <div className={styles.hero}>
-        <h1>
-          I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast 🖖
-        </h1>
-        <h2>
-          Bringing kindness & knowledge to other people. I’m a software
-          developer currently based in Milan, Italy 🇮🇹 I used to work as a
-          Full-Stack Engineer, now I&apos;m discovering my love for Front-End
-          Engineering.
-        </h2>
-      </div>
-
-      <div className={styles.articles}>
-        <div className={styles.articlesHeader}>
-          <h3>Latest Articles</h3>
-          <a>View All</a>
-        </div>
-        <div className={styles.articlesList}>{articlesList}</div>
-      </div>
-
-      <Flex direction="column" gap="5" css={{ marginTop: "5rem" }}>
-        <Text size="2xl" weight="semibold">
-          Projects
-        </Text>
-        <Grid columns={{ "@initial": "1", "@bp1": "2" }} gap={5}>
-          {projectsList}
-        </Grid>
-      </Flex>
+      <Hero />
+      <ArticleList data={articles} />
+      <ProjectList data={projects} />
     </Container>
   );
 }

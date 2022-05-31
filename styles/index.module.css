@@ -30,7 +30,7 @@
 .articles {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.5rem;
   margin-top: 5rem;
 }
 
@@ -55,5 +55,30 @@
 .articlesList {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 5rem;
+}
+
+.projects__header {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ecf8ff;
+}
+
+.projects__list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column: 50%;
+  grid-gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .projects__list {
+    grid-auto-flow: row;
+  }
 }

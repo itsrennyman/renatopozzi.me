@@ -60,13 +60,7 @@ export const Navbar = () => {
               </Link>
             </NextLink>
           </li>
-          <li>
-            <NextLink href="/about" passHref>
-              <Link animation="underlining">
-                <Text>About Me</Text>
-              </Link>
-            </NextLink>
-          </li>
+
           <li>
             <NextLink href="/articles" passHref>
               <Link animation="underlining">
@@ -105,13 +99,6 @@ export const Navbar = () => {
               <NextLink href="/" passHref>
                 <Link animation="underlining">
                   <Text>Home</Text>
-                </Link>
-              </NextLink>
-            </li>
-            <li>
-              <NextLink href="/about" passHref>
-                <Link animation="underlining">
-                  <Text>About Me</Text>
                 </Link>
               </NextLink>
             </li>
