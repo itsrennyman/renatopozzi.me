@@ -9,7 +9,7 @@ const NavbarContainer = styled("nav", {
   margin: "0 auto",
 
   "@bp1": {
-    padding: "1.75rem 1rem",
+    padding: "2.75rem 1.5rem",
   },
 });
 
@@ -43,35 +43,40 @@ export const Navbar = () => {
         justify="between"
         css={{ color: "$text100" }}
       >
-        <Text size="2xl" weight="semibold">
+        <Text size="3xl" weight="semibold">
           Renato Pozzi
         </Text>
         <Flex
           as="ul"
           direction="row"
           align="center"
-          gap="5"
+          gap="7"
           css={{ listStyle: "none" }}
         >
           <li>
             <NextLink href="/" passHref>
               <Link animation="underlining">
-                <Text>Home</Text>
+                <Text size="lg" weight="bold">
+                  Home
+                </Text>
               </Link>
             </NextLink>
           </li>
-
           <li>
             <NextLink href="/articles" passHref>
               <Link animation="underlining">
-                <Text>Articles</Text>
+                <Text size="lg" weight="bold">
+                  Articles
+                </Text>
               </Link>
             </NextLink>
           </li>
           <li>
             <NextLink href="/dashboard" passHref>
               <Link animation="underlining">
-                <Text>Dashboard</Text>
+                <Text size="lg" weight="bold">
+                  Dashboard
+                </Text>
               </Link>
             </NextLink>
           </li>
