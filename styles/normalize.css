@@ -81,3 +81,12 @@ h6 {
 a {
   text-decoration: none;
 }
+
+/*
+  11. Remove default list styles
+*/
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
