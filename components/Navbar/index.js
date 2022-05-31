@@ -5,11 +5,11 @@ import { styled } from "../../stitches.config";
 import { Button, Flex, Link, Text } from "../UI";
 
 const NavbarContainer = styled("nav", {
-  maxWidth: "769px",
+  maxWidth: "1100px",
   margin: "0 auto",
 
   "@bp1": {
-    padding: "3.75rem 1.5rem",
+    padding: "1.75rem 1rem",
   },
 });
 

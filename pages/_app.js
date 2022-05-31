@@ -1,27 +1,27 @@
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
-import { globalCss } from "../stitches.config";
-import "./styles.css";
+import "../styles/fonts.css";
+import "../styles/globals.css";
+import "../styles/normalize.css";
+import "../styles/typography.css";
 
-const globalCssFn = globalCss({
-  "*": {
-    margin: "0",
-    padding: "0",
-    outline: "none",
-  },
-  body: {
-    backgroundColor: "$blue100",
-    fontFamily: "'Lato', sans-serif",
-  },
-  a: {
-    textDecoration: "none",
-    color: "inherit",
-  },
-});
+// const globalCssFn = globalCss({
+//   "*": {
+//     margin: "0",
+//     padding: "0",
+//     outline: "none",
+//   },
+//   body: {
+//     backgroundColor: "#0e141b",
+//     fontFamily: "'Lato', sans-serif",
+//   },
+//   a: {
+//     textDecoration: "none",
+//     color: "inherit",
+//   },
+// });
 
 function MyApp({ Component, pageProps }) {
-  globalCssFn();
-
   return (
     <>
       <Navbar />

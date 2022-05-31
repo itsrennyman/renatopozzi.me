@@ -1,8 +1,9 @@
 import { MDXRemote } from "next-mdx-remote";
+import { Container } from "../../components/Container";
 import { Code } from "../../components/MDX";
 import { Prose } from "../../components/Prose";
-import { Container, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
+import styles from "../../styles/styles.module.css";
 
 export function getStaticPaths() {
   const files = getArticles();
@@ -40,17 +41,11 @@ export default function Show({ content, fm }) {
 
   return (
     <Container seo={seo}>
-      <Text
-        as="h1"
-        color="glowing"
-        size="5xl"
-        weight="semibold"
-        css={{ lineHeight: "$snug" }}
-      >
-        {fm.title}
-      </Text>
+      <div className={styles.hero}>
+        <h1>{fm.title}</h1>
+      </div>
 
-      <Prose css={{ marginTop: "2rem" }}>
+      <Prose css={{ marginTop: "2rem", maxWidth: "70ch", margin: "0 auto" }}>
         <MDXRemote {...content} components={{ code: Code }} />
       </Prose>
     </Container>

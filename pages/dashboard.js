@@ -1,6 +1,8 @@
+import { Container } from "../components/Container";
 import { Counter } from "../components/Counter";
 import { Stats } from "../components/Stats";
-import { Container, Flex, Grid, Text } from "../components/UI";
+import { Grid } from "../components/UI";
+import styles from "../styles/styles.module.css";
 
 export default function Dashboard() {
   const seo = {
@@ -11,15 +13,9 @@ export default function Dashboard() {
 
   return (
     <Container seo={seo}>
-      <Flex as="section" direction="column" gap="6">
-        <Text as="h1" color="glowing" size="5xl" weight="semibold">
-          Dashboard
-        </Text>
-        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
-          This is a personal statistics dashboard. I use this to track various
-          metrics across platforms like Unsplash.
-        </Text>
-      </Flex>
+      <div className={styles.hero}>
+        <h1>Dashboard</h1>
+      </div>
 
       <section>
         <Grid

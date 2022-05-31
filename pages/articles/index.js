@@ -1,6 +1,8 @@
 import NextLink from "next/link";
-import { Container, Flex, Hover, Text } from "../../components/UI";
+import { Container } from "../../components/Container";
+import { Flex, Hover, Text } from "../../components/UI";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
+import styles from "../../styles/styles.module.css";
 
 export async function getStaticProps() {
   const articles = [];
@@ -66,15 +68,9 @@ export default function Home({ articles }) {
 
   return (
     <Container seo={seo}>
-      <Flex as="section" direction="column" gap="6">
-        <Text as="h1" color="glowing" size="5xl" weight="semibold">
-          Articles
-        </Text>
-        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
-          I wrote articles to share learning experiences with you, please have a
-          look at them if you are interested in learning something new.
-        </Text>
-      </Flex>
+      <div className={styles.hero}>
+        <h1>Articles</h1>
+      </div>
 
       <section>
         <Flex direction="column" gap="9" css={{ marginTop: "4rem" }}>
