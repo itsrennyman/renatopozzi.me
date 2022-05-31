@@ -5,11 +5,11 @@ export function SEOData(props) {
   const router = useRouter();
 
   const defaults = {
-    title: "Renato Pozzi | Software Developer",
+    title: "Renato Pozzi",
     description:
-      "I'm a software developer currently based in Milan, Italy. I used to work as a Full-Stack Engineer, now I'm discovering my love for Front-End Engineering.",
+      "I am an Italian software engineer who currently is located in Milan. I used to work with a full-stack environment, but now I'm discovering my true passion for front-end engineering.",
     image:
-      "https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dcontentz%26title%3DRenato%2BPozzi%26description%3DFrontend%2BEngineering%2Band%2BJavascript%2BEnthusiast.",
+      "https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dsimple%26caption%3DFrontend%2BEngineering%2BEnthusiast%2B%25F0%259F%2590%25B3%250A%26headline%3DRenato%2BPozzi%26p%3DDwPgUABBwDIJYDsDWkoQBYCcCmAzAvAOToAuJADgM4BcA9LbgPYImUB0A5o4xwDbYBDcnHYBjRgFtaoypQBMAflwCJcXgE98AJUYAjRiUbUA7h1IABAIwAGawG4AzLbsAWZwHZbAMgAmI8rwCmrq8jKJIhKhQOLxElCTq-JTo2NgkkVC04FDAAGL8AB5REJQF%252BADe5cVQArxwHAgAkiTYEjQQhKLYLNiYhAA01RAAVgCu8XC46gDCzC0s1B1dPX2DaGi4hQAicDiiJHDMi52MvKMSCANDuhyLAI6jvepsN2vrEOKhmPePmM%252BfjEwxQAvsDUNk0MAACrYAokIalCpVd4bOa5FRqdTHHT6QxXFFQJgsADKcAAXthFu43iiiSQAOrYeqkKm2Iag4oQ9blB5PNgpAQ%252BOoIbBg9bAWgwuFc6BS%252BEoxGVIaEtEYjTYvQGRj4gl00kUxYAVhp7zpjOZJEWTms7LFaBlUB5v3%252BQgOzDtOUlsJIEIl%252BVh4AlICAA",
     type: "website",
   };
 
