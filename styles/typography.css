@@ -1,0 +1,13 @@
+.prose {
+  max-width: 70ch;
+  color: #ffffff;
+  margin: 0 auto;
+}
+
+.prose p {
+  line-height: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1.125rem;
+}

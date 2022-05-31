@@ -1,0 +1,116 @@
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 5px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #b827fc 0%,
+    #2c90fc 25%,
+    #b8fd33 50%,
+    #fec837 75%,
+    #fd1892 100%
+  );
+  border-image-slice: 1;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.newsletter__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newsletter__header > h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 2rem;
+  color: #ecf8ff;
+}
+
+.newsletter__header > p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 2rem;
+  color: #ecf8ff;
+}
+
+.newsletter__input {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .newsletter__input {
+    flex-direction: column;
+  }
+}
+
+.newsletter__input > input {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ffffff42;
+  outline: none;
+  color: #ffffff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 17px;
+}
+
+.newsletter__input > input::placeholder {
+  color: #cacaca;
+}
+
+.newsletter__input > button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.newsletter__input > button {
+  background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
+  background-size: 800% 400%;
+  padding: 1em 2em;
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  transition: all 0.1s ease-in-out;
+  animation: gradient 10s infinite cubic-bezier(0.62, 0.28, 0.23, 0.99) both;
+}
+
+.newsletter__input > button:hover {
+  /* animation: gradient 3s infinite; */
+  transform: scale(1.03);
+}
+
+.newsletter__input > button:active {
+  /* animation: gradient 3s infinite; */
+  transform: scale(0.95);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

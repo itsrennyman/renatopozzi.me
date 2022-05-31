@@ -1,8 +1,8 @@
-import { AnimatedCard, Button, Flex, Text } from "../UI";
+import { Button, Card, Flex, Text } from "../UI";
 
 export const Project = ({ title, description, href, alt }) => {
   return (
-    <AnimatedCard>
+    <Card>
       <Flex direction="column" gap="7" align="baseline">
         <Flex direction="column" gap="4">
           <Text size="2xl" weight="medium">
@@ -14,6 +14,6 @@ export const Project = ({ title, description, href, alt }) => {
           View more about {title}!
         </Button>
       </Flex>
-    </AnimatedCard>
+    </Card>
   );
 };

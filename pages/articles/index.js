@@ -1,6 +1,7 @@
-import NextLink from "next/link";
-import { Container, Flex, Hover, Text } from "../../components/UI";
+import { Article } from "../../components/Article";
+import { Container } from "../../components/Container";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
+import styles from "../../styles/styles.module.css";
 
 export async function getStaticProps() {
   const articles = [];
@@ -24,32 +25,15 @@ export async function getStaticProps() {
   };
 }
 
-export const Article = ({ id, title, description, createdAt }) => {
-  const excerpt = description.split(" ").slice(0, 20).join(" ") + "...";
-
-  const localDate = new Date(createdAt).toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
+const ArticleList = ({ data }) => {
+  const articles = data.map((article) => {
+    return <Article key={article.id} {...article} />;
   });
 
   return (
-    <NextLink href="/articles/[id]" as={`/articles/${id}`} passHref>
-      <Hover as="a" direction="column" gap="4">
-        <Flex direction="column" gap="2">
-          <Text size="sm" color="tertiary">
-            {localDate}
-          </Text>
-          <Text size="2xl" weight="semibold">
-            {title}
-          </Text>
-        </Flex>
-        <Text size="base" color="secondary" css={{ maxWidth: "65ch" }}>
-          {excerpt}
-        </Text>
-      </Hover>
-    </NextLink>
+    <section style={{ display: "flex", flexDirection: "column" }}>
+      {articles}
+    </section>
   );
 };
 
@@ -60,27 +44,12 @@ export default function Home({ articles }) {
       "I wrote articles to share learning experiences with you, please have a look at them if you are interested in learning something new.",
   };
 
-  const articlesList = articles.map((article) => {
-    return <Article key={article.id} {...article} />;
-  });
-
   return (
     <Container seo={seo}>
-      <Flex as="section" direction="column" gap="6">
-        <Text as="h1" color="glowing" size="5xl" weight="semibold">
-          Articles
-        </Text>
-        <Text size="lg" weight="medium" css={{ lineHeight: "2rem" }}>
-          I wrote articles to share learning experiences with you, please have a
-          look at them if you are interested in learning something new.
-        </Text>
-      </Flex>
-
-      <section>
-        <Flex direction="column" gap="9" css={{ marginTop: "4rem" }}>
-          {articlesList}
-        </Flex>
-      </section>
+      <div className={styles.hero}>
+        <h1>Articles</h1>
+      </div>
+      <ArticleList data={articles} />
     </Container>
   );
 }

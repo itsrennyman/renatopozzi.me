@@ -5,11 +5,11 @@ import { styled } from "../../stitches.config";
 import { Button, Flex, Link, Text } from "../UI";
 
 const NavbarContainer = styled("nav", {
-  maxWidth: "769px",
+  maxWidth: "1100px",
   margin: "0 auto",
 
   "@bp1": {
-    padding: "3.75rem 1.5rem",
+    padding: "2.75rem 1.5rem",
   },
 });
 
@@ -43,41 +43,49 @@ export const Navbar = () => {
         justify="between"
         css={{ color: "$text100" }}
       >
-        <Text size="2xl" weight="semibold">
+        <Text size="3xl" weight="semibold">
           Renato Pozzi
         </Text>
         <Flex
           as="ul"
           direction="row"
           align="center"
-          gap="5"
+          gap="7"
           css={{ listStyle: "none" }}
         >
           <li>
             <NextLink href="/" passHref>
               <Link animation="underlining">
-                <Text>Home</Text>
-              </Link>
-            </NextLink>
-          </li>
-          <li>
-            <NextLink href="/about" passHref>
-              <Link animation="underlining">
-                <Text>About Me</Text>
+                <Text size="lg" weight="bold">
+                  Home
+                </Text>
               </Link>
             </NextLink>
           </li>
           <li>
             <NextLink href="/articles" passHref>
               <Link animation="underlining">
-                <Text>Articles</Text>
+                <Text size="lg" weight="bold">
+                  Articles
+                </Text>
+              </Link>
+            </NextLink>
+          </li>
+          <li>
+            <NextLink href="/newsletter" passHref>
+              <Link animation="underlining">
+                <Text size="lg" weight="bold">
+                  Newsletter
+                </Text>
               </Link>
             </NextLink>
           </li>
           <li>
             <NextLink href="/dashboard" passHref>
               <Link animation="underlining">
-                <Text>Dashboard</Text>
+                <Text size="lg" weight="bold">
+                  Dashboard
+                </Text>
               </Link>
             </NextLink>
           </li>
@@ -109,16 +117,16 @@ export const Navbar = () => {
               </NextLink>
             </li>
             <li>
-              <NextLink href="/about" passHref>
+              <NextLink href="/articles" passHref>
                 <Link animation="underlining">
-                  <Text>About Me</Text>
+                  <Text>Articles</Text>
                 </Link>
               </NextLink>
             </li>
             <li>
-              <NextLink href="/articles" passHref>
+              <NextLink href="/newsletter" passHref>
                 <Link animation="underlining">
-                  <Text>Articles</Text>
+                  <Text>Newsletter</Text>
                 </Link>
               </NextLink>
             </li>

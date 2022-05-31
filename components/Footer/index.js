@@ -24,6 +24,7 @@ export const Footer = () => {
       gap="5"
       as="footer"
       justify="between"
+      css={{ borderTop: "1px solid #242121", marginTop: "3rem" }}
     >
       <Text size="base" color="secondary" css={{ lineHeight: "$relaxed" }}>
         Copyright © {new Date().getFullYear()} Renato Pozzi
