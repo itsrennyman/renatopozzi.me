@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Project } from "./Project";
 
 const ProjectList = ({ data = [] }) => {
@@ -10,9 +9,14 @@ const ProjectList = ({ data = [] }) => {
     <div className="flex flex-col gap-2">
       <div className="flex flex-row items-center justify-between">
         <h3 className="text-2xl font-bold text-zinc-100">Latest Projects</h3>
-        <Link href="/projects" passHref>
-          <a className="text-base text-zinc-100">View All</a>
-        </Link>
+        <a
+          href="https://github.com/itsrennyman"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-base text-zinc-100"
+        >
+          View Github Profile
+        </a>
       </div>
 
       <div className="flex flex-col">{projects}</div>
