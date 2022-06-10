@@ -1,9 +1,8 @@
 import { SEOData } from "../SEOData";
-import styles from "./Container.module.css";
 
 const Container = ({ children, seo }) => {
   return (
-    <div className={styles.container}>
+    <div className="mx-auto px-6 max-w-6xl">
       <SEOData {...seo} />
       {children}
     </div>

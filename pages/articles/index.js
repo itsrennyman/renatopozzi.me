@@ -1,4 +1,4 @@
-import { Article } from "../../components/Article";
+import { ArticleList } from "../../components/Article";
 import { Container } from "../../components/Container";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
@@ -23,18 +23,6 @@ export async function getStaticProps() {
     },
   };
 }
-
-const ArticleList = ({ data }) => {
-  const articles = data.map((article) => {
-    return <Article key={article.id} {...article} />;
-  });
-
-  return (
-    <section style={{ display: "flex", flexDirection: "column" }}>
-      {articles}
-    </section>
-  );
-};
 
 export default function Home({ articles }) {
   const seo = {

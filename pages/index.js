@@ -1,10 +1,9 @@
-import NextLink from "next/link";
 import * as React from "react";
-import { Article } from "../components/Article";
+import { ArticleList } from "../components/Article";
 import { Container } from "../components/Container";
-import { Project } from "../components/Project";
+import { ProjectList } from "../components/Project";
+import { projects } from "../lib/data/projects";
 import { getArticleData, getArticles } from "../lib/utils/articles";
-import styles from "../styles/index.module.css";
 
 export async function getStaticProps() {
   const articles = [];
@@ -30,11 +29,20 @@ export async function getStaticProps() {
   };
 }
 
+const styles = {
+  textShadow: "0 0 76px rgb(250 217 65 / 30%)",
+};
+
 const Hero = () => {
   return (
-    <div className={styles.hero}>
-      <h1>I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast 🖖</h1>
-      <h2>
+    <div className="flex flex-col gap-7 max-w-2xl mt-12 mb-24 md:my-24">
+      <h1
+        style={styles}
+        className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400"
+      >
+        I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast
+      </h1>
+      <h2 className="text-lg font-medium leading-8 text-zinc-100">
         Bringing kindness & knowledge to other people. I’m a Software Engineer
         currently based in Milan, Italy 🇮🇹 I used to work as a Full-Stack
         Engineer, now I&apos;m discovering my love for Front-End Engineering.
@@ -43,67 +51,14 @@ const Hero = () => {
   );
 };
 
-const ArticleList = ({ data }) => {
-  const articles = data.map((article) => {
-    return <Article key={article.id} {...article} />;
-  });
-
-  return (
-    <div className={styles.articles}>
-      <div className={styles.articlesHeader}>
-        <h3>Latest Articles</h3>
-        <NextLink href="/articles">View All</NextLink>
-      </div>
-      <div className={styles.articlesList}>{articles}</div>
-    </div>
-  );
-};
-
-const ProjectList = ({ data }) => {
-  const projects = data.map((project, index) => {
-    return <Project key={index} {...project} />;
-  });
-
-  return (
-    <div className={styles.projects}>
-      <div className={styles.projects__header}>
-        <h3 className={styles.projects__header__title}>Projects</h3>
-        <NextLink passHref href="/articles">
-          <a className={styles.projects__header__link}>View Github Profile</a>
-        </NextLink>
-      </div>
-      <div className={styles.projects__list}>{projects}</div>
-    </div>
-  );
-};
-
 export default function Home({ articles }) {
-  const projects = React.useMemo(() => {
-    return [
-      {
-        title: "Aurora",
-        description:
-          "100% Cookie-Free Open Website Analytics. Collect Anonymous Data. Make your Audience Happy Now!",
-        href: "https://github.com/itsrennyman/aurora",
-        alt: "Go To Aurora - Open Website Analytics",
-      },
-      {
-        title: "React Plock",
-        description:
-          "Plock is a responsive masonry layout implementation for React that uses CSS Grid to layout your content.",
-        href: "https://react-plock.netlify.com/",
-        alt: "Go To React Plock - Responsive Masonry Layout",
-      },
-    ];
-  }, []);
-
   return (
     <Container>
       <Hero />
-      <div style={{ display: "flex", flexDirection: "column", gap: "5rem" }}>
+      <section className="flex flex-col gap-20">
         <ArticleList data={articles} />
         <ProjectList data={projects} />
-      </div>
+      </section>
     </Container>
   );
 }

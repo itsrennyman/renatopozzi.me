@@ -20,7 +20,7 @@ export const Navbar = () => {
   const isMobile = width < 768;
 
   return (
-    <nav className="flex flex-col align-stretch justify-center gap-5 border-b-zinc-800 py-6 md:flex-row md:align-center md:justify-between md:border-none md:py-10 mx-auto px-6 max-w-6xl text-zinc-100">
+    <nav className="flex flex-col align-stretch justify-center gap-5 border-b-zinc-800 py-6 md:flex-row md:items-center md:justify-between md:border-none md:py-10 mx-auto px-6 max-w-6xl text-zinc-100">
       <div className="flex flex-row justify-between">
         <h1 className="text-2xl md:text-3xl font-semibold leading-9">
           Renato Pozzi
@@ -35,7 +35,7 @@ export const Navbar = () => {
       </div>
 
       {(isOpen || !isMobile) && (
-        <ul className="flex flex-col align-start gap-4 md:flex-row md:align-center md:gap-7">
+        <ul className="flex flex-col align-start gap-4 md:flex-row md:items-center md:gap-7">
           {items.map(({ label, href }) => (
             <li
               key={label}

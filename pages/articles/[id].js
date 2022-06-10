@@ -1,7 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
 import { Container } from "../../components/Container";
 import { Code } from "../../components/MDX";
-import { Prose } from "../../components/Prose";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
 
 export function getStaticPaths() {
@@ -44,9 +43,9 @@ export default function Show({ content, fm }) {
         <h1>{fm.title}</h1>
       </div>
 
-      <Prose css={{ marginTop: "2rem", maxWidth: "70ch", margin: "0 auto" }}>
+      <article className="prose prose-invert lg:prose-xl">
         <MDXRemote {...content} components={{ code: Code }} />
-      </Prose>
+      </article>
     </Container>
   );
 }

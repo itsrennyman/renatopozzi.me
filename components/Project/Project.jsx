@@ -1,15 +1,12 @@
-import NextLink from "next/link";
-import styles from "./Project.module.css";
-
-export const Project = ({ id, title, description, href }) => {
+const Project = ({ id, title, description, href }) => {
   return (
-    <NextLink href={href} passHref>
-      <a className={styles.project}>
-        <div className={styles.project__data}>
-          <h3 className={styles.project__data__title}>{title}</h3>
-          <p className={styles.project__data__excerpt}>{description}</p>
-        </div>
-      </a>
-    </NextLink>
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      <div className="flex flex-col md:flex-row md:items-center gap-2 border-b border-b-zinc-800 py-6 transform hover:scale-[1.01] transition-all">
+        <h4 className="md:basis-32 text-lg font-bold text-zinc-100">{title}</h4>
+        <p className="text-md text-zinc-500">{description}</p>
+      </div>
+    </a>
   );
 };
+
+export { Project };

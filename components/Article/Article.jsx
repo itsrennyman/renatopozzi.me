@@ -1,24 +1,24 @@
-import NextLink from "next/link";
-import styles from "./Article.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
 export const Article = ({ id, title, description }) => {
   const excerpt = description.split(" ").slice(0, 20).join(" ") + "...";
 
   return (
-    <NextLink href="/articles/[id]" as={`/articles/${id}`} passHref>
-      <a className={styles.article}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className={styles.article__image}
+    <Link href="/articles/[id]" as={`/articles/${id}`} passHref>
+      <a className="flex flex-row gap-3 border-b border-b-zinc-800 py-6 transform hover:scale-[1.01] transition-all">
+        <Image
+          height={22}
+          width={22}
           src="/assets/icons/javascript.svg"
           alt="JavaScript"
         />
 
-        <div className={styles.article__data}>
-          <h3 className={styles.article__data__title}>{title}</h3>
-          <p className={styles.article__data__excerpt}>{excerpt}</p>
+        <div className="flex flex-col">
+          <h4 className="text-lg font-bold text-zinc-100">{title}</h4>
+          <p className="text-md text-zinc-500">{excerpt}</p>
         </div>
       </a>
-    </NextLink>
+    </Link>
   );
 };
