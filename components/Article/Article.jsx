@@ -16,7 +16,7 @@ export const Article = ({ id, title, description }) => {
 
         <div className="flex flex-col">
           <h4 className="text-lg font-bold text-zinc-100">{title}</h4>
-          <p className="text-md text-zinc-500">{excerpt}</p>
+          <p className="text-md text-zinc-400">{excerpt}</p>
         </div>
       </a>
     </Link>
