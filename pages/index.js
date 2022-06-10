@@ -66,7 +66,12 @@ const ProjectList = ({ data }) => {
 
   return (
     <div className={styles.projects}>
-      <h3 className={styles.projects__header}>Projects</h3>
+      <div className={styles.projects__header}>
+        <h3 className={styles.projects__header__title}>Projects</h3>
+        <NextLink passHref href="/articles">
+          <a className={styles.projects__header__link}>View Github Profile</a>
+        </NextLink>
+      </div>
       <div className={styles.projects__list}>{projects}</div>
     </div>
   );
@@ -95,8 +100,10 @@ export default function Home({ articles }) {
   return (
     <Container>
       <Hero />
-      <ArticleList data={articles} />
-      <ProjectList data={projects} />
+      <div style={{ display: "flex", flexDirection: "column", gap: "5rem" }}>
+        <ArticleList data={articles} />
+        <ProjectList data={projects} />
+      </div>
     </Container>
   );
 }

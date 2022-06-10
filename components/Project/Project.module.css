@@ -1,0 +1,35 @@
+.project {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.project:hover .project__data__title {
+  color: #b0fbbc;
+  text-shadow: 0px 0px 76px rgba(188, 251, 195, 0.3);
+}
+
+.project:not(:last-child) {
+  border-bottom: 1px solid #242121;
+}
+
+.project__data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project__data__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75;
+  color: #ffffff;
+}
+
+.project__data__excerpt {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #5e8ca7;
+}

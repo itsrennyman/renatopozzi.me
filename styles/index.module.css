@@ -61,20 +61,29 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 5rem;
 }
 
 .projects__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projects__header__title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #ecf8ff;
 }
 
+.projects__header__link {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #c9e2f0;
+}
+
 .projects__list {
-  display: grid;
-  grid-auto-flow: column;
-  grid-column: 50%;
-  grid-gap: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {

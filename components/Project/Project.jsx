@@ -1,19 +1,15 @@
-import { Button, Flex, Text } from "../UI";
+import NextLink from "next/link";
+import styles from "./Project.module.css";
 
-export const Project = ({ title, description, href, alt }) => {
+export const Project = ({ id, title, description }) => {
   return (
-    <div className="card">
-      <Flex direction="column" gap="7" align="baseline">
-        <Flex direction="column" gap="4">
-          <Text size="2xl" weight="medium">
-            {title}
-          </Text>
-          <Text color="secondary">{description}</Text>
-        </Flex>
-        <Button as="a" alt={alt} href={href} color="secondary">
-          View more about {title}!
-        </Button>
-      </Flex>
-    </div>
+    <NextLink href="/projects/[id]" as={`/projects/${id}`} passHref>
+      <a className={styles.project}>
+        <div className={styles.project__data}>
+          <h3 className={styles.project__data__title}>{title}</h3>
+          <p className={styles.project__data__excerpt}>{description}</p>
+        </div>
+      </a>
+    </NextLink>
   );
 };
