@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Container } from "../components/Container";
-import newsletterStyles from "../styles/newsletter.module.css";
-import styles from "../styles/styles.module.css";
+import styles from "../styles/newsletter.module.css";
 
 const NewsletterForm = () => {
   const nameRef = React.useRef();
@@ -39,8 +38,8 @@ const NewsletterForm = () => {
   };
 
   return (
-    <section className={newsletterStyles.newsletter}>
-      <div className={newsletterStyles.newsletter__header}>
+    <section className={styles.newsletter}>
+      <div className={styles.newsletter__header}>
         <h3>Get Access to Exclusive Content!</h3>
         <p>
           I&apos;m going to produce some great stuff exclusively for front-end
@@ -50,7 +49,7 @@ const NewsletterForm = () => {
         </p>
       </div>
 
-      <form ref={formRef} className={newsletterStyles.newsletter__input}>
+      <form ref={formRef} className={styles.newsletter__input}>
         <input type="text" placeholder="Your Name" ref={nameRef} />
         <input type="email" placeholder="Your Email" ref={emailRef} />
         <button type="submit" onClick={handleSubmit}>
@@ -70,7 +69,7 @@ export default function Dashboard() {
 
   return (
     <Container seo={seo}>
-      <div className={styles.hero}>
+      <div className="hero">
         <h1>Newsletter</h1>
       </div>
 

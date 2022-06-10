@@ -2,7 +2,6 @@ import { Container } from "../components/Container";
 import { Counter } from "../components/Counter";
 import { Stats } from "../components/Stats";
 import { Grid } from "../components/UI";
-import styles from "../styles/styles.module.css";
 
 export default function Dashboard() {
   const seo = {
@@ -13,7 +12,7 @@ export default function Dashboard() {
 
   return (
     <Container seo={seo}>
-      <div className={styles.hero}>
+      <div className="hero">
         <h1>Dashboard</h1>
       </div>
 

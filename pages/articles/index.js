@@ -1,7 +1,6 @@
 import { Article } from "../../components/Article";
 import { Container } from "../../components/Container";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
-import styles from "../../styles/styles.module.css";
 
 export async function getStaticProps() {
   const articles = [];
@@ -46,7 +45,7 @@ export default function Home({ articles }) {
 
   return (
     <Container seo={seo}>
-      <div className={styles.hero}>
+      <div className="hero">
         <h1>Articles</h1>
       </div>
       <ArticleList data={articles} />

@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar";
 import "../styles/fonts.css";
 import "../styles/globals.css";
 import "../styles/normalize.css";
+import "../styles/styles.css";
 import "../styles/typography.css";
 
 function MyApp({ Component, pageProps }) {

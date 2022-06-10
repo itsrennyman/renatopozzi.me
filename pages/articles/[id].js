@@ -3,7 +3,6 @@ import { Container } from "../../components/Container";
 import { Code } from "../../components/MDX";
 import { Prose } from "../../components/Prose";
 import { getArticleData, getArticles } from "../../lib/utils/articles";
-import styles from "../../styles/styles.module.css";
 
 export function getStaticPaths() {
   const files = getArticles();
@@ -41,7 +40,7 @@ export default function Show({ content, fm }) {
 
   return (
     <Container seo={seo}>
-      <div className={styles.hero}>
+      <div className="hero">
         <h1>{fm.title}</h1>
       </div>
 
