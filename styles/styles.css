@@ -48,3 +48,31 @@
   padding: var(--padding);
   background-color: var(--bg-blue200);
 }
+
+.animation-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.animation-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.animation-underline:focus {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.animation-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

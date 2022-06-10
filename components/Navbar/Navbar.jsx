@@ -2,7 +2,6 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import NextLink from "next/link";
 import * as React from "react";
 import { useWindowWidth } from "../../hooks/use-window-width";
-import styles from "./Navbar.module.css";
 
 export const Navbar = () => {
   const width = useWindowWidth();
@@ -21,25 +20,29 @@ export const Navbar = () => {
   const isMobile = width < 768;
 
   return (
-    <nav className={styles.navbar}>
-      <div>
-        <h1 className={styles.navbar__title}>Renato Pozzi</h1>
+    <nav className="flex flex-col align-stretch justify-center gap-5 border-b-zinc-800 py-6 md:flex-row md:align-center md:justify-between md:border-none md:py-10 mx-auto px-6 max-w-6xl text-zinc-100">
+      <div className="flex flex-row justify-between">
+        <h1 className="text-2xl md:text-3xl font-semibold leading-9">
+          Renato Pozzi
+        </h1>
         <button
-          className="button button--secondary"
+          className="cursor-pointer p-3 rounded-lg text-zinc-100 bg-zinc-800 hover:bg-zinc-700 md:hidden"
           aria-label="Toggle Menu"
           onClick={() => setIsOpen((prev) => !prev)}
-          style={{ padding: "0.75rem" }}
         >
           <HamburgerMenuIcon />
         </button>
       </div>
 
       {(isOpen || !isMobile) && (
-        <ul className={styles.navbar__items}>
+        <ul className="flex flex-col align-start gap-4 md:flex-row md:align-center md:gap-7">
           {items.map(({ label, href }) => (
-            <li key={label} className={styles.navbar__items__item}>
+            <li
+              key={label}
+              className="text-md font-normal leading-6 md:text-lg md:font-bold md:leading-7"
+            >
               <NextLink href={href} passHref>
-                <a className={styles.navbar__items__item__link}>{label}</a>
+                <a className="animation-underline">{label}</a>
               </NextLink>
             </li>
           ))}
