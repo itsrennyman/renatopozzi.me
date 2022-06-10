@@ -1,20 +1,14 @@
 import Markdoc from "@markdoc/markdoc";
-import fs from "fs";
-import path from "path";
 import React from "react";
 import { Container } from "../../components/Container";
-import { getArticleData } from "../../lib/utils/articles";
+import { getArticleData, getArticleList } from "../../lib/utils/articles";
 
-export function getStaticPaths() {
-  const dir = path.join(process.cwd(), "/lib/articles");
-  const files = fs.readdirSync(dir);
+export async function getStaticPaths() {
+  const files = await getArticleList();
 
-  // todo the isDraft
-  const paths = files.map((article) => {
-    return {
-      params: { id: article.replace(/\.mdx$/, "") },
-    };
-  });
+  const paths = files
+    .filter((article) => !article.isDraft)
+    .map((article) => ({ params: { id: article.id } }));
 
   return { paths, fallback: false };
 }
