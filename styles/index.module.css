@@ -3,7 +3,9 @@
   flex-direction: column;
   gap: 1.8rem;
   max-width: 60%;
-  margin-top: 7rem;
+
+  height: calc(100vh - 168px);
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {

@@ -42,3 +42,9 @@
 .button--secondary:focus {
   box-shadow: "0 0 0 3px #111a20, 0 0 0 5px #ecf8ff";
 }
+
+.card {
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  background-color: var(--bg-blue200);
+}
