@@ -8,7 +8,9 @@ const ProjectList = ({ data = [] }) => {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row items-center justify-between">
-        <h3 className="text-2xl font-bold text-zinc-100">Latest Projects</h3>
+        <h3 className="text-2xl font-bold text-zinc-100">
+          Open Source Projects
+        </h3>
         <a
           href="https://github.com/itsrennyman"
           target="_blank"
