@@ -1,21 +1,9 @@
 import { ArticleList } from "../../components/Article";
 import { Container } from "../../components/Container";
-import { getArticleData, getArticles } from "../../lib/utils/articles";
+import { getArticleList } from "../../lib/utils/articles";
 
 export async function getStaticProps() {
-  const articles = [];
-  const files = getArticles();
-
-  for (const file of files) {
-    const { fm } = await getArticleData(file);
-
-    if (fm.isDraft) continue;
-
-    articles.push({
-      ...fm,
-      id: file.replace(/\.mdx$/, ""),
-    });
-  }
+  const articles = await getArticleList();
 
   return {
     props: {

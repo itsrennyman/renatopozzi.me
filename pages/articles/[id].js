@@ -1,11 +1,15 @@
-import { MDXRemote } from "next-mdx-remote";
+import Markdoc from "@markdoc/markdoc";
+import fs from "fs";
+import path from "path";
+import React from "react";
 import { Container } from "../../components/Container";
-import { Code } from "../../components/MDX";
-import { getArticleData, getArticles } from "../../lib/utils/articles";
+import { getArticleData } from "../../lib/utils/articles";
 
 export function getStaticPaths() {
-  const files = getArticles();
+  const dir = path.join(process.cwd(), "/lib/articles");
+  const files = fs.readdirSync(dir);
 
+  // todo the isDraft
   const paths = files.map((article) => {
     return {
       params: { id: article.replace(/\.mdx$/, "") },
@@ -21,20 +25,29 @@ export async function getStaticProps(context) {
   } = context;
 
   const fileName = `${id}.mdx`;
-  const attributes = await getArticleData(fileName);
+  const { fm, file } = await getArticleData(fileName);
 
   return {
-    props: { ...attributes },
+    props: { fm, file },
   };
 }
 
-export default function Show({ content, fm }) {
+export default function Show({ fm, file }) {
   const seo = {
     title: fm.title,
     type: "article",
     description: fm.description,
     author: fm.author,
     publishDate: fm.createdAt,
+  };
+
+  const ast = Markdoc.parse(file);
+  const article = Markdoc.transform(ast);
+
+  const config = {
+    variables: {
+      frontmatter: fm,
+    },
   };
 
   return (
@@ -44,7 +57,7 @@ export default function Show({ content, fm }) {
       </div>
 
       <article className="prose prose-invert lg:prose-xl">
-        <MDXRemote {...content} components={{ code: Code }} />
+        {Markdoc.renderers.react(article, React)}
       </article>
     </Container>
   );
