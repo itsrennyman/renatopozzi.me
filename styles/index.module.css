@@ -3,9 +3,7 @@
   flex-direction: column;
   gap: 1.8rem;
   max-width: 60%;
-
-  height: calc(100vh - 168px);
-  justify-content: center;
+  margin: 8rem 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -34,7 +32,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 5rem;
 }
 
 .articlesHeader {
