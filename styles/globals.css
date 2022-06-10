@@ -1,14 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  background-color: #0e141b;
   font-family: "Lato", sans-serif;
-}
-
-:root {
-  --border-radius: 8px;
-  --padding: 2rem;
-
-  /* Colors */
-  --bg-background: #0e141b;
-  --bg-blue200: #1c2c35;
-  --text-primary: #ecf8ff;
 }
