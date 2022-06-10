@@ -8,5 +8,7 @@ body {
   --padding: 2rem;
 
   /* Colors */
+  --bg-background: #0e141b;
   --bg-blue200: #1c2c35;
+  --text-primary: #ecf8ff;
 }
