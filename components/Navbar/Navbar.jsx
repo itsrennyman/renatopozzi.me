@@ -1,5 +1,5 @@
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import NextLink from "next/link";
+import Link from "next/link";
 import * as React from "react";
 import { useWindowWidth } from "../../hooks/use-window-width";
 
@@ -12,7 +12,6 @@ export const Navbar = () => {
       { label: "Home", href: "/" },
       { label: "Articles", href: "/articles" },
       { label: "Newsletter", href: "/newsletter" },
-      { label: "Dashboard", href: "/dashboard" },
     ],
     []
   );
@@ -41,9 +40,9 @@ export const Navbar = () => {
               key={label}
               className="text-md font-normal leading-6 md:text-lg md:font-bold md:leading-7"
             >
-              <NextLink href={href} passHref>
+              <Link href={href} passHref>
                 <a className="animation-underline">{label}</a>
-              </NextLink>
+              </Link>
             </li>
           ))}
         </ul>
