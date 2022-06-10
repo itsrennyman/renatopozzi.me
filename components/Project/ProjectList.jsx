@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Project } from "./Project";
 
 const ProjectList = ({ data = [] }) => {
-  const projects = data.map((project, index) => {
-    return <Project key={project.id} {...project} />;
+  const projects = data.map((project) => {
+    return <Project key={project.title} {...project} />;
   });
 
   return (
