@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+
+  max-width: 769px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem;
+
+  border-top: 1px solid #242121;
+  margin-top: 3rem;
+}
+
+.footer__text {
+  line-height: 1.625;
+  color: #c9e2f0;
+  font-size: 1rem;
+}
+
+.footer__icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+}
+
+.footer__icons__icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 3.75rem 0;
+    flex-direction: row;
+    align-items: center;
+  }
+}
