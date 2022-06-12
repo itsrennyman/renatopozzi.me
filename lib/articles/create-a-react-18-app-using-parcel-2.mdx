@@ -1,0 +1,143 @@
+---
+author: Renato Pozzi
+createdAt: "2022-06-12T00:00:00Z"
+description: It’s been a while since I discovered Parcel, and I never had any occasion to try it with some experiments. Today I want to guide you in building a simple React app using this bundler.
+title: Create a React 18 App using Parcel 2
+isDraft: false
+---
+
+It’s been a while since I discovered Parcel, and I never had any occasion to try it with some experiments. I thought that today was the day, and my first impressions were wonderful. Today I want to guide you in building a simple React app using this bundler.
+
+## What is Parcel?
+
+Well, Parcel is a zero-configuration bundler for Javascript & CSS. The cool thing about it is that if you don’t need extra stuff, it does not require any configuration for real, it works even without a configuration file.
+
+## Let’s create our App.
+
+Usually, if you work with React, you probably did this at least one time in your life
+
+`npx create-react-app my-app`
+
+This is the common process of creating a working react application without effort using CRA (and webpack under the hood). Well, with parcel our magic app will be created from an **empty folder**, so create a brand new folder called **react-parcel** and initialize a new npm project:
+
+`cd react-parcel && npm init -y`
+
+Once the project is initialized, we need to install our bundler (Parcel) and our library (React) to make the things work:
+
+```
+npm i -D parcel
+npm i react react-dom
+```
+
+And that’s all for the dependencies!
+
+Now let’s create our **src** folder which will include all the app components and inside of it the entry points for HTML and Javascript:
+
+```
+mkdir src && cd src
+touch index.html index.js
+```
+
+Let’s populate our **index.html** with some basic data:
+
+```
+<!DOCTYPE html>
+<html lang=“en”>
+  <head>
+    <meta charset=“utf-8” />
+    <title>My Parcel App</title>
+  </head>
+  <body>
+    <div id=“app”></div>
+    <script type=“module” src=“index.js”></script>
+  </body>
+</html>
+```
+
+Along with the basic tags, we have created a div with the common **app** id which will be used as the entry point for the react root, and we also added a module script that will contain the react initialization.
+
+Now it’s time for our javascript! Let’s open the **index.js** and put the following code:
+
+```
+import ReactDOM from “react-dom”;
+import { App } from “./components/App”;
+
+const container = document.getElementById(“app”);
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
+```
+
+The code is pretty easy, simply we use our **app** div as a container for the react root, and we will render our app component inside.
+
+Let’s now make a folder for our components and let’s create our **App** component:
+
+```
+// src/components/App.jsx
+const App = () => {
+  return <div>Hello This is a React App Build With Parcel!</div>;
+};
+
+export { App };
+```
+
+Now our app is ready to be tested, to set up the node scripts for dev and prod, all we need to do is add the following to our **package.json**:
+
+```
+"source": "src/index.html",
+“scripts”: {
+  “prebuild”: “rm -rf dist”,
+  “start”: “parcel”,
+  “build”: “parcel build”
+},
+```
+
+Let me explain what we just did:
+
+The **source** key is used by Parcel to determine where the entry-point is, the start and the build are simply the invocation of Parcel with the live-server for **start** and with the production build for **build**.
+
+> The prebuild is inserted because for every build Parcel will not clean the dist folder by default, so we need to make it by ourselves. Pay attention if you have windows you should use [rimraf - npm](https://www.npmjs.com/package/rimraf)
+
+It’s time to launch the Rocket! 🚀
+
+`npm start`
+
+And look at your brand new react app built with zero configurations!
+
+## A Webpack Comparison
+
+As you can see, using Parcel it's very easy, the same thing done with webpack would require a configuration similar to this:
+
+```
+const webpack = require("webpack");
+const path = require("path");
+
+const config = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+      },
+    ],
+  },
+};
+module.exports = config;
+```
+
+Instead with parcel you don't even need to worry about the configuration, just run `npm start` and you'll be able to see your app running in the browser.
+
+## Bonus Tip
+
+Did you know that Parcel supports absolute imports? You can change your **App** component import like this:
+
+```
+import { App } from “/src/components/App”;
+```
+
+Parcel will resolve the path starting from the root directory. Cool right?
