@@ -14,17 +14,10 @@ export async function getStaticProps() {
   };
 }
 
-const styles = {
-  textShadow: "0 0 76px rgb(250 217 65 / 30%)",
-};
-
 const Hero = () => {
   return (
     <div className="flex flex-col gap-7 max-w-2xl mt-12 mb-24 md:my-24">
-      <h1
-        // style={styles}
-        className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500"
-      >
+      <h1 className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
         I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast
       </h1>
       <h2 className="text-lg font-medium leading-8 text-zinc-100">
