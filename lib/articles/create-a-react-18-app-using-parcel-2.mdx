@@ -42,14 +42,14 @@ Let’s populate our **index.html** with some basic data:
 
 ```
 <!DOCTYPE html>
-<html lang=“en”>
+<html lang="en">
   <head>
-    <meta charset=“utf-8” />
+    <meta charset="utf-8" />
     <title>My Parcel App</title>
   </head>
   <body>
-    <div id=“app”></div>
-    <script type=“module” src=“index.js”></script>
+    <div id="app"></div>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
 ```
@@ -59,10 +59,10 @@ Along with the basic tags, we have created a div with the common **app** id whic
 Now it’s time for our javascript! Let’s open the **index.js** and put the following code:
 
 ```
-import ReactDOM from “react-dom”;
-import { App } from “./components/App”;
+import ReactDOM from "react-dom";
+import { App } from "./components/App";
 
-const container = document.getElementById(“app”);
+const container = document.getElementById("app");
 const root = ReactDOM.createRoot(container);
 root.render(<App />);
 ```
@@ -84,10 +84,10 @@ Now our app is ready to be tested, to set up the node scripts for dev and prod, 
 
 ```
 "source": "src/index.html",
-“scripts”: {
-  “prebuild”: “rm -rf dist”,
-  “start”: “parcel”,
-  “build”: “parcel build”
+"scripts": {
+  "prebuild": "rm -rf dist",
+  "start": "parcel",
+  "build": "parcel build"
 },
 ```
 
@@ -137,7 +137,7 @@ Instead with parcel you don't even need to worry about the configuration, just r
 Did you know that Parcel supports absolute imports? You can change your **App** component import like this:
 
 ```
-import { App } from “/src/components/App”;
+import { App } from "/src/components/App";
 ```
 
 Parcel will resolve the path starting from the root directory. Cool right?
