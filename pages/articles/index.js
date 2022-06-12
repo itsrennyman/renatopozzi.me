@@ -22,7 +22,9 @@ export default function Home({ articles }) {
   return (
     <Container seo={seo}>
       <div className="hero">
-        <h1>Articles</h1>
+        <h1 className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
+          Articles
+        </h1>
       </div>
       <ArticleList data={articles} />
     </Container>

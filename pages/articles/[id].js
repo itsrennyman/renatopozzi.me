@@ -38,6 +38,7 @@ export default function Show({ fm, file }) {
   const ast = Markdoc.parse(file);
   const article = Markdoc.transform(ast);
 
+  // TODO:
   const config = {
     variables: {
       frontmatter: fm,
@@ -47,7 +48,9 @@ export default function Show({ fm, file }) {
   return (
     <Container seo={seo}>
       <div className="hero">
-        <h1>{fm.title}</h1>
+        <h1 className="text-5xl text-center font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
+          {fm.title}
+        </h1>
       </div>
 
       <article className="prose prose-invert lg:prose-xl">

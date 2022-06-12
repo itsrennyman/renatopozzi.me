@@ -1,4 +1,3 @@
-import * as React from "react";
 import { ArticleList } from "../components/Article";
 import { Container } from "../components/Container";
 import { ProjectList } from "../components/Project";
@@ -23,8 +22,8 @@ const Hero = () => {
   return (
     <div className="flex flex-col gap-7 max-w-2xl mt-12 mb-24 md:my-24">
       <h1
-        style={styles}
-        className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400"
+        // style={styles}
+        className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500"
       >
         I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast
       </h1>
