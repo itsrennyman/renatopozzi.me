@@ -1,7 +1,9 @@
 import Markdoc from "@markdoc/markdoc";
 import React from "react";
 import { Container } from "../../components/Container";
+import { Sandbox } from "../../components/Sandbox";
 import { getArticleData, getArticleList } from "../../lib/utils/articles";
+import { sandbox } from "../../markdoc/tags";
 
 export async function getStaticPaths() {
   const files = await getArticleList();
@@ -35,15 +37,18 @@ export default function Show({ fm, file }) {
     publishDate: fm.createdAt,
   };
 
-  const ast = Markdoc.parse(file);
-  const article = Markdoc.transform(ast);
-
-  // TODO:
   const config = {
-    variables: {
-      frontmatter: fm,
+    tags: {
+      sandbox,
     },
   };
+
+  const components = {
+    Sandbox: Sandbox,
+  };
+
+  const ast = Markdoc.parse(file);
+  const article = Markdoc.transform(ast, config);
 
   return (
     <Container seo={seo}>
@@ -54,7 +59,7 @@ export default function Show({ fm, file }) {
       </div>
 
       <article className="prose prose-invert lg:prose-xl">
-        {Markdoc.renderers.react(article, React)}
+        {Markdoc.renderers.react(article, React, { components })}
       </article>
     </Container>
   );
