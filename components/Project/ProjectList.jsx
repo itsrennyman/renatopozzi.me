@@ -17,7 +17,7 @@ const ProjectList = ({ data = [] }) => {
           rel="noopener noreferrer"
           className="text-base text-zinc-100"
         >
-          View Github Profile
+          View Github
         </a>
       </div>
 
