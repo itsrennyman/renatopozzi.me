@@ -1,4 +1,6 @@
 import * as React from "react";
+import { Button } from "../Button";
+import { Input } from "../Input";
 import styles from "./NewsletterForm.module.css";
 
 const NewsletterForm = () => {
@@ -49,11 +51,11 @@ const NewsletterForm = () => {
       </div>
 
       <form ref={formRef} className={styles.newsletter__input}>
-        <input type="text" placeholder="Your Name" ref={nameRef} />
-        <input type="email" placeholder="Your Email" ref={emailRef} />
-        <button type="submit" onClick={handleSubmit}>
+        <Input type="text" placeholder="Your Name" ref={nameRef} />
+        <Input type="email" placeholder="Your Email" ref={emailRef} />
+        <Button type="submit" onClick={handleSubmit}>
           Get Access!
-        </button>
+        </Button>
       </form>
     </section>
   );
