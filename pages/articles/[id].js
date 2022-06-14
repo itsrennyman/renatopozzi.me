@@ -1,6 +1,7 @@
 import Markdoc from "@markdoc/markdoc";
 import React from "react";
 import { Container } from "../../components/Container";
+import { NewsletterForm } from "../../components/NewsletterForm";
 import { Sandbox } from "../../components/Sandbox";
 import { getArticleData, getArticleList } from "../../lib/utils/articles";
 import { sandbox } from "../../markdoc/tags";
@@ -61,6 +62,10 @@ export default function Show({ fm, file }) {
       <article className="prose prose-invert lg:prose-xl">
         {Markdoc.renderers.react(article, React, { components })}
       </article>
+
+      <div className="mt-10">
+        <NewsletterForm />
+      </div>
     </Container>
   );
 }

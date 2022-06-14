@@ -8,3 +8,8 @@ export const sandbox = {
     },
   },
 };
+
+export const newsletter = {
+  render: "NewsletterForm",
+  description: "Display the newsletter form",
+};
