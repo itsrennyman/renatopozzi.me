@@ -1,4 +1,4 @@
-const { Client, LogLevel } = require("@notionhq/client");
+const { Client } = require("@notionhq/client");
 
 const { NOTION_API_TOKEN, NOTION_DATABASE_ID } = process.env;
 
