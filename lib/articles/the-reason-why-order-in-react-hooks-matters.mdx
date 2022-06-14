@@ -1,0 +1,207 @@
+---
+author: Renato Pozzi
+createdAt: "2022-06-14T00:00:00Z"
+description: React Hooks are a new feature in React 16.8. They are a powerful way to write stateful components. All this power comes at a cost, however.
+title: The Reason Why Order in Hooks Matters
+isDraft: false
+---
+
+React Hooks are a new feature in React 16.8. They allow you to use state and other React features without writing a class. They are a powerful way to write stateful components, and they are a great way to write functional components.
+
+All this power comes at a cost, however. They have some constraints that you should follow to make them work well, otherwise, you will end up with a lot of bugs.
+
+Today I want to talk about one specific rule:
+
+> Don’t call Hooks inside loops, conditions, or nested functions.
+
+So, simply we cannot do something like this:
+
+```
+import * as React from "react";
+
+const Iron = ({ isMelted = false }) => {
+  if (isMelted) {
+    const [temperature, setTemperature] = React.useState(null);
+  }
+
+  return <div>{...}</div>;
+};
+```
+
+Or even worse something like:
+
+```
+<button onClick={() => useRequest({ id: 12 })}>
+  {n + 1}
+</button>
+```
+
+Sometimes, people who read this rule apply it without asking too many questions about why and how, and if you are among them, that’s ok, there’s no shame in following the docs without going deeper, but fate wants you to be here for that very reason, so I ask you: could you tell me why it is so important?
+
+Before any explanation I want you to turn on your problem solver tool called the brain and I will give you five minutes to figure out a solution, then you can scroll through the article for enlightenment!
+
+How your problem-solving session was? Hope you found something really cool! Let’s dive into the light, implementing our **own useState**.
+
+The starting app will be this one, guess what? Another counter… But it will be useful to compare the custom solution with the real one.
+
+```
+import ReactDOM from "react-dom";
+import { useState } from "react";
+
+// The actual Component
+export default function App() {
+  const [counter, setCounter] = useState(10);
+  const increment = () => setCounter(counter + 1);
+
+  return (
+    <div>
+      <button onClick={increment}>{counter}</button>
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
+
+> We are gonna use React 17 due to the fact that the new rendering logic in the version 18 does not work very well with a “homemade” solution, but you know, it’s just an experiment 😇
+
+## Our Custom useState
+
+Our goal is to call out custom useState instead of the real one, let’s demystify the behavior of this hook:
+
+- Can accept a parameter with an initial value for the state.
+- It returns a tuple with the actual value, and a function to update that value.
+- Once the state is updated it triggers a re-render of the component keeping the updated value.
+
+So the first thing we are gonna do is to declare our function with some basic placeholders, and comment on the real function 💅
+
+```
+// import { useState } from "react";
+
+function useState(initialValue) {
+  const setValue = (newValue) => {};
+  const tuple = [initialValue, setValue];
+  return tuple;
+}
+```
+
+Great, now nothing crashes, but it doesn't work either... our setValue function does nothing. We need to give her actual functionality, but you may notice a problem here: how is the state stored in the function?
+
+I mean, everyone knows that React Components are just functions right? And React itself calls these functions which trigger components rendering, but for every new invocation of the `App` components we initialize a brand new useState function.
+
+```
+App(); // A new useState is invoked
+App(); // A new useState is invoked
+App(); // A new useState is invoked
+```
+
+So to solve this problem we need an external variable that will be used as a store for our hooks declaration! Let’s call it **state**.
+
+```
+// This variable will be persistent between renders!
+let state = [];
+
+function useState(initialValue) {
+  const setValue = (newValue) => {};
+  const tuple = [initialValue, setValue];
+  return tuple;
+}
+```
+
+Now it’s time to implement the core logic of the hook, an initial version could be something like this:
+
+```
+let state = null;
+
+function useState(initialValue) {
+  if (state && state[0]) {
+    return state;
+  }
+
+  const setValue = (newValue) => {
+    state[0] = newValue;
+    customRender(); // Who am I?
+  };
+
+  state = [initialValue, setValue];
+
+  return state;
+}
+```
+
+Let’s break down the behavior: at the initial call, useState will check if at the specific index of the states array there is something already, if so it will return it, otherwise it populates the state variable with the tuple and returns it.
+
+```
+// First Render: Initialize with the Tuple
+// Second Render: State is not null, so returns it.
+// Third Render: State is not null. so returns it.
+// Continue Infinitely...
+```
+
+> But WTH Renato, I had the urgency to try this code, and nothing works. Are you kidding me?!?
+
+Look carefully at the previous code snippet, did you see the `customRender` function invocation? Well, this is our weird trick to simulate a re-render in react. Simply we create a function that wraps the `ReactDOM.render()` invocation, and we call it when we set the new value.
+
+```
+// Wrap the render function into a function.
+function customRender() {
+  ReactDOM.render(<App />, document.getElementById("root"));
+}
+
+// Don't forget to call it immediately, we need our initial render :)
+customRender();
+```
+
+If you try this code, you will notice that actually works like the real one, I will leave you the sandbox here.
+
+{% sandbox id="react-homemade-usestate-v1-3r96rk" /%}
+
+Cool, now it’s time to make everything blow up!
+
+Look at this new sandbox I put here:
+
+{% sandbox id="react-homemade-usestate-v1-broken-j62or3" /%}
+
+Can you spot the bug? That’s not cool… every button has the same state value 🥲 maybe it’s time for a better implementation!
+
+## Time For a Better Implementation!
+
+The first obvious problem is that our **state** variable accepts a single value, so it needs to become an array, furthermore, we need a way to keep track of the index of our `useState` calls, because, for every state, there will be different values!
+
+Here you can find a working version with the two different buttons that finally enjoy their own values!
+
+{% sandbox id="react-homemade-usestate-v2-gjz772" /%}
+
+## The Answer to Our Question
+
+So far we asked ourselves why the order in hooks matters, and I hope now you figured out the answer by yourself.
+
+The reason is simply this variable:
+
+```
+const states = []; // I'm a bad Guy 😙
+```
+
+Although it was a very naive implementation, internally react works similar to this. Every hook definition is stored with a specific index, so React relies on it to return the correct value.
+
+As we saw in the first example that’s the reason why doing this is not correct:
+
+```
+import * as React from "react";
+
+const Iron = ({ isMelted = false }) => {
+  // Sometimes the index can be zero, sometimes not?
+  // There is no consistency between renders!
+  if (isMelted) {
+    const [temperature, setTemperature] = React.useState(null);
+  }
+
+  return <div></div>;
+};
+```
+
+You may also find this answer from the React FAQ useful:
+
+> **How does React associate Hook calls with components?**
+>
+> There is an internal list of “memory cells” associated with each component. They’re just JavaScript objects where we can put some data. When you call a Hook like useState(), **it reads the current cell (or initializes it during the first render) and then moves the pointer to the next one**. This is how multiple useState() calls each get independent local state.
