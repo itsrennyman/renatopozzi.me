@@ -92,12 +92,10 @@
 }
 
 .newsletter__input > button:hover {
-  /* animation: gradient 3s infinite; */
   transform: scale(1.03);
 }
 
 .newsletter__input > button:active {
-  /* animation: gradient 3s infinite; */
   transform: scale(0.95);
 }
 
