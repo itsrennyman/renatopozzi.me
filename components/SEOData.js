@@ -1,22 +1,25 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useMicrocard } from "../hooks/use-microcard";
+
+const defaults = {
+  title: "Renato Pozzi",
+  description:
+    "I am an Italian software engineer who currently is located in Milan. I used to work with a full-stack environment, but now I'm discovering my true passion for front-end engineering.",
+  image:
+    "https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dsimple%26caption%3DFrontend%2BEngineering%2BEnthusiast%2B%25F0%259F%2590%25B3%250A%26headline%3DRenato%2BPozzi%26p%3DDwPgUABBwDIJYDsDWkoQBYCcCmAzAvAOToAuJADgM4BcA9LbgPYImUB0A5o4xwDbYBDcnHYBjRgFtaoypQBMAflwCJcXgE98AJUYAjRiUbUA7h1IABAIwAGawG4AzLbsAWZwHZbAMgAmI8rwCmrq8jKJIhKhQOLxElCTq-JTo2NgkkVC04FDAAGL8AB5REJQF%252BADe5cVQArxwHAgAkiTYEjQQhKLYLNiYhAA01RAAVgCu8XC46gDCzC0s1B1dPX2DaGi4hQAicDiiJHDMi52MvKMSCANDuhyLAI6jvepsN2vrEOKhmPePmM%252BfjEwxQAvsDUNk0MAACrYAokIalCpVd4bOa5FRqdTHHT6QxXFFQJgsADKcAAXthFu43iiiSQAOrYeqkKm2Iag4oQ9blB5PNgpAQ%252BOoIbBg9bAWgwuFc6BS%252BEoxGVIaEtEYjTYvQGRj4gl00kUxYAVhp7zpjOZJEWTms7LFaBlUB5v3%252BQgOzDtOUlsJIEIl%252BVh4AlICAA",
+  type: "website",
+};
 
 export function SEOData(props) {
   const router = useRouter();
-
-  const defaults = {
-    title: "Renato Pozzi",
-    description:
-      "I am an Italian software engineer who currently is located in Milan. I used to work with a full-stack environment, but now I'm discovering my true passion for front-end engineering.",
-    image:
-      "https://i.microlink.io/https%3A%2F%2Fcards.microlink.io%2F%3Fpreset%3Dsimple%26caption%3DFrontend%2BEngineering%2BEnthusiast%2B%25F0%259F%2590%25B3%250A%26headline%3DRenato%2BPozzi%26p%3DDwPgUABBwDIJYDsDWkoQBYCcCmAzAvAOToAuJADgM4BcA9LbgPYImUB0A5o4xwDbYBDcnHYBjRgFtaoypQBMAflwCJcXgE98AJUYAjRiUbUA7h1IABAIwAGawG4AzLbsAWZwHZbAMgAmI8rwCmrq8jKJIhKhQOLxElCTq-JTo2NgkkVC04FDAAGL8AB5REJQF%252BADe5cVQArxwHAgAkiTYEjQQhKLYLNiYhAA01RAAVgCu8XC46gDCzC0s1B1dPX2DaGi4hQAicDiiJHDMi52MvKMSCANDuhyLAI6jvepsN2vrEOKhmPePmM%252BfjEwxQAvsDUNk0MAACrYAokIalCpVd4bOa5FRqdTHHT6QxXFFQJgsADKcAAXthFu43iiiSQAOrYeqkKm2Iag4oQ9blB5PNgpAQ%252BOoIbBg9bAWgwuFc6BS%252BEoxGVIaEtEYjTYvQGRj4gl00kUxYAVhp7zpjOZJEWTms7LFaBlUB5v3%252BQgOzDtOUlsJIEIl%252BVh4AlICAA",
-    type: "website",
-  };
 
   const { title, description, image, type, ...rest } = {
     ...defaults,
     ...props,
   };
+
+  const microcard = useMicrocard(title);
 
   return (
     <Head>
@@ -42,7 +45,7 @@ export function SEOData(props) {
         content={description}
       />
       <meta name="title" property="og:title" content={title} />
-      <meta name="image" property="og:image" content={image} />
+      <meta name="image" property="og:image" content={microcard} />
 
       {/* Articles Open Graph */}
       {rest.publishDate && (
@@ -60,7 +63,7 @@ export function SEOData(props) {
       <meta name="twitter:site" content="@imarenny" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={microcard} />
 
       {/* Google Search Console */}
       <meta
