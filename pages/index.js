@@ -20,7 +20,7 @@ const Hero = () => {
       <h1 className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
         I&apos;m Renato, a Frontend Engineer and Javascript Enthusiast
       </h1>
-      <h2 className="text-lg font-medium leading-8 text-zinc-100">
+      <h2 className="text-xl font-bold text-zinc-400 max-w-3xl leading-normal">
         Bringing kindness & knowledge to other people. I’m a Software Engineer
         currently based in Milan, Italy 🇮🇹 I used to work as a Full-Stack
         Engineer, now I&apos;m discovering my love for Front-End Engineering.
