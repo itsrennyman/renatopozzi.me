@@ -19,7 +19,7 @@ export default async function newsletter(req, res) {
   const data = await result.json();
 
   if (!result.ok) {
-    return res.status(500).json({ error: data.error.email[0] });
+    return res.status(500).json({ message: data.error.email[0] });
   }
 
   return res.status(201).json({

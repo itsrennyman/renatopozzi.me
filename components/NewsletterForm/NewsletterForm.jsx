@@ -4,6 +4,8 @@ import { Input } from "../Input";
 import styles from "./NewsletterForm.module.css";
 
 const NewsletterForm = () => {
+  const [message, setMessage] = React.useState(null);
+
   const nameRef = React.useRef();
   const emailRef = React.useRef();
   const formRef = React.useRef();
@@ -11,6 +13,7 @@ const NewsletterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setMessage(null);
     const name = nameRef.current.value;
     const email = emailRef.current.value;
 
@@ -29,11 +32,13 @@ const NewsletterForm = () => {
         email,
       }),
     }).then(async (res) => {
+      const response = await res.json();
+
       if (res.ok) {
-        alert("You have been added to the newsletter!");
+        setMessage(response.message);
         formRef.current.reset();
       } else {
-        alert("Something went wrong, please try again later");
+        setMessage(`Error: ${response.message}`);
       }
     });
   };
@@ -57,6 +62,8 @@ const NewsletterForm = () => {
           Get Access!
         </Button>
       </form>
+
+      {message && <div>{message}</div>}
     </section>
   );
 };
