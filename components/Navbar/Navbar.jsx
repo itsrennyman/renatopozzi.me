@@ -22,9 +22,9 @@ export const Navbar = () => {
   return (
     <nav className="flex flex-col align-stretch justify-center gap-5 border-b-zinc-800 py-6 md:flex-row md:items-center md:justify-between md:border-none md:py-10 mx-auto px-6 max-w-6xl text-zinc-100">
       <div className="flex flex-row justify-between">
-        <h1 className="text-2xl md:text-3xl font-semibold leading-9">
+        <div className="text-2xl md:text-3xl font-semibold leading-9">
           Renato Pozzi
-        </h1>
+        </div>
         <button
           className="cursor-pointer p-3 rounded-lg text-zinc-100 bg-zinc-800 hover:bg-zinc-700 md:hidden"
           aria-label="Toggle Menu"
