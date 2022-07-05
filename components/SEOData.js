@@ -31,7 +31,7 @@ export function SEOData(props) {
         content={`https://renatopozzi.me${router.asPath}`}
       />
       <link rel="canonical" href={`https://renatopozzi.me${router.asPath}`} />
-      <link rel="icon" type="image/png" href="/favicon.png" hrefLang="en-us" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
 
       {/* Generic Open Graph */}
       <meta property="og:type" content={type} />
