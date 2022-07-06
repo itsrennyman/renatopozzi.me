@@ -51,12 +51,24 @@ export default function Show({ fm, file }) {
   const ast = Markdoc.parse(file);
   const article = Markdoc.transform(ast, config);
 
+  const publishedAtShort = new Date(fm.createdAt).toLocaleDateString("en-US");
+  const publishedAtLong = new Date(fm.createdAt).toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <Container seo={seo}>
       <div className="hero">
         <h1 className="text-5xl text-center font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
           {fm.title}
         </h1>
+        <div className="text-xl text-center font-bold text-zinc-400 max-w-3xl">
+          Published on{" "}
+          <time dateTime={publishedAtShort}>{publishedAtLong}</time>
+        </div>
       </div>
 
       <article className="prose prose-invert lg:prose-xl">
