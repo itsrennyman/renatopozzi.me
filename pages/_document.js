@@ -7,9 +7,23 @@ class MyDocument extends Document {
   }
 
   render() {
+    let pirsch = null;
+
+    if (process.env.PIRSCH_DATA_CODE) {
+      pirsch = (
+        <script
+          defer
+          type="text/javascript"
+          src="https://api.pirsch.io/pirsch.js"
+          id="pirschjs"
+          data-code={process.env.PIRSCH_DATA_CODE}
+        />
+      );
+    }
+
     return (
       <Html lang="en">
-        <Head />
+        <Head>{pirsch}</Head>
         <body className="bg-zinc-900">
           <Main />
           <NextScript />
