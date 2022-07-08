@@ -1,9 +1,12 @@
 import { signIn, useSession } from "next-auth/react";
 import * as React from "react";
-import useSWR, { mutate } from "swr";
+import { mutate } from "swr";
 import { Button } from "../components/Button";
 import { Container } from "../components/Container";
 import { Input } from "../components/Input";
+const { Client } = require("@notionhq/client");
+
+const { NOTION_API_TOKEN, NOTION_GUESTBOOK_DATABASE_ID } = process.env;
 
 const spread = (data = [], cols = 3) => {
   const columns = Array.from({ length: cols }, () => []);
@@ -124,13 +127,29 @@ const seo = {
   description: "Want to leave a greeting? This is the place to do it.",
 };
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+export async function getStaticProps() {
+  const notion = new Client({
+    auth: NOTION_API_TOKEN,
+  });
 
-export default function Guestbook() {
-  const { data, error } = useSWR("/api/guestbook", fetcher);
+  const response = await notion.databases.query({
+    database_id: NOTION_GUESTBOOK_DATABASE_ID,
+  });
 
-  if (error) return <div>failed to load</div>;
+  const messages = response.results.map((result) => {
+    return {
+      id: result.id,
+      name: result.properties.Name.title[0].plain_text,
+      avatar: result.properties.Avatar.url,
+      message: result.properties.Message.rich_text[0].plain_text,
+      createdAt: result.created_time,
+    };
+  });
 
+  return { props: { data: messages }, revalidate: 10 };
+}
+
+export default function Guestbook({ data }) {
   return (
     <Container seo={seo}>
       <div className="hero">
@@ -146,7 +165,7 @@ export default function Guestbook() {
 
       <div className="flex flex-col gap-6">
         <MessageForm />
-        <MessageListGrid data={data ?? []} />
+        <MessageListGrid data={data} />
       </div>
     </Container>
   );

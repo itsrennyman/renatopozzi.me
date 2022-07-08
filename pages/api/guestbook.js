@@ -7,24 +7,6 @@ export default async function guestbook(req, res) {
     auth: NOTION_API_TOKEN,
   });
 
-  if (req.method === "GET") {
-    const response = await notion.databases.query({
-      database_id: NOTION_GUESTBOOK_DATABASE_ID,
-    });
-
-    const messages = response.results.map((result) => {
-      return {
-        id: result.id,
-        name: result.properties.Name.title[0].plain_text,
-        avatar: result.properties.Avatar.url,
-        message: result.properties.Message.rich_text[0].plain_text,
-        createdAt: result.created_time,
-      };
-    });
-
-    return res.status(200).json(messages);
-  }
-
   if (req.method === "POST") {
     const { message, name, avatar } = req.body;
 
