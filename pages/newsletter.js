@@ -10,8 +10,8 @@ export default function Dashboard() {
 
   return (
     <Container seo={seo}>
-      <div className="hero">
-        <h1 className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
+      <div className="flex flex-col gap-4 mt-12 mb-24 md:my-24">
+        <h1 className="text-6xl text-center font-black text-zinc-100 tracking-tight">
           Newsletter
         </h1>
       </div>

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Article } from "./Article";
 
 const ArticleList = ({ data = [] }) => {
@@ -7,15 +6,16 @@ const ArticleList = ({ data = [] }) => {
   });
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex flex-row items-center justify-between">
-        <h3 className="text-2xl font-bold text-zinc-100">Latest Articles</h3>
-        <Link href="/articles" passHref>
-          <a className="text-base text-zinc-100">View All</a>
-        </Link>
-      </div>
-      <div className="flex flex-col">{articles}</div>
-    </div>
+    <section>
+      <h3 className="bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-700 bg-clip-text text-transparent text-4xl font-black tracking-tight">
+        Latest Articles
+      </h3>
+      <p className="text-zinc-600 dark:text-zinc-400 text-lg mt-2 leading-snug tracking-tight">
+        I write articles mostly on front-end development. Spoiler alert: some of
+        them are quite useful!
+      </p>
+      <ul className="mt-5">{articles}</ul>
+    </section>
   );
 };
 

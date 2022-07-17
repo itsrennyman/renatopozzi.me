@@ -61,14 +61,14 @@ export default function Show({ fm, file }) {
 
   return (
     <Container seo={seo}>
-      <div className="hero">
-        <h1 className="text-5xl text-center font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
+      <div className="flex flex-col gap-4 mt-12 mb-12 md:mt-24">
+        <h1 className="text-5xl sm:text-6xl font-black text-zinc-100 tracking-tight">
           {fm.title}
         </h1>
-        <div className="text-xl text-center font-bold text-zinc-400 max-w-3xl">
+        <h2 className="text-xl sm:text-2xl font-medium text-zinc-400 max-w-3xl leading-snug tracking-tight">
           Published on{" "}
           <time dateTime={publishedAtShort}>{publishedAtLong}</time>
-        </div>
+        </h2>
       </div>
 
       <article className="prose prose-invert lg:prose-xl">

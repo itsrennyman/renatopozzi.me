@@ -152,13 +152,13 @@ export async function getStaticProps() {
 export default function Guestbook({ data }) {
   return (
     <Container seo={seo}>
-      <div className="hero">
-        <h1 className="text-5xl font-black leading-snug bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-500 to-green-500">
+      <div className="flex flex-col gap-4 mt-12 mb-24 md:my-24">
+        <h1 className="text-6xl text-center font-black text-zinc-100 tracking-tight">
           Guestbook
         </h1>
-        <h2 className="text-xl text-center font-bold text-zinc-400 max-w-3xl">
+        <h2 className="text-xl sm:text-2xl text-center font-medium text-zinc-400 max-w-3xl leading-snug tracking-tight">
           You have a chance to be creative. Indulge me by leaving a comment
-          below. Anything is welcome – insight, information, wisdom, or even
+          below. Anything is welcome: insight, information, wisdom, or even
           humor. Surprise me!
         </h2>
       </div>
