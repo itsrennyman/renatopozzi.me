@@ -1,0 +1,277 @@
+---
+author: Renato Pozzi
+createdAt: "2022-07-18T00:00:00Z"
+description: This article will help you avoid some common errors that most of us make architecting react applications, and will give you the right way to structure your directories.
+title: Architecting React Apps Like it's 2030
+isDraft: false
+---
+
+There is one problem that every React Developer falls into during his journey. This is how to structure a good app architecture.
+
+This article will help you avoid some common errors that most of us make architecting react applications, and will give you the right way to structure your directories.
+
+## Is This For You?
+
+Before starting, it's necessary to underline a point: there is no perfect solution that fits any possible case. This is particularly important to understand because a lot of developers are always looking for the one and only one solution to all their problems, I'm sorry to say that if you are looking for this, this could not be the article for you.
+
+## Time to Architect!
+
+If you have arrived here, it means that you are interested in the topic, so, it's finally time to start! All the content I will mention will be put into an `src` directory, and every mention of new folders will be relative to this constraint, keep it in mind.
+
+### Components
+
+What are the first things a React Developer creates in a project? I would say components because you know, React apps are made with components so, no components no party.
+
+During my career, I saw a lot of different architectures (some very good, and others awful..) and I figured out one path which can be used in most cases, even for little projects.
+
+This is what it looks like:
+
+```
+├── components
+│   ├── common
+│   │   └── button
+│   │       ├── button.tsx
+│   │       ├── button.stories.tsx
+│   │       ├── button.spec.tsx
+│   │       └── index.ts
+│   └── signup-form
+│       ├── signup-form.tsx
+│       ├── signup-form.spec.tsx
+│       └── index.ts
+```
+
+The key point here is the following: we have `components` that contain all the components that are used more than one single time in the app, so we are going to exclude every feature-specific component from this folder.
+
+Why? Simply because the meaning of this folder is to contain reusable logic. And I put also a difference between global and scoped reusable logic. A button is supposed to be used on almost every page of our app, that's why a `common` directory exists. Something different happens instead for the signup-form component, why is this reusable?
+
+Well, let's suppose to have two different pages (more on this later) for sign-in and sign-up, this component needs to be repeated two times, that's the reason why is put into the components folder but as a `scoped logic`.
+
+> Notice how as I said before, this is a specific case, if we had a single page for authentication, we shouldn't have put it in here.
+
+Some examples of what can be inserted into the `common` folder:
+
+- Inputs
+- Cards
+- Alerts
+
+I think you got the point.
+
+You probably noticed also that every single component is placed into a proper directory with a very easy-to-understand naming convention.
+
+```
+button
+├── button.tsx
+├── button.stories.tsx
+├── button.spec.tsx
+└── index.ts
+```
+
+That's because your app can eventually contain more than 1000 components, and if all of them have a test or a storybook file, this can easily become messy. Let's explore some key points of this folder:
+
+- All the component-related files are in this folder.
+- All the exportable modules are put into an index.ts to avoid the awful double name in import.
+- All the files are named in kebab-case.
+
+I know it seems a little bit verbose, especially for newbies or for little projects, but it requires very little effort and as a return to having a gain in code readability, want an example? Try to answer these questions:
+
+- Where is the button component? -> In the button folder.
+- Where are the stories for this button? -> In the button folder.
+- Oh dear, I need to find the test for this button where I can find it? -> Answer by yourself.
+
+Again I repeat, if you feel these questions are silly and obvious, the day will come when you will work on a code base where best practices are the last thing that was considered and you will remember this article.
+
+We're not done with the components yet, but we'll come back to that later.
+
+### Pages
+
+Let me tell you a secret, in React, pages do not exist. They are components too, composed with, well, other components. But differently from the other components, usually are very strictly scoped (in a specific URL path for example). Where do we go to insert them?
+
+We can use a practical `views` (or pages if you prefer) directory, in which put all those stuff, have a look a the example:
+
+```
+views
+├── home.tsx
+├── guestbook.tsx
+└── newsletter
+    ├── index.ts
+    ├── newsletter.tsx
+    └── components
+        └── newsletter-form
+            ├── newsletter-form.tsx
+            ├── newsletter-form.spec.tsx
+            └── index.ts
+```
+
+For the `home` and `guestbook` it's fairly simple, a page is supposed to be the result of the composition of other components, which have proper tests, so I'm not gonna create a specific directory for them.
+
+The case is different for the `newsletter` page, which has something specific, a `newsletter-form` component. In this case, I use the approach of creating a nested component folder inside the page folder and act like I'm in the normal components folder, so using the same rules.
+
+This approach is powerful because lets you split the code into small chunks, but keeps the architecture well organized. The `newsletter-form` component should not be put into the "main" components folder, simply because here is the only place in which is used. If the application grows, and the component will be used in several parts, nothing prevents you from moving it.
+
+Another tip i usually suggest is to keep a consistent name between the page and the route, something like this:
+
+```js
+<Route path="/bookings">
+  <Route index element={<Bookings />} />
+  <Route path="create" element={<CreateBooking />} />
+  <Route path=":id" element={<ViewBooking />} />
+  <Route path=":id/edit" element={<EditBooking />} />
+  <Route path=":id/delete" element={<DeleteBooking />} />
+</Route>
+```
+
+### Layouts
+
+Layouts are no pages at all, they are more like components, so they can be treated like that, but lately, I prefer to put them into a `layout` folder, it makes more clear that in this app there are n layouts available.
+
+```
+layout
+├── main.tsx
+└── auth.tsx
+```
+
+One thing you may notice is that I don't call them `main-layout.tsx` but just `main`, that's because following this reason I would have to rename all the components like `table-component.tsx` which is weird. So I name all the components without the obvious suffix given by the parent directory, and if I need to underline that I'm using a layout I can always use an import alias as well.
+
+```js
+import { Main as MainLayout } from "@/layouts/main.tsx";
+```
+
+### Contexts, Hooks & Stores
+
+This is pretty simple, and usually, I see almost every developer stick with something like this, so I'm gonna put here how I organize those things:
+
+```
+hooks
+├── use-users.ts
+└── use-click-outside.ts
+```
+
+```
+contexts
+├── workbench.tsx
+└── authentication.tsx
+```
+
+Here again, I stick with using kebab-case for all the filenames, so I don't have to worry about which ones are capitalized and which are not. For the testing files, due to the fact, that the custom hooks are few, I would not create a specific folder, but in my opinion, if you want to be very strict. you can do it as well:
+
+```
+hooks
+├── use-users
+│   ├── use-users.ts
+│   ├── use-users.spec.ts
+│   └── index.ts
+└── use-click-outside.ts
+```
+
+### Helpers
+
+How many times do you create a nice `formatCurrency` function without knowing where to put it? The `helpers` folder is coming to your help!
+
+Usually, here I put all the files I use to make code look better, I don't care if the function is used more than one time or not. Usually, these helpers are fairly few, so until there is a very large number of them, I stick this way.
+
+```
+helpers
+├── format-currency.ts
+├── uc-first.ts
+└── pluck.ts
+```
+
+### Constants
+
+I see a lot of projects that contain contansts in the `utils` or `helpers` folder, I prefer to put them into a specific file, giving the user a nice view of what is used as a constant in the app. Most of the time I put only globally scoped constants, so don't put the `QUERY_LIMIT` constant here if it is used in only one function for a very specific case.
+
+```
+constants
+└── index.ts
+```
+
+Also, I usually keep all the constants in a single file. It is no sense to split every constant into a specific file.
+
+```js
+// @/constants/index.ts
+export const LINKEDIN_FULLNAME = "Renato Pozzi";
+export const TWITTER_USERNAME = "@itsrennyman";
+
+// And use them in your app! 👍
+import { LINKEDIN_FULLNAME, TWITTER_USERNAME } from "@/constants";
+```
+
+### Styles
+
+Simply put global styles into a `styles` folder, and your game is done.
+
+```
+styles
+├── index.css
+├── colors.css
+└── typography.css
+```
+
+> What about CSS for my components?
+
+Good question mate! Do you remember the component folder we talked about a little while ago? Well, you can add more files depending on your needings!
+
+```
+button
+├── button.tsx
+├── button.stories.tsx
+├── button.styled.tsx
+├── button.module.scss
+├── button.spec.tsx
+└── index.ts
+```
+
+If you are using `emotion`, `styled-components`, or simply the `CSS Modules`, put them into the specific component folder, so everything will be optimally packaged.
+
+### Config Files
+
+Does your application have configuration files, like Dockerfiles, Fargate Task Definitions, and so on? The config folder should be the perfect place for them. Putting them into a proper directory avoids root directory pollution with non-relevant files.
+
+### APIs
+
+99% of the react application have at least one API call to an external endpoint (your backend, or some public service), usually these operations are performed in a few lines of code without too much difficulty, and that is why in my opinion an optimal organization is underestimated.
+
+Consider this piece of code:
+
+```js
+axios
+  .get("https://api.service.com/bookings")
+  .then((res) => setBookings(res.data))
+  .catch((err) => setError(err.message));
+```
+
+Quite simple right? Now imagine you have these 3 lines spreaded across 10 components because you use a lot of time this particular endpoint.
+
+I hope you don't want to do a search and replace for all the URLs in the app, furthermore, if you are using TypeScript, import every time the response type it's quite repetitive.
+
+Consider instead using an `api` directory, which first of all contains a consistent instance of the client used for the calls, like fetch, or axios, and also the files keeping the fetch calls declarations inside!
+
+```
+api
+├── client.ts
+├── users.ts
+└── bookings.ts
+```
+
+And an example of the `users.ts` file:
+
+```ts
+export type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+};
+
+export const fetchUsers = () => {
+  return client.get<User[]>("/users", {
+    baseURL: "https://api.service.com/v3/",
+  });
+};
+```
+
+## Wrapping Up
+
+It's been a long road, and I hope the information in this article is useful to you as you build your new and existing projects. There is still a lot to say, there are always special cases to take into consideration, but the points covered in this article are the most used by all react developers.
+
+Do you also use one or more of these techniques in your projects? Let me know via Twitter or LinkedIn!
