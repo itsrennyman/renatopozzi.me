@@ -13,6 +13,7 @@ export const Navbar = () => {
     () => [
       { label: "Home", href: "/" },
       { label: "Articles", href: "/articles" },
+      { label: "Testimonials", href: "/testimonials" },
       { label: "Guestbook", href: "/guestbook" },
       { label: "Newsletter", href: "/newsletter" },
     ],
