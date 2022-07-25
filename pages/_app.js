@@ -24,7 +24,6 @@ const OfferAlert = () => {
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <SessionProvider session={session}>
-      <OfferAlert />
       <Navbar />
       <Component {...pageProps} />
       <Footer />
